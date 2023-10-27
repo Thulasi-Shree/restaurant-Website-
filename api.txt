@@ -1,0 +1,59 @@
+----------------AUTH------------------
+
+REGISTER - http://127.0.0.1:8000/api/register [POST]
+LOGIN - http://127.0.0.1:8000/api/login [POST]
+LOGOUT - http://127.0.0.1:8000/api/logout [POST]
+FORGOT PASSWORD - http://127.0.0.1:8000/api/password/forgot [POST]
+RESET PASSWORD - http://127.0.0.1:8000/api/password/reset/:token [PUT]
+
+----------------PROFILE----------------------
+
+GET USER PROFILE - http://127.0.0.1:8000/api/myprofile/:token [GET]
+CHANGE PASSWORD - http://127.0.0.1:8000/api/password/change/:token [PUT]
+UPDATE PROFILE - http://127.0.0.1:8000/api/update/:token [PUT]
+
+------------------ADMIN---------------------
+
+GET USERS - http://127.0.0.1:8000/api/admin/users [GET]
+GET SINGLE USER - http://127.0.0.1:8000/api/admin/user/:id [GET]
+UPDATE USER- http://127.0.0.1:8000/api/admin/user/:id' [PUT]
+DELETE USER - http://127.0.0.1:8000/api/admin/user/:id [DELETE]
+
+------------------MENU ITEM ---------------
+
+CREATE MENU - http://127.0.0.1:8000/api/admin/product/new [POST]
+GET MENUS - http://127.0.0.1:8000/api/admin/products [GET]
+GET SINGLE MENU - http://127.0.0.1:8000/api/product/:id [GET]
+GET MENUS USER (SEARCH - WITH FILTERS)- http://127.0.0.1:8000/api/products [GET]
+UPDATE MENU - http://127.0.0.1:8000/api/admin/product/:id [PUT]
+DELETE MENU - http://127.0.0.1:8000/api/admin/product/:id [DELETE]
+
+--------------------REVIEW-------------------
+
+CREATE REVIEW - http://127.0.0.1:8000/api/review/:token/:id [POST]
+GET REVIEWS - http://127.0.0.1:8000/api/review/:productId [GET]
+DELETE REVIEW - http://127.0.0.1:8000/api/review/:token/:reviewId [DELETE]
+EDIT REVIEW - http://127.0.0.1:8000/api/review/:token/:reviewId [PUT]
+
+---------------------RESTAURANT-----------------
+
+CREATE RESTAURANT - http://127.0.0.1:8000/api/restaurant/create/:id [POST]
+GET RESTAURANT - http://127.0.0.1:8000/api/restaurant/get [GET]
+DELETE RESTAURANT  - http://127.0.0.1:8000/api/restaurant/delete/:id [DELETE]
+EDIT RESTAURANT - http://127.0.0.1:8000/api/restaurant/edit/:id [PUT]
+
+----------------------CART-----------------------
+
+CREATE CART ITEM - http://127.0.0.1:8000/api/item/new [POST]
+GET CART ITEM - http://127.0.0.1:8000/api/items [GET]
+DELETE CART ITEM - http://127.0.0.1:8000/api/item/delete/:itemId [DELETE]
+DELETE ENTIRE CART - http://127.0.0.1:8000/api/items/delete [DELETE]
+EDIT CART ITEM - http://127.0.0.1:8000/api/item/edit/:id [PUT]
+
+---------------------LOCATION-----------------
+
+CREATE ADDRESS - http://127.0.0.1:8000/api/address/new [POST]
+GET ALL ADDRESS - http://127.0.0.1:8000/api/address [GET]
+DELETE ADDRESS  - http://127.0.0.1:8000/api/address/delete/:id [DELETE]
+EDIT ADDRESS - http://127.0.0.1:8000/api/address/edit/:id [PUT]
+

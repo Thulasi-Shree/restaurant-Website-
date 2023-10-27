@@ -1,0 +1,36 @@
+const Menu = require('../../model/menuItem');
+const catchAsyncError = require('../../middlewares/catchAsyncError');
+const SuccessHandler = require('../../utils/successHandler');
+const ErrorHandler = require('../../utils/errorHandler');
+
+const newMenu = catchAsyncError(async (req, res, next) => {
+    try {
+        let images = [];
+        let BASE_URL = process.env.BACKEND_URL;
+        if (process.env.NODE_ENV === "production") {
+            BASE_URL = `${req.protocol}://${req.get('host')}`;
+        }
+        
+        if (req.files && req.files.length > 0) {
+            req.files.forEach(file => {
+                let url = `${BASE_URL}/uploads/menu/${file.originalname}`;
+                images.push({ image: url });
+            });
+        }
+
+        req.body.images = images;
+        req.body.user = req.user.id;
+
+        const menu = await Menu.create(req.body);
+
+        const successHandler = new SuccessHandler('Menu created successfully', menu);
+        successHandler.sendResponse(res, 201);
+    } catch (error) {
+        
+        console.error(error);
+        const errorHandler = new ErrorHandler('Internal Server Error', 500);
+        next(errorHandler);
+    }
+});
+
+module.exports = newMenu;
