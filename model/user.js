@@ -41,10 +41,10 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin', 'deliveryPerson', 'restaurantOwner'],
         default: 'user',
     },
-    orderHistory: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Order'
-    },
+    // orderHistory: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Order'
+    // },
     appliedPromotions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Promotion',
@@ -68,20 +68,13 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(autopopulate);
 
-
-userSchema.pre('save', async function (next) {
-    if (this.isModified('loginOtp')) {
-        const otpExpirationTime = Date.now() + 30 * 60 * 10000; // OTP valid for 30 minutes
-        this.loginOtpExpire = otpExpirationTime;
-        const plainOtp = crypto.randomBytes(20).toString('hex'); // Generate plain OTP
-        this.loginOtp = this.generateHashedOtp(plainOtp); // Hash the plain OTP
-    }
-    next();
-});
-
-userSchema.methods.generateHashedOtp = function (otp) {
-    return crypto.createHash('sha256').update(otp).digest('hex');
+userSchema.methods.generateHashedOtp = async function (otp) {
+    return await bcrypt.hash(otp, 10);
 };
+
+
+
+
 
 
 userSchema.pre('save', async function (next) {

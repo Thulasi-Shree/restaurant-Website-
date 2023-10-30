@@ -10,6 +10,10 @@ const updateCartItem = catchAsyncError(async (req, res, next) => {
 
         const cart = await Cart.findById(cartId);
 
+        if (typeof itemQuantity !== 'number' || itemQuantity <= 0 || !Number.isInteger(itemQuantity)) {
+            return next(new ErrorHandler('Invalid item quantity', 400));
+        }
+
         if (!cart) {
             return next(new ErrorHandler('Cart not found', 404));
         }

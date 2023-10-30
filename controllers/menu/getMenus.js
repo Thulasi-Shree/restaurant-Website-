@@ -22,7 +22,9 @@ const getMenus = catchAsyncError(async (req, res, next) => {
         const Menus = await buildQuery().paginate(resPerPage).query;
 
         if (!Menus || Menus.length === 0) {
-            return ErrorHandler(res, 404, { message: 'No menus found' });
+
+            const errorHandler = new ErrorHandler('No menus found', 400);
+            next(errorHandler);
         }
 
         res.status(200).json({
@@ -32,7 +34,9 @@ const getMenus = catchAsyncError(async (req, res, next) => {
             Menus
         });
     } catch (error) {
-        ErrorHandler(res, 500, { message: 'Internal Server Error', error: error.message });
+        const errorHandler = new ErrorHandler('Internal Server Error', 500);
+        next(errorHandler);
+      
     }
 });
 

@@ -22,6 +22,9 @@ class APIFeatures {
         if (this.queryStr.dietaryPreferenceCategory) {
             this.query.where('dietaryPreferenceCategory').equals(this.queryStr.dietaryPreferenceCategory);
         }
+        if (this.queryStr.isPreOrderAvailable !== undefined) {
+            this.query.where('isPreOrderAvailable').equals(this.queryStr.isPreOrderAvailable);
+        }
         return this;
     }
 

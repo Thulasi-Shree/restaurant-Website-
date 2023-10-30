@@ -17,7 +17,7 @@ exports.getUser = catchAsyncError(async (req, res, next) => {
     const successResponse = new SuccessHandler('User retrieved successfully', user);
     successResponse.sendResponse(res);
 });
-
+ 
 exports.updateUser = catchAsyncError(async (req, res, next) => {
     const newUserData = {
         name: req.body.name,

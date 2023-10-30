@@ -1,36 +1,65 @@
 const catchAsyncError = require('../../middlewares/catchAsyncError');
 const Order = require('../../model/order');
-const Product = require('../../model/menuItem');
 const ErrorHandler = require('../../utils/errorHandler');
+const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../../utils/email');
 
-exports.newOrder =  catchAsyncError( async (req, res, next) => {
-    const {
-        orderItems,
-        shippingInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        paymentInfo
-    } = req.body;
+exports.newOrder = async (req, res) => {
+    try {
+        const {
+            orderItems,
+            shippingInfo,
+            itemsPrice,
+            taxPrice,
+            shippingPrice,
+            totalPrice,
+            paymentInfo
+        } = req.body;
 
-    const order = await Order.create({
-        orderItems,
-        shippingInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        paymentInfo,
-        paidAt: Date.now(),
-        user: req.user.id
-    })
+        const order = await Order.create({
+            orderItems,
+            shippingInfo,
+            itemsPrice,
+            taxPrice,
+            shippingPrice,
+            totalPrice,
+            paymentInfo,
+            paidAt: Date.now(),
+            user: req.user.id
+        });
+        await order.populate('user', 'name email phone');
 
-    res.status(200).json({
-        success: true,
-        order
-    })
-})
+        sendOrderConfirmationEmail(order.user.email, order);
+
+        res.status(201).json({
+            success: true,
+            order
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+};
+
+exports.updateOrderStatus = async (req, res) => {
+    try {
+        const order = await Order.findByIdAndUpdate(req.params.id, { orderStatus: req.body.orderStatus }, { new: true });
+        await order.populate('user', 'name email phone');
+        sendOrderStatusUpdateEmail(order.user.email, order);
+
+        res.status(200).json({
+            success: true,
+            order
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+};
+
 
 
 exports.getSingleOrder = catchAsyncError(async (req, res, next) => {

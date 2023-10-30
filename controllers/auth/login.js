@@ -1,49 +1,52 @@
 const catchAsyncError = require('../../middlewares/catchAsyncError');
 const User = require('../../model/user');
 const sendToken = require('../../utils/jwt');
-const sendLoginEmail = require('../../utils/email'); 
 const ErrorHandler = require('../../utils/errorHandler');
+const { sendEmail } = require('../../utils/email');
+const crypto = require('crypto');
+
 
 exports.loginUser = catchAsyncError(async (req, res, next) => {
     try {
-        const { email, password, otp } = req.body;
+        const { email, otp, password } = req.body;
 
         if (!email) {
-            throw new ErrorHandler('Please enter email', 400);
+            throw new ErrorHandler('Please provide email', 400);
         }
 
         let user;
 
         if (otp) {
-            user = await User.findOne({ email, loginOtp: otp });
+            const hashedOTP = generateHashedOTP(otp);
+            user = await User.findOne({ email, loginOtp: hashedOTP });
 
-
-            if (!user || !user.$isValid(otp)) {
+            if (!user) {
                 throw new ErrorHandler('Invalid OTP', 401);
             }
+
+            user.loginOtp = undefined;
+            user.loginOtpExpire = undefined;
+            await user.save({ validateBeforeSave: false });
         } else if (password) {
-            // Check if password is provided 
             user = await User.findOne({ email }).select('+password');
 
             if (!user || !(await user.isValidPassword(password))) {
                 throw new ErrorHandler('Invalid email or password', 401);
             }
         } else {
-            // If neither password nor OTP is provided
-            throw new ErrorHandler('Please provide password or OTP', 400);
+            throw new ErrorHandler('Please provide OTP or password', 400);
         }
- user.loginOtp = req.body.otp;
-        user.loginOtp = undefined;
-        user.loginOtpExpire = undefined;
-        await user.save({ validateBeforeSave: false });
-        
+
         sendToken(user, 201, res);
     } catch (error) {
         next(error);
     }
 });
 
-
+const generateHashedOTP = (otp) => {
+    const hashedOTP = crypto.createHash('sha256').update(otp).digest('hex');
+    return hashedOTP;
+};
 
 exports.sendUserOtp = catchAsyncError(async (req, res, next) => {
     try {
@@ -53,18 +56,41 @@ exports.sendUserOtp = catchAsyncError(async (req, res, next) => {
             throw new ErrorHandler('Please enter email', 400);
         }
 
-        const otp = await sendLoginEmail({
-            email: email,
-            subject: 'Login OTP',
-            message: 'Your OTP for login is: '
-        });
+        const generateOTP = (length) => {
+            const digits = '0123456789';
+            let OTP = '';
+            for (let i = 0; i < length; i++) {
+                OTP += digits[Math.floor(Math.random() * 10)];
+            }
+            return OTP;
+        };
+        
+        const generateHashedOTP = (otp) => {
+            const hashedOTP = crypto.createHash('sha256').update(otp).digest('hex');
+            return hashedOTP;
+        };
+        
+        const plainOTP = generateOTP(6); 
+        const hashedOTP = generateHashedOTP(plainOTP); 
+        
+      
 
-        // Save the OTP in the user's document for verification (You might need to adjust your User model)
-        const user = await User.findOneAndUpdate({ email }, { loginOtp: otp }, { new: true });
+        const user = await User.findOneAndUpdate({ email }, { loginOtp: hashedOTP }, { new: true });
 
+
+        user.loginOtp = hashedOTP;
+        user.save();
         if (!user) {
             throw new ErrorHandler('Invalid email', 401);
         }
+
+        const message = `Your OTP for login is: ${plainOTP}`;
+
+        await sendEmail({
+            email,
+            subject: 'Login OTP',
+            message
+        });
 
         res.status(200).json({
             success: true,

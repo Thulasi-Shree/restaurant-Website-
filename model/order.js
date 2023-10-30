@@ -71,6 +71,16 @@ const orderSchema = mongoose.Schema({
     deliveredAt: {
         type: Date
     },
+    pickup:{
+        type: Boolean,
+        required: true
+    },
+    pickupTime:{
+        type: Date
+    },
+    orderDeliveryTime:{
+        type: Date,
+    },
     orderStatus: {
         type: String,
         required: true,

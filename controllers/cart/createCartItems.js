@@ -6,6 +6,9 @@ const SuccessHandler = require('../../utils/successHandler');
 const createCartItems = catchAsyncError(async (req, res, next) => {
     try {
         const { items } = req.body;
+        if (!Array.isArray(items) || items.length === 0) {
+            return next(new ErrorHandler('Invalid items data', 400));
+        }
         let cart = await Cart.findOne({ user: req.user.id });
         if (!cart) {
             cart = await Cart.create({
@@ -13,7 +16,6 @@ const createCartItems = catchAsyncError(async (req, res, next) => {
                 items: [],
             });
         }
-        // Check if items with the same itemId already exist in the cart
         for (const item of items) {
             const existingItem = cart.items.find(cartItem => cartItem.item.equals(item.itemId));
 
@@ -27,6 +29,7 @@ const createCartItems = catchAsyncError(async (req, res, next) => {
 
         const successResponse = new SuccessHandler('Item(s) added successfully', cart);
         successResponse.sendResponse(res, 201);
+
     } catch (error) {
         next(new ErrorHandler(error.message, 500));
     }

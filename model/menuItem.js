@@ -60,10 +60,18 @@ const menuSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    availableDate: {
+        type: Date, 
+    },
+    isPreOrderAvailable: {
+        type: Boolean,
+        default: false 
+    },
     numOfReviews: {
         type: Number,
         default: 0
     },
+    preparationTime: Date,
     lastEdited: {
         type: Date,
         default: Date.now
