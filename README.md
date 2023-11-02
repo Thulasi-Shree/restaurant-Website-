@@ -10,7 +10,6 @@ Schema-Draft is a robust online food delivery and ordering platform built with N
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Endpoints](#endpoints)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -44,9 +43,10 @@ Ensure you have the following installed on your system:
 ## Install Dependencies:
   
     npm install
-     
-## Start the Application:
-    
+
+## Configuration
+**Start the Application:**
+
     npm start
 
 ## Usage
