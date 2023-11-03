@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema({
-  shippingInfo: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: 'Address'
-},
+    shippingInfo: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Address'
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -71,14 +71,19 @@ const orderSchema = mongoose.Schema({
     deliveredAt: {
         type: Date
     },
-    pickup:{
+    pickup: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
-    pickupTime:{
-        type: Date
+    pickupTime: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'TimeSlot',
+      },
+    availableTimeSlots: { 
+        type: String
     },
-    orderDeliveryTime:{
+    orderDeliveryTime: {
         type: Date,
     },
     orderStatus: {
@@ -86,12 +91,15 @@ const orderSchema = mongoose.Schema({
         required: true,
         default: 'Processing'
     },
+    restaurantId:{
+        type: String, 
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 })
 
-let orderModel = mongoose.model('Order', orderSchema);
+let Order = mongoose.model('Order', orderSchema);
 
-module.exports = orderModel;
+module.exports = Order;

@@ -7,12 +7,16 @@ const router = express.Router();
 const {isAuthenticatedUser, authorizeRoles } = require('../middlewares/authenticate');
 
             
-        
+// Create Restaurant: POST /api/restaurant/create (User role required)
+router.route('/restaurant/create').post(isAuthenticatedUser, createRestaurant);
 
-router.route('/restaurant/create/:id').post(isAuthenticatedUser,authorizeRoles('admin'), createRestaurant)
-                      
+// Delete Restaurant by ID: DELETE /api/restaurant/delete/:id (Admin role required)
+router.route('/restaurant/delete/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteRestaurant);
 
-router.route('/restaurant/delete/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteRestaurant)
-router.route('/restaurant/get').get(isAuthenticatedUser, getRestaurant)
+// Get Restaurant: GET /api/restaurant/get (User role required)
+router.route('/restaurant/get').get(isAuthenticatedUser, getRestaurant);
+
+// Update Restaurant by ID: PUT /api/restaurant/edit/:id (User role required)
 router.route('/restaurant/edit/:id').put(isAuthenticatedUser, updateRestaurant);
+
 module.exports = router;

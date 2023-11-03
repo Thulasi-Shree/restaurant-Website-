@@ -72,6 +72,7 @@ const locationSchema = new mongoose.Schema({
     // More analytics-related fields can be added as needed
 });
 
+locationSchema.index({ coordinates: '2dsphere' }); // Creating the 2dsphere index
 
 const Location = mongoose.model('Location', locationSchema);
 

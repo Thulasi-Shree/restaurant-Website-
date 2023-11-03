@@ -19,16 +19,25 @@ const upload = multer({storage: multer.diskStorage({
     }
 }) })
 
+// Get All Products: GET /api/products
+router.route('/products').get(getProducts);
 
-router.route('/products').get( getProducts);
+// Get Single Product by ID: GET /api/product/:id
 router.route('/product/:id').get(getSingleMenu);
-                      
 
+// Admin Routes
 
-//Admin routes
-router.route('/admin/product/new').post(isAuthenticatedUser,  upload.array('images'), newProduct);
+// Create New Product: POST /api/admin/product/new
+router.route('/admin/product/new').post(isAuthenticatedUser, upload.array('images'), newProduct);
+
+// Get All Admin Products: GET /api/admin/products (Admin role required)
 router.route('/admin/products').get(isAuthenticatedUser, authorizeRoles('admin'), getAdminProducts);
+
+// Delete Product by ID: DELETE /api/admin/product/:id (Admin role required)
 router.route('/admin/product/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteProduct);
-router.route('/admin/product/:id').put(isAuthenticatedUser, authorizeRoles('admin'),upload.array('images'), updateProduct);
+
+// Update Product by ID: PUT /api/admin/product/:id (Admin role required)
+router.route('/admin/product/:id').put(isAuthenticatedUser, authorizeRoles('admin'), upload.array('images'), updateProduct);
+
 
 module.exports = router;

@@ -4,8 +4,8 @@
   "description": "draft",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "nodemon index.js",
+    "seeder": "node utils/seeder.js"  },
   "author": "",
   "license": "ISC",
   "dependencies": {

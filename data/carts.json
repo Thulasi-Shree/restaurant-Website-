@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "6544a0d797d22c397b99cda2",
+    "user": "6532a0cee3b23fd42e40f483",
+    "items": [
+      {
+        "item": "6533bbf230551b14173c9a2f",
+        "itemPrice": 6,
+        "itemQuantity": 1,
+        "_id": "6544a0d797d22c397b99cda4"
+      },
+      {
+        "item": "65365c4bb5decab9231f5aeb",
+        "itemPrice": 10,
+        "itemQuantity": 1,
+        "_id": "6544a0d797d22c397b99cda5"
+      }
+    ],
+    "__v": 1
+  }
+]

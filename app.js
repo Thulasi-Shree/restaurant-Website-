@@ -25,6 +25,7 @@ const feedback = require('./routes/feedBack')
 const userActivity = require('./routes/userActivity')
 const order = require('./routes/order')
 const transaction = require('./routes/transaction')
+const location = require('./routes/location')
 
 
 app.use('/api/',auth);
@@ -39,6 +40,7 @@ app.use('/api/', feedback);
 app.use('/api/', userActivity);
 app.use('/api/', order);
 app.use('/api/', transaction);
+app.use('/api/', location);
 
 app.use(helmet()); 
 

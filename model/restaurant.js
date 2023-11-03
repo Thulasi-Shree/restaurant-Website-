@@ -14,11 +14,17 @@ const restaurantSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
-  },
+  }, 
   location: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Location',
-  },
+    type: {
+        type: String,
+        default: 'Point',
+    },
+    coordinates: {
+        type: [Number], // Array of [longitude, latitude]
+        index: '2dsphere',
+    },
+},
   reviews: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Review',
@@ -50,7 +56,7 @@ const restaurantSchema = new mongoose.Schema({
         type: String,
         enum: [
             'Vegetarian',
-            'Non-vegetaria',
+            'Non-vegetarian',
             'Vegan',
             'Gluten-Free',
             'Halal',

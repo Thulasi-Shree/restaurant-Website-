@@ -8,11 +8,17 @@ const {isAuthenticatedUser, authorizeRoles} = require('../middlewares/authentica
 
 
 
+// Create Address: POST /api/address/new (Private - User role required)
 router.route('/address/new').post(isAuthenticatedUser, authorizeRoles('user'), createAddress);
-router.route('/address').get(isAuthenticatedUser, authorizeRoles('admin'), getAllAddress);
-router.route('/address/edit/:id').put(isAuthenticatedUser, authorizeRoles('user'), updateAddress);
-router.route('/address/delete/:id').delete(isAuthenticatedUser, authorizeRoles('user'), deleteAddress);
 
+// Get All Addresses: GET /api/address (Private - Admin role required)
+router.route('/address').get(isAuthenticatedUser, authorizeRoles('admin'), getAllAddress);
+
+// Update Address by ID: PUT /api/address/edit/:id (Private - User role required)
+router.route('/address/edit/:id').put(isAuthenticatedUser, authorizeRoles('user'), updateAddress);
+
+// Delete Address by ID: DELETE /api/address/delete/:id (Private - User role required)
+router.route('/address/delete/:id').delete(isAuthenticatedUser, authorizeRoles('user'), deleteAddress);
 
 
 module.exports = router;

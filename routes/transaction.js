@@ -3,8 +3,12 @@ const { processPayment, sendStripeApi } = require('../controllers/transaction/pa
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/authenticate');
 const router = express.Router();
 
-router.route('/payment/process').post(  isAuthenticatedUser,  processPayment);
-router.route('/stripeapi').get( isAuthenticatedUser,  sendStripeApi);
+// Process Payment: POST /api/payment/process (User role required)
+router.route('/payment/process').post(isAuthenticatedUser, authorizeRoles('user'), processPayment);
+
+// Get Stripe API Information: GET /api/stripeapi (User role required)
+router.route('/stripeapi').get(isAuthenticatedUser, authorizeRoles('user'), sendStripeApi);
+
 
 
 module.exports = router;  

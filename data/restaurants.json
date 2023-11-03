@@ -1,0 +1,60 @@
+[
+  {
+    "_id": "6536c063d8e2798462deffb0",
+    "name": "Sample Restaurant",
+    "restaurantId": "1000010",
+    "openingHours": "9 AM - 8 PM",
+    "description": "A sample restaurant description",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        40.7128,
+        -74.006
+      ],
+      "ratings": 0
+    },
+   
+    "isFeatured": false,
+    "createdBy": "6532a0cee3b23fd42e40f483",
+    "dietaryPreferenceCategory": "Vegetarian", 
+    "cuisineTypeCategory": "Italian" ,
+    "__v": 0
+  },
+  {
+    "_id": "65433e1de359a58dda945941",
+    "name": "Sample Restaurant-2",
+    "restaurantId": "1000012",
+    "description": "A sample restaurant description",
+    "numOfReviews": 0,
+    "averageRating": 0,
+    "cuisineTypeCategory": "Italian",
+    "dietaryPreferenceCategory": "Vegetarian",
+    "openingHours": "9 AM - 8 PM",
+    
+    "isFeatured": false,
+    "createdBy": "6532a0cee3b23fd42e40f483",
+    "__v": 0
+  },
+  {
+    "_id": "654492ccbf563e78ca2b3239",
+    "name": "Restaurant-2",
+    "restaurantId": "1000013",
+    "description": "A sample restaurant description",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -74.006,
+        40.7128
+      ]
+    },
+    "numOfReviews": 0,
+    "averageRating": 0,
+    
+    "cuisineTypeCategory": "Italian",
+    "dietaryPreferenceCategory": "Vegetarian",
+    "openingHours": "9 AM - 8 PM",
+    "isFeatured": false,
+    "createdBy": "6532a0cee3b23fd42e40f483",
+    "__v": 0
+  }
+]

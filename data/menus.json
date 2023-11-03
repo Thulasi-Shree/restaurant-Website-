@@ -1,0 +1,32 @@
+[{
+  "_id": "6533b2a24cbcd998c7f0c698",
+  "name": "Bread",
+  "price": 3,
+  "description": "Excellent!",
+  "ratings": 22,
+  "images": [],
+  "restaurant": {
+    "name": "Yum",
+    "restaurantId": 100001,
+    "openingHours": "9:00am-10:00pm"
+  },
+  "isAvailable": true,
+  "numOfReviews": 2,
+  "createdAt": "2023-10-21T11:14:28.573Z",
+  "lastEdited": "2023-10-21T11:14:42.224Z",
+  "__v": 2,
+  "reviews": [
+    {
+      "user": "6532a0cee3b23fd42e40f483",
+      "rating": "4",
+      "comment": "good",
+      "_id": "6533e5e1c934270ed4d708f2"
+    },
+    {
+      "user": "6532a0cee3b23fd42e40f483",
+      "rating": "4",
+      "comment": "good",
+      "_id": "6533e60ac934270ed4d708f7"
+    }
+  ]
+}]

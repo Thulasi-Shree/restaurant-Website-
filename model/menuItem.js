@@ -16,7 +16,7 @@ const menuSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter food item description"]
     },
-    ratings: {
+    rating: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Review',
     },

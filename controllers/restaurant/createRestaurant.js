@@ -6,7 +6,7 @@ const SuccessHandler = require('../../utils/successHandler');
 const createRestaurant = catchAsyncError(async (req, res, next) => {
     try {
         const { name, restaurantId, description, location, openingHours } = req.body;
-        const userId = req.params.id
+        const userId = req.user.id
 
         const existingRestaurant = await Restaurant.findOne({ restaurantId });
         if (existingRestaurant) {
@@ -21,6 +21,8 @@ const createRestaurant = catchAsyncError(async (req, res, next) => {
             location,
             openingHours,
             createdBy: userId,
+            dietaryPreferenceCategory: req.body.dietaryPreferenceCategory,
+            cuisineTypeCategory: req.body.cuisineTypeCategory
         });
 
         // Save the new restaurant

@@ -20,9 +20,6 @@ const sendEmail = async options => {
    await transporter.sendMail(message)
 }
 
-
-
-
 exports.sendLoginEmail = async (email) => {
 
     const transporter = nodemailer.createTransport({
@@ -81,6 +78,25 @@ const sendOrderConfirmationEmail = (email, order) => {
 };
 
 const sendOrderStatusUpdateEmail = (email, order) => {
+
+    const emailContent = `
+    <p>Dear ${order.user.name},</p>
+    <p>Thank you for your order! Your order with order ID ${order._id} has been updated to ${order.orderStatus}.</p>
+    <p>Order Details:</p>
+    <p>
+        ${order.orderItems.map(item => `<li>${item.name} - ${item.quantity} x $${item.price}</li>`).join('')}
+    </p>
+    <p>Items Price: $${order.itemsPrice}</p>
+    <p>Tax Price: $${order.taxPrice}</p>
+    <p>Shipping Price: $${order.shippingPrice}</p>
+    <p>Total Price: $${order.totalPrice}</p>
+    <p>Payment Status: ${order.paymentInfo.status}</p>
+    <p>Order Status: ${order.orderStatus}</p>
+    <p>Order Placed at: ${order.createdAt}</p>
+    <p>Order status changed at: ${order.deliveredAt}</p>
+    <p>Thank you for ordering with us!</p>
+`;
+
     if (!email || typeof email !== 'string' || !email.trim()) {
         console.error('Error: Invalid or empty recipient email address provided.');
         return;
@@ -98,7 +114,8 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
         to: email,
         subject: 'Order status',
-        text: `Thank you for your order! Your order is ${order.orderStatus}.`
+        html: emailContent
+        // text: `Thank you for your order! Your order is ${order.orderStatus}.`
     };
 
     transporter.sendMail(message, (error, info) => {

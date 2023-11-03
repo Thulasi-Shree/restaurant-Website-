@@ -5,6 +5,7 @@ const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../.
 
 exports.newOrder = async (req, res) => {
     try {
+        const restaurantId = req.body.restaurantId.toString();
         const {
             orderItems,
             shippingInfo,
@@ -12,7 +13,8 @@ exports.newOrder = async (req, res) => {
             taxPrice,
             shippingPrice,
             totalPrice,
-            paymentInfo
+            paymentInfo,
+            pickup,
         } = req.body;
 
         const order = await Order.create({
@@ -23,6 +25,8 @@ exports.newOrder = async (req, res) => {
             shippingPrice,
             totalPrice,
             paymentInfo,
+            pickup,
+            restaurantId,
             paidAt: Date.now(),
             user: req.user.id
         });
@@ -60,11 +64,9 @@ exports.updateOrderStatus = async (req, res) => {
     }
 };
 
-
-
 exports.getSingleOrder = catchAsyncError(async (req, res, next) => {
     const order = await Order.findById(req.params.id).populate('user', 'name email phone').populate('shippingInfo', 'street city state postalCode country');
-    if(!order) {
+    if (!order) {
         return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404))
     }
 
@@ -76,7 +78,7 @@ exports.getSingleOrder = catchAsyncError(async (req, res, next) => {
 
 
 exports.myOrders = catchAsyncError(async (req, res, next) => {
-    const orders = await Order.find({user: req.user.id});
+    const orders = await Order.find({ user: req.user.id });
 
     res.status(200).json({
         success: true,
@@ -102,33 +104,29 @@ exports.orders = catchAsyncError(async (req, res, next) => {
 })
 
 
-exports.updateOrder =  catchAsyncError(async (req, res, next) => {
-    const order = await Order.findById(req.params.id);
-
-    if(order.orderStatus == 'Delivered') {
-        return next(new ErrorHandler('Order has been already delivered!', 400))
-    }
-    
-    order.orderStatus = req.body.orderStatus;
-    order.deliveredAt = Date.now();
-    await order.save();
-
-    res.status(200).json({
-        success: true
-    })
-    
-});
-
 
 
 exports.deleteOrder = catchAsyncError(async (req, res, next) => {
-    const order = await Order.findById(req.params.id);
-    if(!order) {
+    const order = await Order.findByIdAndDelete(req.params.id);
+    if (!order) {
         return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404))
     }
 
-    await order.remove();
     res.status(200).json({
-        success: true
+        success: true,
+        message: 'Order deleted successfully'
     })
 })
+
+
+exports.storeChosenPickupTime = async (req, res) => {
+    try {
+        const { orderId, chosenPickupTime } = req.body;
+
+        const order = await Order.findByIdAndUpdate(orderId, { pickupTime: chosenPickupTime }, { new: true }).populate('pickupTime', 'slot');;
+
+        res.status(200).json({ success: true, message: 'Chosen pickup time stored successfully', order });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};

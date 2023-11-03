@@ -6,7 +6,7 @@ const crypto = require('crypto');
 const autopopulate = require('mongoose-autopopulate');
 
 const userSchema = new mongoose.Schema({
-    name: { 
+    name: {
         type: String,
         required: [true, 'Please enter name'],
     },
@@ -41,17 +41,17 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin', 'deliveryPerson', 'restaurantOwner'],
         default: 'user',
     },
-    // orderHistory: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Order'
-    // },
+    orderHistory: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order'
+    }],
     appliedPromotions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Promotion',
     }],
     address: {
-       type: mongoose.Schema.Types.ObjectId,
-       ref: 'Address'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Address'
     },
     loginOtp: String,
     loginOtpExpire: Date,
