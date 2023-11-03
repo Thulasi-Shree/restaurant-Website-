@@ -8,6 +8,7 @@ Schema-Draft is a robust online food delivery and ordering platform built with N
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Data](#Data)
 - [Usage](#usage)
 - [Endpoints](#endpoints)
 - [License](#license)
@@ -48,21 +49,20 @@ Ensure you have the following installed on your system:
 **Start the Application:**
 
     npm start
-
+    
+## Data
+    npm run seeder 
+    
 ## Usage
 
-- Visit http://localhost:3000 in your web browser.
+- Visit http://localhost:8000 in your web browser.
 - Sign up or log in as a customer or restaurant owner.
 - Explore available restaurants, view menus, add items to the cart, and place orders.
 - Restaurant owners can manage their menus and view order details from the admin dashboard.
 - Enjoy the seamless online food ordering experience!
 
 ## Endpoints
-- Authentication: /api/auth
-- Admin Operations: /api/admin
-- Menu Management: /api/menu
-...
-  #### For detailed information about each endpoint, refer to the source code and API documentation.
+- Refer routes folder
 
 ## License
 This project is licensed under the ISC License.
