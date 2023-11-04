@@ -1,6 +1,9 @@
+const logger = require('../utils/logError')
 module.exports = (err, req, res, next) =>{
     err.statusCode  = err.statusCode || 500;
 
+    logger.error(`Error: ${err.message}`);
+    logger.error(`Stack trace: ${err.stack}`);
 
     if(process.env.NODE_ENV == 'development'){
         res.status(err.statusCode).json({

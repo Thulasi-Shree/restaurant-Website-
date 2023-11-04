@@ -11,8 +11,7 @@ const getAdminMenus = catchAsyncError(async (req, res, next) => {
         successHandler.sendResponse(res, 200);
     } catch (error) {
         console.error(error);
-        const errorHandler = new ErrorHandler('Internal Server Error', 500);
-        next(errorHandler);
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

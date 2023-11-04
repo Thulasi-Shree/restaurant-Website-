@@ -17,7 +17,7 @@ const updateLocation = catchAsyncError(async (req, res, next) => {
         const successResponse = new SuccessHandler('Location updated successfully', location);
         successResponse.sendResponse(res, 200);
     } catch (error) {
-        return next(new ErrorHandler('Internal Server Error', 500));
+        return  next(new ErrorHandler(error.message, 500));
     }
 });
 
@@ -31,7 +31,7 @@ const deleteLocation = catchAsyncError(async (req, res, next) => {
         const successResponse = new SuccessHandler('Location deleted successfully', {});
         successResponse.sendResponse(res, 200);
     } catch (error) {
-        return next(new ErrorHandler('Internal Server Error', 500));
+        return  next(new ErrorHandler(error.message, 500));
     }
 });
 
@@ -52,7 +52,7 @@ const saveUserLocation = catchAsyncError(async (req, res, next) => {
         successResponse.sendResponse(res, 200);
     } catch (error) {
         console.error(error);
-        return next(new ErrorHandler('Internal Server Error', 500));
+        return  next(new ErrorHandler(error.message, 500));
     }
 });
 
@@ -78,7 +78,7 @@ const getNearbyRestaurants = catchAsyncError(async (req, res, next) => {
         res.status(200).json({ success: true, message: 'Nearby restaurants fetched successfully', restaurants: nearbyRestaurants });
     } catch (error) {
         console.log(error);
-        return next(new ErrorHandler('Internal Server Error', 500));
+        return  next(new ErrorHandler(error.message, 500));
     }
 });
 

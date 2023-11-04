@@ -28,8 +28,7 @@ const newMenu = catchAsyncError(async (req, res, next) => {
     } catch (error) {
         
         console.error(error);
-        const errorHandler = new ErrorHandler('Internal Server Error', 500);
-        next(errorHandler);
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

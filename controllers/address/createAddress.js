@@ -6,7 +6,6 @@ const axios = require('axios');
 
 const createAddress = catchAsyncError(async (req, res, next) => {
     const { street, city, state, postalCode, country } = req.body;
-
     try {
         // Use a geocoding service to obtain latitude and longitude based on the provided address
         const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${street},${city},${state},${postalCode},${country}&key=GOOGLE_MAPS_API_KEY`);
@@ -30,7 +29,7 @@ const createAddress = catchAsyncError(async (req, res, next) => {
         });
 
         const successResponse = new SuccessHandler('Address added successfully', address);
-        successResponse.sendResponse(res, 201);
+        successResponse.sendResponse(res, 200);
     } catch (error) {
         console.error(error);
         next(new ErrorHandler('Internal Server Error', 500));
@@ -38,20 +37,3 @@ const createAddress = catchAsyncError(async (req, res, next) => {
 });
 
 module.exports = createAddress;
-
-// const createAddress = catchAsyncError(async (req, res, next) => {
-//     const {  street, city, state, postalCode, country } = req.body;
-
-//     const address = await Address.create({
-//         userId : req.user.id,
-//         street,
-//         city,
-//         state,
-//         postalCode,
-//         country,
-//     });
-
-//     const successResponse = new SuccessHandler('Address added successfully', address);
-//     successResponse.sendResponse(res, 201);
-// });
-// module.exports = createAddress

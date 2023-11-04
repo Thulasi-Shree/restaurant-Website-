@@ -16,8 +16,7 @@ const deleteMenu = catchAsyncError(async (req, res, next) => {
         const successHandler = new SuccessHandler('Menu Deleted!');
         successHandler.sendResponse(res);
     } catch (error) {
-        const errorHandler = new ErrorHandler('Internal Server Error', 500);
-        next(errorHandler); 
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

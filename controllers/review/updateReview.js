@@ -1,5 +1,6 @@
 const Review = require('../../model/review');
 const catchAsyncError = require('../../middlewares/catchAsyncError');
+const ErrorHandler = require('../../utils/errorHandler');
 
 const editReview = catchAsyncError(async (req, res, next) => {
     try {
@@ -34,7 +35,7 @@ const editReview = catchAsyncError(async (req, res, next) => {
         return res.status(200).json({ success: true, message: 'Review updated successfully', data: review });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, error: 'Internal Server Error' });
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

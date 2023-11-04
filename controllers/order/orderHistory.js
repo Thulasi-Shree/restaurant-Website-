@@ -12,7 +12,7 @@ const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
 
         res.status(200).json(activeOrders);
     } catch (error) {
-        next(new ErrorHandler(500, 'Internal Server Error'));
+        next(new ErrorHandler(error.message, 500));
     }
 });
 
@@ -26,7 +26,7 @@ const getNonActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
 
         res.status(200).json(nonActiveOrders);
     } catch (error) {
-        next(new ErrorHandler(500, 'Internal Server Error'));
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

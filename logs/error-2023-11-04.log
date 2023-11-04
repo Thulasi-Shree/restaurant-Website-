@@ -1,0 +1,11 @@
+{"level":"error","message":"Error: Invalid address","timestamp":"2023-11-04T07:51:36.230Z"}
+{"level":"error","message":"Error: Invalid address","timestamp":"2023-11-04T07:55:00.545Z"}
+{"level":"error","message":"Error: Invalid address","timestamp":"2023-11-04T07:57:06.864Z"}
+{"level":"error","message":"Error: Invalid address","timestamp":"2023-11-04T07:57:06.870Z"}
+{"level":"error","message":"Stack trace: Error: Invalid address\n    at E:\\Schema draft\\controllers\\address\\createAddress.js:16:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-11-04T07:57:06.871Z"}
+{"level":"error","message":"Error: Invalid address","timestamp":"2023-11-04T08:00:38.408Z"}
+{"level":"error","message":"Error: Invalid address","timestamp":"2023-11-04T08:00:38.412Z"}
+{"level":"error","message":"Stack trace: Error: Invalid address\n    at E:\\Schema draft\\controllers\\address\\createAddress.js:16:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-11-04T08:00:38.414Z"}
+{"level":"error","message":"Error: Role user is not allowed","timestamp":"2023-11-04T08:21:07.306Z"}
+{"level":"error","message":"Error: Role user is not allowed","timestamp":"2023-11-04T08:21:07.315Z"}
+{"level":"error","message":"Stack trace: Error: Role user is not allowed\n    at E:\\Schema draft\\middlewares\\authenticate.js:25:25\n    at Layer.handle [as handle_request] (E:\\Schema draft\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Schema draft\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at E:\\Schema draft\\middlewares\\authenticate.js:16:5\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-11-04T08:21:07.318Z"}

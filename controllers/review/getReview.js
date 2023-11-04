@@ -1,5 +1,6 @@
 const Review = require('../../model/review');
 const catchAsyncError = require('../../middlewares/catchAsyncError');
+const ErrorHandler = require('../../utils/errorHandler');
 
 const getReviews = catchAsyncError(async (req, res, next) => {
     try {
@@ -14,23 +15,8 @@ const getReviews = catchAsyncError(async (req, res, next) => {
         res.status(200).json({ success: true, data: reviews });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, error: 'Internal Server Error' });
+        next(new ErrorHandler(error.message, 500));
     }
 });
 
 module.exports = getReviews;
-
-// const Review = require('../../model/review');
-// const catchAsyncError = require('../../middlewares/catchAsyncError');
-
-// const getReviews = catchAsyncError(async (req, res, next) => {
-//     const review = await Review.findById(req.params.productId).populate('reviews.user','name email');
-
-//     res.status(200).json({
-//         success: true,
-//         reviews: review
-//     })    
-
-// });
-
-// module.exports = getReviews;

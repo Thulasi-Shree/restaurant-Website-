@@ -1,6 +1,7 @@
 const catchAsyncError = require('../../middlewares/catchAsyncError');
 const Product = require('../../model/menuItem');
 const Review = require('../../model/review');
+const ErrorHandler = require('../../utils/errorHandler');
 
 const deleteReview = catchAsyncError(async (req, res) => {
     try {
@@ -70,7 +71,7 @@ const deleteReview = catchAsyncError(async (req, res) => {
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, error: 'Internal Server Error' });
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

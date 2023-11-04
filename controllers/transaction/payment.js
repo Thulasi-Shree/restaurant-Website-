@@ -26,6 +26,7 @@ exports.processPayment = catchAsyncError(async (req, res) => {
     } catch (error) {
         logError(error); 
         console.log(`Received request at: ${req.originalUrl}`);
+        next(new ErrorHandler(error.message, 500));
         res.status(500).json({ success: false, error: "An error occurred while processing the payment." });
     }
 });

@@ -39,7 +39,7 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
 
         sendToken(user, 201, res);
     } catch (error) {
-        next(error);
+        next(new ErrorHandler('Internal Server Error', 500));
     }
 });
 
@@ -97,6 +97,7 @@ exports.sendUserOtp = catchAsyncError(async (req, res, next) => {
             message: 'OTP sent to your email for login verification'
         });
     } catch (error) {
-        next(error);
+        next(new ErrorHandler('Internal Server Error', 500));
+        
     }
 });

@@ -38,7 +38,7 @@ const updateMenu = catchAsyncError(async (req, res, next) => {
 
         new SuccessHandler('Menu updated successfully', { menu }).sendResponse(res);
     } catch (error) {
-        next(new ErrorHandler('Internal Server Error', 500));
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

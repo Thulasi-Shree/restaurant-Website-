@@ -18,7 +18,7 @@ const getSingleMenu = catchAsyncError(async (req, res, next) => {
             menu
         });
     } catch (error) {
-        next(new ErrorHandler('Internal Server Error', 500));
+        next(new ErrorHandler(error.message, 500));
     }
 });
 

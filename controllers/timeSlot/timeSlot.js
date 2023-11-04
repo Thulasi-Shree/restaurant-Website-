@@ -1,5 +1,6 @@
 const catchAsyncError = require('../../middlewares/catchAsyncError');
 const TimeSlot = require('../../model/timeSlot'); 
+const ErrorHandler = require('../../utils/errorHandler');
 
 const addAvailablePickupTimeSlots = catchAsyncError(async (req, res) => {
   try {
@@ -13,7 +14,7 @@ const addAvailablePickupTimeSlots = catchAsyncError(async (req, res) => {
 
     res.status(200).json({ success: true, message: 'New pickup time slot added successfully', timeSlot });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    next(new ErrorHandler(error.message, 500));
   }
 });
 
@@ -22,7 +23,7 @@ const getAllTimeSlots = catchAsyncError(async (req, res) => {
       const timeSlots = await TimeSlot.find();
       res.status(200).json({ success: true, timeSlots });
     } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
+      next(new ErrorHandler(error.message, 500));
     }
   });
   
@@ -44,7 +45,7 @@ const getAllTimeSlots = catchAsyncError(async (req, res) => {
   
       res.status(200).json({ success: true, message: 'Time slot updated successfully', timeSlot });
     } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
+      next(new ErrorHandler(error.message, 500));
     }
   });
   
@@ -60,7 +61,7 @@ const getAllTimeSlots = catchAsyncError(async (req, res) => {
   
       res.status(200).json({ success: true, message: 'Time slot deleted successfully', timeSlot: deletedTimeSlot });
     } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
+      next(new ErrorHandler(error.message, 500));
     }
   });
 

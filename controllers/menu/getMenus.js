@@ -34,8 +34,7 @@ const getMenus = catchAsyncError(async (req, res, next) => {
             Menus
         });
     } catch (error) {
-        const errorHandler = new ErrorHandler('Internal Server Error', 500);
-        next(errorHandler);
+        next(new ErrorHandler(error.message, 500));
       
     }
 });

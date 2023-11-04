@@ -39,10 +39,7 @@ exports.newOrder = async (req, res) => {
             order
         });
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: error.message
-        });
+        next(new ErrorHandler(error.message, 500));
     }
 };
 
@@ -57,67 +54,73 @@ exports.updateOrderStatus = async (req, res) => {
             order
         });
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: error.message
-        });
+        next(new ErrorHandler(error.message, 500));
     }
 };
 
+
 exports.getSingleOrder = catchAsyncError(async (req, res, next) => {
-    const order = await Order.findById(req.params.id).populate('user', 'name email phone').populate('shippingInfo', 'street city state postalCode country');
-    if (!order) {
-        return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404))
+    try {
+        const order = await Order.findById(req.params.id).populate('user', 'name email phone').populate('shippingInfo', 'street city state postalCode country');
+        if (!order) {
+            return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404));
+        }
+
+        res.status(200).json({
+            success: true,
+            order
+        });
+    } catch (error) {
+        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
     }
-
-    res.status(200).json({
-        success: true,
-        order
-    })
-})
-
+});
 
 exports.myOrders = catchAsyncError(async (req, res, next) => {
-    const orders = await Order.find({ user: req.user.id });
-
-    res.status(200).json({
-        success: true,
-        orders
-    })
-})
-
+    try {
+        const orders = await Order.find({ user: req.user.id });
+        res.status(200).json({
+            success: true,
+            orders
+        });
+    } catch (error) {
+        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+    }
+});
 
 exports.orders = catchAsyncError(async (req, res, next) => {
-    const orders = await Order.find();
+    try {
+        const orders = await Order.find();
+        let totalAmount = 0;
 
-    let totalAmount = 0;
+        orders.forEach(order => {
+            totalAmount += order.totalPrice;
+        });
 
-    orders.forEach(order => {
-        totalAmount += order.totalPrice
-    })
-
-    res.status(200).json({
-        success: true,
-        totalAmount,
-        orders
-    })
-})
-
-
-
+        res.status(200).json({
+            success: true,
+            totalAmount,
+            orders
+        });
+    } catch (error) {
+        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+    }
+});
 
 exports.deleteOrder = catchAsyncError(async (req, res, next) => {
-    const order = await Order.findByIdAndDelete(req.params.id);
-    if (!order) {
-        return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404))
+    try {
+        const order = await Order.findByIdAndDelete(req.params.id);
+        if (!order) {
+            return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404));
+        }
+
+        res.status(200).json({
+            success: true,
+            message: 'Order deleted successfully'
+        });
+    } catch (error) {
+        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
     }
-
-    res.status(200).json({
-        success: true,
-        message: 'Order deleted successfully'
-    })
-})
-
+});
 
 exports.storeChosenPickupTime = async (req, res) => {
     try {
@@ -127,6 +130,6 @@ exports.storeChosenPickupTime = async (req, res) => {
 
         res.status(200).json({ success: true, message: 'Chosen pickup time stored successfully', order });
     } catch (error) {
-        res.status(500).json({ success: false, error: error.message });
+        next(new ErrorHandler(error.message, 500));
     }
 };
