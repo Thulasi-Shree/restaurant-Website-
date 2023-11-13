@@ -3,7 +3,7 @@ const Order = require('../../model/order');
 const ErrorHandler = require('../../utils/errorHandler');
 const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../../utils/email');
 
-exports.newOrder = async (req, res) => {
+exports.newOrder = async (req, res, next) => {
     try {
         const restaurantId = req.body.restaurantId.toString();
         const {
@@ -43,7 +43,7 @@ exports.newOrder = async (req, res) => {
     }
 };
 
-exports.updateOrderStatus = async (req, res) => {
+exports.updateOrderStatus = async (req, res, next) => {
     try {
         const order = await Order.findByIdAndUpdate(req.params.id, { orderStatus: req.body.orderStatus }, { new: true });
         await order.populate('user', 'name email phone');

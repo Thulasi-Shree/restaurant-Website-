@@ -7,6 +7,7 @@ const logoutController = require('../controllers/auth/logout');
 const forgotPasswordController = require('../controllers/auth/forgotPassword');
 const resetPasswordController = require('../controllers/auth/resetPassword');
 const profileController = require('../controllers/auth/profile');
+const { isAuthenticatedUser } = require('../middlewares/authenticate');
 
 // User Registration: POST /api/register
 router.post('/register', registerController.registerUser);
@@ -28,6 +29,7 @@ router.put('/password/reset/:token', resetPasswordController.resetPassword);
 
 // Get User Profile: GET /api/myprofile/:token
 router.get('/myprofile/:token', profileController.getUserProfile);
+router.route('/myprofile').get(isAuthenticatedUser, loginController.getUserProfile);
 
 // Change Password: PUT /api/password/change/:id
 router.put('/password/change/:id', profileController.changePassword);

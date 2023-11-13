@@ -4,7 +4,7 @@ const ErrorHandler = require('../../utils/errorHandler');
 
 const getCartItems = catchAsyncError(async (req, res, next) => {
     try {
-        const cartItems = await Cart.find();
+        const cartItems = await Cart.find().populate('items.item', 'name price itemQuantity');
 
         let totalAmount = 0;
 

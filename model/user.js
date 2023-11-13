@@ -15,10 +15,11 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please enter email'],
         unique: true,
         validate: [validator.isEmail, 'Please enter valid email address'],
+   
     },
     phone: {
         type: String,
-        required: true,
+        required: true, 
         unique: true,
         validate: {
             validator: function (value) {
@@ -38,8 +39,11 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'admin', 'deliveryPerson', 'restaurantOwner'],
+        enum: ['User', 'Admin', 'DeliveryPerson', 'RestaurantOwner'],
         default: 'user',
+    },
+    branch:{
+        type: String
     },
     orderHistory: [{
         type: mongoose.Schema.Types.ObjectId,

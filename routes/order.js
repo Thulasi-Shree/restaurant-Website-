@@ -49,7 +49,7 @@ router.route('/time-slot').get(isAuthenticatedUser, getAllTimeSlots);
 // Admin Routes
 
 // Get All Orders for Admin: GET /api/admin/orders (Admin role required)
-router.route('/admin/orders').get(isAuthenticatedUser, authorizeRoles('admin'), orders);
+router.route('/admin/orders').get( orders);//isAuthenticatedUser, authorizeRoles('admin'),
 
 // Update Order Status by ID: PATCH /api/admin/order/:id (Admin role required)
 router.route('/admin/order/:id').patch(isAuthenticatedUser, authorizeRoles('admin'), updateOrderStatus);

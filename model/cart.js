@@ -6,7 +6,7 @@ const cartItemSchema = new mongoose.Schema({
     ref: 'Menu',
     required: true,
   },
-  itemPrice: {
+  price: {
     type: Number,
     required: true,
   },
@@ -14,9 +14,9 @@ const cartItemSchema = new mongoose.Schema({
     type: Number,
     required: true,
     default: 1
-  }
+  }   
 });
-
+  
 const cartSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,

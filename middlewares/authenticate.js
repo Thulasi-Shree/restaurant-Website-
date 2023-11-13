@@ -7,7 +7,7 @@ exports.isAuthenticatedUser = catchAsyncError( async (req, res, next) => {
    const { token  }  = req.cookies;
    
    if( !token ){
-        return next(new ErrorHandler('Login first to handle this resource', 401))
+        return next(new ErrorHandler('Login first to handle this resource', 400))
    }
 
    try {
@@ -15,15 +15,15 @@ exports.isAuthenticatedUser = catchAsyncError( async (req, res, next) => {
     req.user = await User.findById(decoded.id);
     next();
 } catch (error) {
-    return next(new ErrorHandler('Invalid or expired token', 401));
+    return next(new ErrorHandler('Invalid or expired token', 400));
 }
 })
 
 exports.authorizeRoles = (...roles) => { 
    return  (req, res, next) => {
         if(!roles.includes(req.user.role)){
-            return next(new ErrorHandler(`Role ${req.user.role} is not allowed`, 401))
+            return next(new ErrorHandler(`Role ${req.user.role} is not allowed`, 400))
         }
         next()
     }
-}   
+}  

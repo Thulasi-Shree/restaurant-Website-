@@ -14,7 +14,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next)=>{
     
         await user.save({validateBeforeSave: false})
     
-        const resetUrl = `${req.protocol}://${req.get('host')}/api/password/reset/${resetToken}`
+        const resetUrl = `${process.env.FRONTEND_URL}/api/password/reset/${resetToken}`
     
         const message = `Your password reset URL is: \n\n ${resetUrl} \n\n If not you, please ignore.`
     
@@ -30,7 +30,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next)=>{
                 message: `Email sent to ${user.email}`
         
                
-            })
+            }) 
     
         }catch(err){
             user.resetPassword = undefined;

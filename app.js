@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const errorMiddleware = require('./middlewares/error');
 const cookieParser = require('cookie-parser')
@@ -9,9 +10,22 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname,'uploads') ) );
 const helmet = require('helmet');
-const cors = require('cors');
 const morgan = require('morgan');
 
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+const corsOptions = {
+  origin: ['http://localhost:3000','http://127.0.0.1:3000'] ,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 const auth = require('./routes/auth')
 const admin = require('./routes/admin')
@@ -45,14 +59,13 @@ app.use('/api/', location);
 app.use(helmet()); 
 
 
-const corsOptions = {
-  origin: 'http://127.0.0.1:3000', 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: 'http://localhost:3000', 
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+// };
 
-app.use(cors());
 app.use(morgan('combined'));  
 
 if(process.env.NODE_ENV === "production") {
@@ -61,7 +74,6 @@ if(process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
     })
 }
-
 app.use(errorMiddleware)
 
 module.exports = app;

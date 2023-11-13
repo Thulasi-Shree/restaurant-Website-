@@ -9,7 +9,7 @@ const {isAuthenticatedUser, authorizeRoles} = require('../middlewares/authentica
 
 
 // Create Address: POST /api/address/new (Private - User role required)
-router.route('/address/new').post(isAuthenticatedUser, authorizeRoles('user'), createAddress);
+router.route('/address/new').post(isAuthenticatedUser,  createAddress);//authorizeRoles('user'),
 
 // Get All Addresses: GET /api/address (Private - Admin role required)
 router.route('/address').get(isAuthenticatedUser, authorizeRoles('admin'), getAllAddress);

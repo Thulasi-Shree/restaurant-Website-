@@ -9,19 +9,19 @@ const {isAuthenticatedUser, authorizeRoles} = require('../middlewares/authentica
 
 
 // Create Cart Items: POST /api/item/new (Private - User role required)
-router.route('/item/new').post(isAuthenticatedUser, authorizeRoles('user'), createCartItems);
+router.route('/item/new/:itemId').post(isAuthenticatedUser, createCartItems); //authorizeRoles('user'), isAuthenticatedUser,
 
 // Get Cart Items: GET /api/items (Private - User role required)
-router.route('/items').get(isAuthenticatedUser, authorizeRoles('user'), getCartItems);
+router.route('/items').get(getCartItems);  // isAuthenticatedUser authorizeRoles('user'),
 
 // Delete Entire Cart: DELETE /api/items/delete (Private - User role required)
 router.route('/items/delete').delete(isAuthenticatedUser, authorizeRoles('user'), deleteEntireCart);
 
 // Update Cart Items by ID: PUT /api/item/edit/:id (Private - User role required)
-router.route('/item/edit/:id').put(isAuthenticatedUser, authorizeRoles('user'), updateCartItems);
+router.route('/item/edit/:id').put(isAuthenticatedUser, updateCartItems); //authorizeRoles('user'), 
 
-// Delete Cart Items by Item ID: DELETE /api/item/delete/:itemId (Private - User role required)
-router.route('/item/delete/:itemId').delete(isAuthenticatedUser, authorizeRoles('user'), deleteCartItems);
+// Delete Cart Items by Item ID: DELETE /api/item/delete/:itemId (Private - User role required)   
+router.route('/item/delete/:itemId').delete(isAuthenticatedUser,  deleteCartItems);//authorizeRoles('user'),
 
 
 

@@ -1,0 +1,68 @@
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:31:54.462Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:31:54.472Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:35:52.490Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:35:52.491Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:35:52.606Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:35:52.621Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:35:55.746Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:35:55.746Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:39:02.210Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:39:02.211Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:39:19.255Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:39:19.257Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:40:20.480Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:40:20.503Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:41:02.235Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:41:02.236Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:41:06.599Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:41:06.600Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:43:35.212Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:43:35.213Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:45:15.256Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T18:45:15.268Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:13:49.098Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:13:49.108Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:20:32.781Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:20:32.784Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:20:39.674Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:20:39.674Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:20:59.565Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:20:59.566Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'toString')","timestamp":"2023-11-13T19:21:06.648Z"}
+{"level":"error","message":"Error: Cannot read properties of undefined (reading 'toString')","timestamp":"2023-11-13T19:21:06.650Z"}
+{"level":"error","message":"Stack trace: Error: Cannot read properties of undefined (reading 'toString')\n    at exports.newOrder (E:\\Schema draft\\controllers\\order\\order.js:42:14)\n    at Layer.handle [as handle_request] (E:\\Schema draft\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Schema draft\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at E:\\Schema draft\\middlewares\\authenticate.js:16:5\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-11-13T19:21:06.651Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:31:08.370Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:31:08.388Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.114Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.153Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.221Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.238Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.295Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.319Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.647Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:45:48.648Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:48:56.148Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:48:56.149Z"}
+{"level":"error","message":"Error: Role admin is not allowed","timestamp":"2023-11-13T19:48:56.170Z"}
+{"level":"error","message":"Error: Role admin is not allowed","timestamp":"2023-11-13T19:48:56.171Z"}
+{"level":"error","message":"Stack trace: Error: Role admin is not allowed\n    at E:\\Schema draft\\middlewares\\authenticate.js:25:25\n    at Layer.handle [as handle_request] (E:\\Schema draft\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Schema draft\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at E:\\Schema draft\\middlewares\\authenticate.js:16:5\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-11-13T19:48:56.172Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:49:37.283Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:49:37.284Z"}
+{"level":"error","message":"Error: Role admin is not allowed","timestamp":"2023-11-13T19:49:37.578Z"}
+{"level":"error","message":"Error: Role admin is not allowed","timestamp":"2023-11-13T19:49:37.580Z"}
+{"level":"error","message":"Stack trace: Error: Role admin is not allowed\n    at E:\\Schema draft\\middlewares\\authenticate.js:25:25\n    at Layer.handle [as handle_request] (E:\\Schema draft\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Schema draft\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at E:\\Schema draft\\middlewares\\authenticate.js:16:5\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-11-13T19:49:37.581Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:49:37.608Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:49:37.610Z"}
+{"level":"error","message":"Error: Role admin is not allowed","timestamp":"2023-11-13T19:49:37.628Z"}
+{"level":"error","message":"Error: Role admin is not allowed","timestamp":"2023-11-13T19:49:37.630Z"}
+{"level":"error","message":"Stack trace: Error: Role admin is not allowed\n    at E:\\Schema draft\\middlewares\\authenticate.js:25:25\n    at Layer.handle [as handle_request] (E:\\Schema draft\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Schema draft\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at E:\\Schema draft\\middlewares\\authenticate.js:16:5\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-11-13T19:49:37.631Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:50:24.041Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:50:24.089Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:50:24.380Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:50:24.381Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:53:44.340Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:53:44.342Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:53:44.722Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:53:44.724Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:55:28.525Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-11-13T19:55:28.526Z"}

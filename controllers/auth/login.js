@@ -39,7 +39,11 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
 
         sendToken(user, 201, res);
     } catch (error) {
-        next(new ErrorHandler('Internal Server Error', 500));
+        if (error instanceof ErrorHandler) {
+            res.status(error.statusCode).json({ message: error.message });
+          } else {
+            res.status(500).json({ message: 'Internal Server Error' });
+          }
     }
 });
 
@@ -101,3 +105,19 @@ exports.sendUserOtp = catchAsyncError(async (req, res, next) => {
         
     }
 });
+
+exports.getUserProfile = catchAsyncError(async (req, res, next) => {
+    const user = await User.findById(req.user.id);
+  
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found',
+      });
+    }
+  
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  });
