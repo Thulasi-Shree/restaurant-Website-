@@ -1,8 +1,9 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const { logError } = require('../../utils/logError');
+// const { logError } = require('../../utils/logError');
+const ErrorHandler = require('../../utils/errorHandler');
 const catchAsyncError = require("../../middlewares/catchAsyncError");
 
-exports.processPayment = catchAsyncError(async (req, res) => {
+exports.processPayment = catchAsyncError(async (req, res, next) => {
     console.log(`Received request at: ${req.originalUrl}`);
     try {
         const { amount, shipping } = req.body;
@@ -24,7 +25,7 @@ exports.processPayment = catchAsyncError(async (req, res) => {
             client_secret: paymentIntent.client_secret
         });
     } catch (error) {
-        logError(error); 
+        // logError(error); 
         console.log(`Received request at: ${req.originalUrl}`);
         next(new ErrorHandler(error.message, 500));
         res.status(500).json({ success: false, error: "An error occurred while processing the payment." });

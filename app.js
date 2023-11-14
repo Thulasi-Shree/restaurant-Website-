@@ -13,10 +13,10 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', true);
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Credentials', true);
+//   next();
+// });
 
 const corsOptions = {
   origin: ['http://localhost:3000','http://127.0.0.1:3000'] ,
@@ -42,19 +42,19 @@ const transaction = require('./routes/transaction')
 const location = require('./routes/location')
 
 
-app.use('/api/',auth);
-app.use('/api/',admin);
-app.use('/api/',menu);
-app.use('/api/',review);
-app.use('/api/',restaurant);
-app.use('/api/',cart);
-app.use('/api/', address);
-app.use('/api/', promotion);
-app.use('/api/', feedback);
-app.use('/api/', userActivity);
-app.use('/api/', order);
-app.use('/api/', transaction);
-app.use('/api/', location);
+app.use('/api',auth);
+app.use('/api',admin);
+app.use('/api',menu);
+app.use('/api',review);
+app.use('/api',restaurant);
+app.use('/api',cart);
+app.use('/api', address);
+app.use('/api', promotion);
+app.use('/api', feedback);
+app.use('/api', userActivity);
+app.use('/api', order);
+app.use('/api', transaction);
+app.use('/api', location);
 
 app.use(helmet()); 
 

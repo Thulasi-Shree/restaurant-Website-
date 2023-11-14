@@ -5,7 +5,7 @@ const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../.
 
 exports.newOrder = async (req, res, next) => {
     try {
-        const restaurantId = req.body.restaurantId.toString();
+        const restaurantId = req.body.restaurantId ? req.body.restaurantId.toString() : null;
         const {
             orderItems,
             shippingInfo,

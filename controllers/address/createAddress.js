@@ -37,3 +37,22 @@ const createAddress = catchAsyncError(async (req, res, next) => {
 });
 
 module.exports = createAddress;
+
+// // Instead of directly calling axios.get, inject a function that makes the API call
+// const createAddress = catchAsyncError(async (req, res, next, geocodeFn) => {
+//     // ... (existing code)
+
+//     try {
+//         // Make the geocoding API call
+//         const response = await geocodeFn(`https://maps.googleapis.com/maps/api/geocode/json?address=${street},${city},${state},${postalCode},${country}&key=GOOGLE_MAPS_API_KEY`);
+
+//         // ... (rest of the code)
+//     } catch (error) {
+//         console.error(error);
+//         next(new ErrorHandler('Internal Server Error', 500));
+//     }
+// });
+
+// // In your route/controller where you use the middleware
+// const geocodeFn = async (url) => axios.get(url);
+// createAddress(req, res, next, geocodeFn);
