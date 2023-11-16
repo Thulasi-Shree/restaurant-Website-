@@ -12,7 +12,10 @@ const {isAuthenticatedUser, authorizeRoles} = require('../middlewares/authentica
 router.route('/item/new/:itemId').post(isAuthenticatedUser, createCartItems); //authorizeRoles('user'), isAuthenticatedUser,
 
 // Get Cart Items: GET /api/items (Private - User role required)
-router.route('/items').get(getCartItems);  // isAuthenticatedUser authorizeRoles('user'),
+router.route('/items').get(isAuthenticatedUser, getCartItems);  //  authorizeRoles('user'),
+
+// Get Single Cart Items: GET /api/items (Private - User role required)
+router.route('/items/:userId').get(isAuthenticatedUser, getCartItems);  //  authorizeRoles('user'),
 
 // Delete Entire Cart: DELETE /api/items/delete (Private - User role required)
 router.route('/items/delete').delete(isAuthenticatedUser, authorizeRoles('user'), deleteEntireCart);

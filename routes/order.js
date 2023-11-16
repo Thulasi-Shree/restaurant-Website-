@@ -46,13 +46,13 @@ router.route('/store-pickup-time').post(isAuthenticatedUser, storeChosenPickupTi
 router.route('/time-slot').get(isAuthenticatedUser, getAllTimeSlots);
 
 
-// Admin Routes
+// Admin Routes    
 
 // Get All Orders for Admin: GET /api/admin/orders (Admin role required)
 router.route('/admin/orders').get( orders);//isAuthenticatedUser, authorizeRoles('admin'),
 
 // Update Order Status by ID: PATCH /api/admin/order/:id (Admin role required)
-router.route('/admin/order/:id').patch(isAuthenticatedUser, authorizeRoles('admin'), updateOrderStatus);
+router.route('/admin/order/:id').put(isAuthenticatedUser, authorizeRoles('admin'), updateOrderStatus);
 
 // Delete Order by ID: DELETE /api/admin/order/:id (Admin role required)
 router.route('/admin/order/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteOrder);

@@ -8,7 +8,7 @@ exports.newOrder = async (req, res, next) => {
         const restaurantId = req.body.restaurantId ? req.body.restaurantId.toString() : null;
         const {
             orderItems,
-            shippingInfo,
+            shipping,
             itemsPrice,
             taxPrice,
             shippingPrice,
@@ -19,7 +19,7 @@ exports.newOrder = async (req, res, next) => {
 
         const order = await Order.create({
             orderItems,
-            shippingInfo,
+            shipping,
             itemsPrice,
             taxPrice,
             shippingPrice,
@@ -61,7 +61,7 @@ exports.updateOrderStatus = async (req, res, next) => {
 
 exports.getSingleOrder = catchAsyncError(async (req, res, next) => {
     try {
-        const order = await Order.findById(req.params.id).populate('user', 'name email phone').populate('shippingInfo', 'street city state postalCode country');
+        const order = await Order.findById(req.params.id).populate('user', 'name email phone').populate('shipping', 'street city state postalCode country');
         if (!order) {
             return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404));
         }

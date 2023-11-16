@@ -4,7 +4,7 @@ const ErrorHandler = require('../../utils/errorHandler');
 
 const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
     try {
-        const restaurantId = req.params.restaurantId;
+        const restaurantId = req.body.restaurantId;
         const activeOrders = await Order.find({ 
             restaurantId: restaurantId,
             orderStatus: { $nin: 'Delivered'} 

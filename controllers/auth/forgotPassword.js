@@ -10,7 +10,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next)=>{
             return next(new ErrorHandler("User not found", 403))
         }
     
-        const resetToken = user.getUserPassword();
+        const resetToken = user.getUserPassword(); 
     
         await user.save({validateBeforeSave: false})
     

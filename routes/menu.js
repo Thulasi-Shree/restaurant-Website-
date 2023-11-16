@@ -28,7 +28,7 @@ router.route('/product/:id').get(getSingleMenu);
 // Admin Routes
 
 // Create New Product: POST /api/admin/product/new
-router.route('/admin/product/new').post(isAuthenticatedUser, upload.array('images'), newProduct);
+router.route('/admin/product/new').post( upload.array('images'), newProduct);
 
 // Get All Admin Products: GET /api/admin/products (Admin role required)
 router.route('/admin/products').get( getAdminProducts);
@@ -37,7 +37,7 @@ router.route('/admin/products').get( getAdminProducts);
 router.route('/admin/product/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteProduct);
 
 // Update Product by ID: PUT /api/admin/product/:id (Admin role required)
-router.route('/admin/product/:id').put(isAuthenticatedUser, authorizeRoles('admin'), upload.array('images'), updateProduct);
+router.route('/admin/product/:id').put(isAuthenticatedUser,  upload.array('images'), updateProduct);//authorizeRoles('admin'),
 
 
-module.exports = router;
+module.exports = router;    

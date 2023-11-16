@@ -27,7 +27,7 @@ router.post('/password/forgot', forgotPasswordController.forgotPassword);
 // Reset Password with Token: PUT /api/password/reset/:token
 router.put('/password/reset/:token', resetPasswordController.resetPassword);
 
-// Get User Profile: GET /api/myprofile/:token
+// Get User Profile: GET /api/myprofile/:token   
 router.get('/myprofile/:token', profileController.getUserProfile);
 router.route('/myprofile').get(isAuthenticatedUser, loginController.getUserProfile);
 

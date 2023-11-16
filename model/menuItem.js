@@ -20,6 +20,10 @@ const menuSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Review',
     },
+    itemQuantity: {
+        type:Number,
+        required: true
+    },
     images: [
         {
             image: {
@@ -43,7 +47,7 @@ const menuSchema = new mongoose.Schema({
         type: String,
         enum: [
             'Vegetarian',
-            'Non-vegetaria',
+            'Non-vegetarian',
             'Vegan',
             'Gluten-Free',
             'Halal',
@@ -51,21 +55,20 @@ const menuSchema = new mongoose.Schema({
         ],
         required: true,
     },
-    restaurant: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Restaurant',
+    restaurantId: {
+        type: String,
         required: [true, "Please specify the restaurant"]
     },
     isAvailable: {
         type: Boolean,
-        default: true
+        // default: true
     },
     availableDate: {
         type: Date, 
     },
     isPreOrderAvailable: {
         type: Boolean,
-        default: false 
+        // default: true 
     },
     numOfReviews: {
         type: Number,

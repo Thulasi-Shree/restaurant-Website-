@@ -19,7 +19,6 @@ const newMenu = catchAsyncError(async (req, res, next) => {
         }
 
         req.body.images = images;
-        req.body.user = req.user.id;
 
         const menu = await Menu.create(req.body);
 
