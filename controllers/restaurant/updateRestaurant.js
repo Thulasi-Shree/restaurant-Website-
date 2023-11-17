@@ -5,21 +5,21 @@ const ErrorHandler = require('../../utils/errorHandler');
 
 const updateRestaurant = catchAsyncError(async (req, res, next) => {
     try {
-        const restaurantId = req.params.id;
+        const id = req.params.id;
         const { name, description, location, openingHours } = req.body;
 
         // Find the restaurant by ID
-        const restaurant = await Restaurant.findById(restaurantId);
+        const restaurant = await Restaurant.findById(id);
 
         if (!restaurant) {
-            return next(new ErrorHandler(`Restaurant not found with id ${restaurantId}`, 404));
+            return next(new ErrorHandler(`Restaurant not found with id ${id}`, 404));
         }
 
         // Update restaurant properties
-        restaurant.name = name;
-        restaurant.description = description;
-        restaurant.location = location;
-        restaurant.openingHours = openingHours;
+        // restaurant.name = name;
+        // restaurant.description = description;
+        // restaurant.location = location;
+        // restaurant.openingHours = openingHours;
 
         // Save the updated restaurant
         await restaurant.save();

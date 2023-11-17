@@ -4,41 +4,34 @@ const orderSchema = mongoose.Schema({
     shipping: {
         name: String,
         address: {
-          line1: String,
-          line2: String,
-          city: String,
-          state: String,
-          postal_code: String,
-          country: String
+            line1: String,
+            line2: String,
+            city: String,
+            state: String,
+            postal_code: String,
+            country: String
         }
-      },
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     },
-    orderItems: [{
-        name: {
-            type: String,
-            required: true
-        },
-        quantity: {
-            type: Number,
-            required: true
-        },
-        image: {
-            type: String,
+    items: [{
+        item: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Menu',
+            required: true,
         },
         price: {
             type: Number,
-            required: true
-        },
-        product: {
-            type: mongoose.SchemaTypes.ObjectId,
             required: true,
-            ref: 'Product'
+        },
+        itemQuantity: {
+            type: Number,
+            required: true,
+            default: 1
         }
-
     }],
     itemsPrice: {
         type: Number,
@@ -57,6 +50,12 @@ const orderSchema = mongoose.Schema({
         type: Number,
         required: true,
         default: 0.0
+    },
+    deliveryInstruction: {
+        type: String
+    },
+    orderInstruction: {
+        type: String
     },
     paymentInfo: {
         id: {
@@ -79,8 +78,8 @@ const orderSchema = mongoose.Schema({
     },
     pickupTime: {
         type: String
-      },
-    availableTimeSlots: { 
+    },
+    availableTimeSlots: {
         type: String
     },
     orderDeliveryTime: {
@@ -91,8 +90,8 @@ const orderSchema = mongoose.Schema({
         required: true,
         default: 'Order Placed'
     },
-    restaurantId:{
-        type: String, 
+    restaurantId: {
+        type: String,
     },
     createdAt: {
         type: Date,

@@ -4,7 +4,7 @@ const sendToken = require('../../utils/jwt');
 const ErrorHandler = require('../../utils/errorHandler');
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
-    const { name, email, password, phone } = req.body;
+    const { name, lastName, email, password, phone } = req.body;
 
     let BASE_URL = process.env.PORT;
     if (process.env.NODE_ENV === "production") {
@@ -27,6 +27,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
         // If email and phone are unique, create the user
         const user = await User.create({
             name,
+            lastName,
             email,
             password,
             phone,

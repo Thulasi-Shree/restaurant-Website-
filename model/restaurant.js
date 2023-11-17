@@ -1,10 +1,20 @@
 const mongoose = require('mongoose');
 const restaurantSchema = new mongoose.Schema({
 
-  name: {
+  restaurantName: {
     type: String,
     required: true,
     trim: true,
+  },
+  branch:{
+    type: String,
+    required: true,
+    trim: true,
+  },
+  pincode:{
+    type: Number,
+    required: true,
+    unique: true,
   },
   restaurantId: {
     type: Number,
@@ -27,16 +37,16 @@ const restaurantSchema = new mongoose.Schema({
   //   type: String,
   //   required: true,
   // },
-  location: {
-    type: {
-        type: String,
-        default: 'Point',
-    },
-    coordinates: {
-        type: [Number], // Array of [longitude, latitude]
-        index: '2dsphere',
-    },
-},
+//   location: {
+//     type: {
+//         type: String,
+//         default: 'Point',
+//     },
+//     coordinates: {
+//         type: [Number], // Array of [longitude, latitude]
+//         index: '2dsphere',
+//     },
+// },
   reviews: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Review',

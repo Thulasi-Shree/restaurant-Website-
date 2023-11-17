@@ -8,7 +8,11 @@ const autopopulate = require('mongoose-autopopulate');
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Please enter name'],
+        required: [true, 'Please enter first name'],
+    },
+    lastName: {
+        type: String,
+        required: [true, 'Please enter last name'],
     },
     email: {
         type: String,
