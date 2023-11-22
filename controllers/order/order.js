@@ -1,5 +1,7 @@
 const catchAsyncError = require('../../middlewares/catchAsyncError');
 const Order = require('../../model/order');
+const Cart = require('../../model/cart');
+
 const ErrorHandler = require('../../utils/errorHandler');
 const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../../utils/email');
 
@@ -7,8 +9,8 @@ exports.newOrder = async (req, res, next) => {
     try {
         const restaurantId = req.body.restaurantId ? req.body.restaurantId.toString() : null;
         const {
-            orderItems,
             shipping,
+            orderItems,
             itemsPrice,
             taxPrice,
             shippingPrice,
@@ -26,13 +28,14 @@ exports.newOrder = async (req, res, next) => {
             totalPrice,
             paymentInfo,
             pickup,
-            restaurantId,
+            restaurantId,     
             paidAt: Date.now(),
             user: req.user.id
         });
         await order.populate('user', 'name email phone');
 
         sendOrderConfirmationEmail(order.user.email, order);
+        await Cart.findOneAndUpdate({ user: req.user.id }, { items: [] });
 
         res.status(201).json({
             success: true,
@@ -42,7 +45,7 @@ exports.newOrder = async (req, res, next) => {
         next(new ErrorHandler(error.message, 500));
     }
 };
-
+   
 exports.updateOrderStatus = async (req, res, next) => {
     try {
         const order = await Order.findByIdAndUpdate(req.params.id, { orderStatus: req.body.orderStatus }, { new: true });

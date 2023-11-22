@@ -6,9 +6,29 @@ const addressSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  street: {
+  userName:{
     type: String,
     required: true,
+  },
+  email:{
+    type: String,
+    required: true,
+  },
+  mobileNumber:{
+    type: Number,
+    required: true,
+  },
+  streetAddress: {
+    type: String,
+    required: true,
+  },
+  line1: {
+    type: String,
+    default: null,
+  },
+  line2: {
+    type: String,
+    default: null,
   },
 
   city: {
@@ -21,7 +41,7 @@ const addressSchema = new mongoose.Schema({
     required: true,
   },
 
-  postalCode: {
+  postal_code: {
     type: String,
     required: true,
   },
@@ -37,7 +57,8 @@ const addressSchema = new mongoose.Schema({
 longitude: {
     type: Number,
     default: null,
-}
+},
+
 });
 
 const Address = mongoose.model('Address', addressSchema, 'address');

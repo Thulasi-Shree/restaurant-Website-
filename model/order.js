@@ -10,17 +10,12 @@ const orderSchema = mongoose.Schema({
             state: String,
             postal_code: String,
             country: String
-        }
-    },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
+        },
+       
     },
     items: [{
-        item: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Menu',
+        name: {
+            type: String,
             required: true,
         },
         price: {
@@ -36,6 +31,12 @@ const orderSchema = mongoose.Schema({
     itemsPrice: {
         type: Number,
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    },
+    
     taxPrice: {
         type: Number,
         required: true,
@@ -72,11 +73,14 @@ const orderSchema = mongoose.Schema({
         type: Date
     },
     pickup: {
-        type: Boolean,
+        type: String,
         required: true,
-        default: false
+        default: 'delivery'
     },
     pickupTime: {
+        type: String
+    },
+    selectedTimeSlot:{
         type: String
     },
     availableTimeSlots: {

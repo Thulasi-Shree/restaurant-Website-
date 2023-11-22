@@ -78,24 +78,22 @@ const sendOrderConfirmationEmail = (email, order) => {
 };
 
 const sendOrderStatusUpdateEmail = (email, order) => {
-
     const emailContent = `
-    <p>Dear ${order.user.name},</p>
-    <p>Thank you for your order! Your order with order ID ${order._id} has been updated to ${order.orderStatus}.</p>
-    <p>Order Details:</p>
-    <p>
-        ${order.orderItems.map(item => `<li>${item.name} - ${item.quantity} x $${item.price}</li>`).join('')}
-    </p>
-    <p>Items Price: $${order.itemsPrice}</p>
-    <p>Tax Price: $${order.taxPrice}</p>
-    <p>Shipping Price: $${order.shippingPrice}</p>
-    <p>Total Price: $${order.totalPrice}</p>
-    <p>Payment Status: ${order.paymentInfo.status}</p>
-    <p>Order Status: ${order.orderStatus}</p>
-    <p>Order Placed at: ${order.createdAt}</p>
-    <p>Order status changed at: ${order.deliveredAt}</p>
-    <p>Thank you for ordering with us!</p>
-`;
+        <p>Dear ${order.user.name},</p>
+        <p>Thank you for your order! Your order with order ID ${order._id} has been updated to ${order.orderStatus}.</p>
+        <p>Order Details:</p>
+        <p>
+            ${order.items.map(item => `<li>${item.name} - ${item.quantity} x $${item.price}</li>`).join('')}
+        </p>
+        <p>Tax Price: $${order.taxPrice}</p>
+        <p>Shipping Price: $${order.shippingPrice}</p>
+        <p>Total Price: $${order.totalPrice}</p>
+        <p>Payment: Paid </p>
+        <p>Order Status: ${order.orderStatus}</p>
+        <p>Order Placed at: ${order.createdAt}</p>
+        <p>Order status changed at: ${Date.now()}</p>
+        <p>Thank you for ordering with us!</p>
+    `;
 
     if (!email || typeof email !== 'string' || !email.trim()) {
         console.error('Error: Invalid or empty recipient email address provided.');
@@ -115,7 +113,6 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         to: email,
         subject: 'Order status',
         html: emailContent
-        // text: `Thank you for your order! Your order is ${order.orderStatus}.`
     };
 
     transporter.sendMail(message, (error, info) => {
@@ -126,6 +123,7 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         }
     });
 };
+
 
 
 

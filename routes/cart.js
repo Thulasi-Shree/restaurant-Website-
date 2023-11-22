@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const getCartItems = require('../controllers/cart/getCartItems');
+const getCartItem = require('../controllers/cart/getCartItems');
 const createCartItems = require('../controllers/cart/createCartItems');
 const updateCartItems = require('../controllers/cart/updateCartItems');
 const deleteCartItems = require('../controllers/cart/deleteCartItems');
@@ -9,10 +10,13 @@ const {isAuthenticatedUser, authorizeRoles} = require('../middlewares/authentica
 
 
 // Create Cart Items: POST /api/item/new (Private - User role required)
-router.route('/item/new/:itemId').post(isAuthenticatedUser, createCartItems); //authorizeRoles('user'), isAuthenticatedUser,
+router.route('/cart/create/:itemId').post(isAuthenticatedUser, createCartItems); //authorizeRoles('user'), isAuthenticatedUser,
 
 // Get Cart Items: GET /api/items (Private - User role required)
-router.route('/items').get(isAuthenticatedUser, getCartItems);  //  authorizeRoles('user'),
+router.route('/item/:cartId').get(isAuthenticatedUser, getCartItems);  //  authorizeRoles('user'),
+
+// Get Cart Items: GET /api/item (Private - User role required)
+router.route('/item/:id').get(isAuthenticatedUser, getCartItem);
 
 // Get Single Cart Items: GET /api/items (Private - User role required)
 router.route('/items/:userId').get(isAuthenticatedUser, getCartItems);  //  authorizeRoles('user'),

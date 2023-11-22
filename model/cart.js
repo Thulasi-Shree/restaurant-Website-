@@ -24,6 +24,10 @@ const cartSchema = new mongoose.Schema({
     required: true,
   },
   items: [cartItemSchema],
+  taxPrice: Number,
+  shippingPrice: Number,
+  totalPrice: Number
+
 });
 
 const Cart = mongoose.model('Cart', cartSchema);
