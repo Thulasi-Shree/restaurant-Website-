@@ -2,7 +2,8 @@ const express = require('express');
 const newProduct = require('../controllers/menu/createMenu')
 const getAdminProducts = require('../controllers/menu/getAdminMenus')
 const updateProduct = require('../controllers/menu/updateMenu')
-const getProducts = require('../controllers/menu/getMenus')
+const {getMenus, getAdminMenusByBranch} = require('../controllers/menu/getMenus')
+// const getAdminMenusByBranch = require('../controllers/menu/getMenus')
 const  getSingleMenu = require('../controllers/menu/getSingleMenu');
 const  deleteProduct = require('../controllers/menu/deleteMenu');
 const router = express.Router();
@@ -20,7 +21,7 @@ const upload = multer({storage: multer.diskStorage({
 }) })
 
 // Get All Products: GET /api/products
-router.route('/products').get(getProducts);
+router.route('/products').get(getMenus);
 
 // Get Single Product by ID: GET /api/product/:id
 router.route('/product/:id').get(getSingleMenu);
@@ -32,6 +33,9 @@ router.route('/admin/product/new').post( upload.array('images'), newProduct);
 
 // Get All Admin Products: GET /api/admin/products (Admin role required)
 router.route('/admin/products').get( getAdminProducts);
+
+// Get All Admin Products by brand: GET /api/admin/products (Admin role required)
+router.route('/admin/products/branch').post( getAdminMenusByBranch);
 
 // Delete Product by ID: DELETE /api/admin/product/:id (Admin role required)
 router.route('/admin/product/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteProduct);

@@ -13,7 +13,7 @@ const newMenu = catchAsyncError(async (req, res, next) => {
         
         if (req.files && req.files.length > 0) {
             req.files.forEach(file => {
-                let url = `${BASE_URL}/uploads/menu/${file.originalname}`;
+                let url = `${BASE_URL}/uploads/product/${file.originalname}`;
                 images.push({ image: url });
             });
         }

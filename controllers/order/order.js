@@ -10,6 +10,8 @@ exports.newOrder = async (req, res, next) => {
         const restaurantId = req.body.restaurantId ? req.body.restaurantId.toString() : null;
         const {
             shipping,
+            email,
+            phone,
             orderItems,
             itemsPrice,
             taxPrice,
@@ -17,10 +19,13 @@ exports.newOrder = async (req, res, next) => {
             totalPrice,
             paymentInfo,
             pickup,
+            user
         } = req.body;
 
         const order = await Order.create({
             orderItems,
+            email,
+            phone,
             shipping,
             itemsPrice,
             taxPrice,
@@ -30,12 +35,12 @@ exports.newOrder = async (req, res, next) => {
             pickup,
             restaurantId,     
             paidAt: Date.now(),
-            user: req.user.id
+            user
         });
-        await order.populate('user', 'name email phone');
+        // await order.populate('user', 'name email phone');
 
-        sendOrderConfirmationEmail(order.user.email, order);
-        await Cart.findOneAndUpdate({ user: req.user.id }, { items: [] });
+        sendOrderConfirmationEmail(order.shipping.email, order);
+        // await Cart.findOneAndUpdate({ user: req.body }, { items: [] });
 
         res.status(201).json({
             success: true,
@@ -49,8 +54,8 @@ exports.newOrder = async (req, res, next) => {
 exports.updateOrderStatus = async (req, res, next) => {
     try {
         const order = await Order.findByIdAndUpdate(req.params.id, { orderStatus: req.body.orderStatus }, { new: true });
-        await order.populate('user', 'name email phone');
-        sendOrderStatusUpdateEmail(order.user.email, order);
+        // await order.populate('user', 'name email phone');
+        sendOrderStatusUpdateEmail(order.shipping.email, order);
 
         res.status(200).json({
             success: true,
@@ -64,7 +69,7 @@ exports.updateOrderStatus = async (req, res, next) => {
 
 exports.getSingleOrder = catchAsyncError(async (req, res, next) => {
     try {
-        const order = await Order.findById(req.params.id).populate('user', 'name email phone').populate('shipping', 'street city state postalCode country');
+        const order = await Order.findById(req.params.id)
         if (!order) {
             return next(new ErrorHandler(`Order not found with this id: ${req.params.id}`, 404));
         }
@@ -92,7 +97,25 @@ exports.myOrders = catchAsyncError(async (req, res, next) => {
 
 exports.orders = catchAsyncError(async (req, res, next) => {
     try {
-        const orders = await Order.find();
+        const orders = await Order.find( {orderStatus: { $in: 'Delivered' }} );
+        let totalAmount = 0;
+
+        orders.forEach(order => {
+            totalAmount += order.totalPrice;
+        });
+
+        res.status(200).json({
+            success: true,
+            totalAmount,
+            orders
+        });
+    } catch (error) {
+        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+    }
+});
+exports.ordersActive = catchAsyncError(async (req, res, next) => {
+    try {
+        const orders = await Order.find( {orderStatus: { $nin: 'Delivered' }} );
         let totalAmount = 0;
 
         orders.forEach(order => {

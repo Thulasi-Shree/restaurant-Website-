@@ -1,6 +1,6 @@
 const express = require('express');
 const createRestaurant = require('../controllers/restaurant/createRestaurant');
-const  getRestaurant = require('../controllers/restaurant/getRestaurants') 
+const { getRestaurant, getRestaurantById} = require('../controllers/restaurant/getRestaurants') 
 const  deleteRestaurant = require('../controllers/restaurant/deleteRestaurant')
 const updateRestaurant = require('../controllers/restaurant/updateRestaurant')
 const router = express.Router();
@@ -14,7 +14,10 @@ router.route('/restaurant/create').post(isAuthenticatedUser, createRestaurant);
 router.route('/restaurant/delete/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteRestaurant);
 
 // Get Restaurant: GET /api/restaurant/get (User role required)
-router.route('/restaurant/get').get(getRestaurant);
+router.route('/restaurant/get').get(getRestaurant);  
+
+// Get Restaurant: GET /api/restaurant/get (User role required)
+router.route('/restaurant/get/:id').get(getRestaurantById);  
 
 // Update Restaurant by ID: PUT /api/restaurant/edit/:id (User role required)
 router.route('/restaurant/edit/:id').put(isAuthenticatedUser, updateRestaurant);

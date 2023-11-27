@@ -19,7 +19,7 @@ const morgan = require('morgan');
 // });
 
 const corsOptions = {
-  origin: ['http://localhost:3000','http://127.0.0.1:3000'] ,
+  origin: ['http://localhost:3000','http://127.0.0.1:3000','http://localhost:3001', 'http://127.0.0.1:3001'] ,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 200,
@@ -47,7 +47,7 @@ app.use('/api',admin);
 app.use('/api',menu);
 app.use('/api',review);
 app.use('/api',restaurant);
-app.use('/api',cart);
+app.use('/api',cart);  
 app.use('/api', address);
 app.use('/api', promotion);
 app.use('/api', feedback);

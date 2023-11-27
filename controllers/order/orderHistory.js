@@ -6,9 +6,9 @@ const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
     try {
         const restaurantId = req.body.restaurantId;
         const activeOrders = await Order.find({ 
-            restaurantId: restaurantId,
+             restaurantId,
             orderStatus: { $nin: 'Delivered'} 
-        }).populate('user', 'orderItems.product ');
+        })
 
         res.status(200).json(activeOrders);
     } catch (error) {
@@ -18,11 +18,11 @@ const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
 
 const getNonActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
     try {
-        const restaurantId = req.params.restaurantId;
+        const restaurantId = req.body.restaurantId;
         const nonActiveOrders = await Order.find({  
             restaurantId: restaurantId, 
             orderStatus: { $in: 'Delivered' } 
-        }).populate('user', 'orderItems.product');
+        }) //.populate('user', 'orderItems.product');
 
         res.status(200).json(nonActiveOrders);
     } catch (error) {

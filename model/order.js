@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const orderSchema = mongoose.Schema({
     shipping: {
         name: String,
+        email:String,
+        phone: Number,
         address: {
             line1: String,
             line2: String,
             city: String,
             state: String,
-            postal_code: String,
+            postalCode: String,
             country: String
         },
        
@@ -17,6 +19,10 @@ const orderSchema = mongoose.Schema({
         name: {
             type: String,
             required: true,
+        },
+        image: {
+            type: String,
+            required: true
         },
         price: {
             type: Number,
@@ -31,11 +37,11 @@ const orderSchema = mongoose.Schema({
     itemsPrice: {
         type: Number,
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
+    // user: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     required: true,
+    //     ref: 'User'
+    // },
     
     taxPrice: {
         type: Number,
@@ -95,6 +101,15 @@ const orderSchema = mongoose.Schema({
         default: 'Order Placed'
     },
     restaurantId: {
+        type: String,
+    },
+    orderNotes: {
+        type: String,
+    },
+    deliveryInstruction:{
+        type: String,
+    },
+    restaurantName: {
         type: String,
     },
     createdAt: {

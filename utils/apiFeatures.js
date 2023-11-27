@@ -25,6 +25,9 @@ class APIFeatures {
         if (this.queryStr.isPreOrderAvailable !== undefined) {
             this.query.where('isPreOrderAvailable').equals(this.queryStr.isPreOrderAvailable);
         }
+        if (this.queryStr.restaurantId) {
+            this.query.where('restaurantId').equals(this.queryStr.restaurantId);
+          }
         return this;
     }
 

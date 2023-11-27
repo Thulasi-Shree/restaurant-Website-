@@ -6,7 +6,7 @@ const addressSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  userName:{
+  name:{
     type: String,
     required: true,
   },

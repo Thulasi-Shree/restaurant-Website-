@@ -19,4 +19,23 @@ const getRestaurant = catchAsyncError(async (req, res, next) => {
     }
 });
 
-module.exports = getRestaurant
+const getRestaurantById = catchAsyncError(async (req, res, next) => {
+    try {
+        const order = await Restaurant.findById(req.params.id)
+        if (!order) {
+            return next(new ErrorHandler(`Restaurant not found with this id: ${req.params.id}`, 404));
+        }
+
+        res.status(200).json({
+            success: true,
+            order
+        });
+    } catch (error) {
+        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+    }
+});
+
+module.exports = {
+    getRestaurant,
+    getRestaurantById
+  };

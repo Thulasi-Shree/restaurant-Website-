@@ -22,7 +22,7 @@ const menuSchema = new mongoose.Schema({
     },
     itemQuantity: {
         type:Number,
-        required: true
+        // required: true
     },
     images: [
         {
@@ -50,7 +50,7 @@ const menuSchema = new mongoose.Schema({
             'Non-vegetarian',
             'Vegan',
             'Gluten-Free',
-            'Halal',
+            'Halal',   
             'Other'
         ],
         required: true,
@@ -68,7 +68,7 @@ const menuSchema = new mongoose.Schema({
     },
     isPreOrderAvailable: {
         type: Boolean,
-        // default: true 
+        default: true 
     },
     numOfReviews: {
         type: Number,

@@ -48,6 +48,26 @@ exports.sendLoginEmail = async (email) => {
 };
 
 const sendOrderConfirmationEmail = (email, order) => {
+    const emailContent = `
+    <p>Dear ${order.shipping.name},</p>
+    <p>Thank you for your order! Your order ID is ${order._id}.</p>
+    <p>Order Details:</p>
+    <p>Name: ${order.shipping.name}</p>
+    <p>Email: ${order.shipping.email}</p>
+    <p>Phone: ${order.shipping.phone}</p>
+    <p>Address: ${order.shipping.address.line1}, ${order.shipping.address.line1}, ${order.shipping.address.city}- ${order.shipping.address.postal_code || 99765}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
+    <p>
+        ${order.items.map(item => `<li>${item.name} - ${item.quantity} x $${item.price}</li>`).join('')}
+    </p>
+    <p>Tax Price: $${order.taxPrice}</p>
+    <p>Shipping Price: $${order.shippingPrice}</p>
+    <p>Total Price: $${order.totalPrice}</p>
+    <p>Payment: Paid </p>
+    <p>Order Status: ${order.orderStatus}</p>
+    <p>Order Placed at: ${order.createdAt}</p>
+    <p>Order status changed at: ${Date.now()}</p>
+    <p>Thank you for ordering with us!</p>
+`;
     if (!email || typeof email !== 'string' || !email.trim()) {
         console.error('Error: Invalid or empty recipient email address provided.');
         return;
@@ -65,7 +85,8 @@ const sendOrderConfirmationEmail = (email, order) => {
         from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
         to: email,
         subject: 'Order Confirmation',
-        text: `Thank you for your order! Your order ID is ${order._id}.`
+        // text: `Thank you for your order! Your order ID is ${order._id}.`
+        html: emailContent
     };
 
     transporter.sendMail(message, (error, info) => {
@@ -79,9 +100,13 @@ const sendOrderConfirmationEmail = (email, order) => {
 
 const sendOrderStatusUpdateEmail = (email, order) => {
     const emailContent = `
-        <p>Dear ${order.user.name},</p>
+        <p>Dear ${order.shipping.name},</p>
         <p>Thank you for your order! Your order with order ID ${order._id} has been updated to ${order.orderStatus}.</p>
         <p>Order Details:</p>
+        <p>Name: ${order.shipping.name}</p>
+        <p>Email: ${order.shipping.email}</p>
+        <p>Phone: ${order.shipping.phone || '-'}</p>
+        <p>Address: ${order.shipping.address.line1}, ${order.shipping.address.line1}, ${order.shipping.address.city}, ${order.shipping.address.postal_code || ''}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
         <p>
             ${order.items.map(item => `<li>${item.name} - ${item.quantity} x $${item.price}</li>`).join('')}
         </p>
@@ -91,7 +116,6 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         <p>Payment: Paid </p>
         <p>Order Status: ${order.orderStatus}</p>
         <p>Order Placed at: ${order.createdAt}</p>
-        <p>Order status changed at: ${Date.now()}</p>
         <p>Thank you for ordering with us!</p>
     `;
 

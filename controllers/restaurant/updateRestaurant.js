@@ -16,10 +16,10 @@ const updateRestaurant = catchAsyncError(async (req, res, next) => {
         }
 
         // Update restaurant properties
-        // restaurant.name = name;
-        // restaurant.description = description;
-        // restaurant.location = location;
-        // restaurant.openingHours = openingHours;
+        restaurant.name = name;
+        restaurant.description = description;
+        restaurant.location = location;
+        restaurant.openingHours = openingHours;
 
         // Save the updated restaurant
         await restaurant.save();

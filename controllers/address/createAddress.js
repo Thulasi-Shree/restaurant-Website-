@@ -43,8 +43,8 @@ const ErrorHandler = require('../../utils/errorHandler');
 const SuccessHandler = require('../../utils/successHandler');
 
 const createAddress = catchAsyncError(async (req, res, next) => {
-  const { streetAddress, city, state, postal_code, country, userName, email, mobileNumber } = req.body;
-  const { userId } = req.user;
+  const { streetAddress, city, state, postal_code, country, name, email, mobileNumber } = req.body;
+  const { userId } = req.user || 'Guest User';
 
   try {
     // Set latitude and longitude based on your requirements
@@ -59,7 +59,7 @@ const createAddress = catchAsyncError(async (req, res, next) => {
       country,
       latitude,
       longitude,
-      userName,
+      name,
       email,
       mobileNumber
     };

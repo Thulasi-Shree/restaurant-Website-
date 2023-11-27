@@ -18,7 +18,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next)=>{
     
         const message = `Your password reset URL is: \n\n ${resetUrl} \n\n If not you, please ignore.`
     
-        try{
+        try{ 
            sendEmail({
                 email: user.email,
                 subject: "Food delivery app password recovery",
