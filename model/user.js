@@ -46,7 +46,10 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin', 'DeliveryPerson', 'RestaurantOwner'],
         default: 'user',
     },
-    branch:{
+    restaurantBranch:{
+        type: String
+    },
+    restaurantId:{
         type: String
     },
     orderHistory: [{

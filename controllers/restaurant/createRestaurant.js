@@ -5,41 +5,25 @@
 
 // const createRestaurant = catchAsyncError(async (req, res, next) => {
 //     try {
-//         const { name, branch,
-//             pincode, images, restaurantId, description, location, openingHours } = req.body;
-//         const userId = req.user.id
+//         // Access values from form data
+//         const { name, pincode, location, description, cuisineTypeCategory, restaurantId, restaurantBranch, openingHours } = req.body;
 
-//         const existingRestaurant = await Restaurant.findOne({ restaurantId });
-//         if (existingRestaurant) {
-//             return next(new ErrorHandler('Duplicate restaurant ID', 400));
-//         }
-
-//         // Create a new restaurant object
-//         const newRestaurant = new Restaurant({
-//             name,
-//             branch,
+//         const restaurant = await Restaurant.create({
+//             restaurantName: name,
 //             pincode,
-//             restaurantId,
-//             images,
-//             description,
 //             location,
+//             description,
+//             cuisineTypeCategory,
+//             restaurantId,
+//             restaurantBranch,
 //             openingHours,
-//             createdBy: userId,
-//             dietaryPreferenceCategory,
-//             cuisineTypeCategory
 //         });
 
-//         // Save the new restaurant
-//         await newRestaurant.save();
-
-//         const successResponse = new SuccessHandler('Restaurant created successfully', newRestaurant);
-//         successResponse.sendResponse(res, 201);
+//         const successHandler = new SuccessHandler('Restaurant created successfully', restaurant);
+//         successHandler.sendResponse(res, 201);
 //     } catch (error) {
-       
-//              console.error(error);
-//         next(new ErrorHandler('Internal Server Error', 500));
- 
-       
+//         console.error(error);
+//         next(new ErrorHandler(error.message, 500));
 //     }
 // });
 
@@ -52,16 +36,17 @@ const SuccessHandler = require('../../utils/successHandler');
 
 const createRestaurant = catchAsyncError(async (req, res, next) => {
     try {
-        const { restaurantName, pincode, images, restaurantId, description, branch, openingHours, cuisineTypeCategory, dietaryPreferenceCategory } = req.body;
+        const { restaurantName, pincode, point, images, restaurantId, description, restaurantBranch, openingHours, cuisineTypeCategory, dietaryPreferenceCategory } = req.body;
         const userId = req.user.id;
 
         // Create a new restaurant object
         const newRestaurant = await Restaurant.create({
             restaurantName,
             pincode,
-            branch,
+            restaurantBranch,
             restaurantId,
             images,
+            point,
             description,
             openingHours,
             createdBy: userId,

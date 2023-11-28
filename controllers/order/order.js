@@ -8,11 +8,12 @@ const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../.
 exports.newOrder = async (req, res, next) => {
     try {
         const restaurantId = req.body.restaurantId ? req.body.restaurantId.toString() : null;
+        const restaurantBranch = req.body.restaurantBranch ? req.body.restaurantBranch.toString() : null;
         const {
             shipping,
             email,
             phone,
-            orderItems,
+            items,
             itemsPrice,
             taxPrice,
             shippingPrice,
@@ -23,7 +24,7 @@ exports.newOrder = async (req, res, next) => {
         } = req.body;
 
         const order = await Order.create({
-            orderItems,
+            items,
             email,
             phone,
             shipping,
@@ -33,7 +34,8 @@ exports.newOrder = async (req, res, next) => {
             totalPrice,
             paymentInfo,
             pickup,
-            restaurantId,     
+            restaurantId, 
+            restaurantBranch,    
             paidAt: Date.now(),
             user
         });

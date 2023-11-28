@@ -21,14 +21,14 @@ const getRestaurant = catchAsyncError(async (req, res, next) => {
 
 const getRestaurantById = catchAsyncError(async (req, res, next) => {
     try {
-        const order = await Restaurant.findById(req.params.id)
-        if (!order) {
+        const restaurant = await Restaurant.findById(req.params.id)
+        if (!restaurant) {
             return next(new ErrorHandler(`Restaurant not found with this id: ${req.params.id}`, 404));
         }
 
         res.status(200).json({
             success: true,
-            order
+            restaurant
         });
     } catch (error) {
         next(new ErrorHandler(error.message || 'Internal Server Error', 500));

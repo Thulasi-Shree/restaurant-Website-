@@ -6,12 +6,12 @@ const restaurantSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  branch: {
+  restaurantBranch:{
     type: String,
     required: true,
     trim: true,
   },
-  pincode: {
+  pincode:{
     type: Number,
     required: true,
     unique: true,
@@ -24,33 +24,37 @@ const restaurantSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
+  }, 
+  point: {
+    type: String,
+    required: true,
   },
-  images: [
-    {
-      image: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  // images: [
+  //   {
+  //     image: {
+  //       type: String,
+  //       required: true,
+  //     },
+  //   },
+  // ],
   // image: {
   //   type: String,
   //   required: true,
   // },
-  //   location: {
-  //     type: {
-  //         type: String,
-  //         default: 'Point',
-  //     },
-  //     coordinates: {
-  //         type: [Number], // Array of [longitude, latitude]
-  //         index: '2dsphere',
-  //     },
-  // },
-  reviews: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Review',
-  },
+//   location: {
+//     type: {
+//         type: String,
+//         default: 'Point',
+//     },
+//     coordinates: {
+//         type: [Number], // Array of [longitude, latitude]
+//         index: '2dsphere',
+//     },
+// },
+//   reviews: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Review',
+// },
   numOfReviews: {
     type: Number,
     default: 0
@@ -65,35 +69,35 @@ const restaurantSchema = new mongoose.Schema({
   cuisineTypeCategory: {
     type: String,
     enum: [
-      'Italian',
-      'Asian',
-      'Chinese',
-      'Indian',
-      'Mexican',
-      'Other'
+        'Italian',
+        'Asian',
+        'Chinese',
+        'Indian',
+        'Mexican',
+        'Other'
     ],
     required: true,
-  },
-  dietaryPreferenceCategory: {
-    type: String,
-    enum: [
-      'Vegetarian',
-      'Non-vegetarian',
-      'Vegan',
-      'Gluten-Free',
-      'Halal',
-      'Other'
-    ],
-    required: true,
-  },
-
+},
+  // dietaryPreferenceCategory: {
+  //       type: String,
+  //       enum: [
+  //           'Vegetarian',
+  //           'Non-vegetarian',
+  //           'Vegan',
+  //           'Gluten-Free',
+  //           'Halal',
+  //           'Other'
+  //       ],
+  //       required: true,
+  //   },
+  
   openingHours: {
     type: String,
-    required: true,
+    // required: true,
   },
   isFeatured: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
   createdBy: String,
   createdAt: {

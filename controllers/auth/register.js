@@ -4,7 +4,9 @@ const sendToken = require('../../utils/jwt');
 const ErrorHandler = require('../../utils/errorHandler');
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
-    const { name, lastName, email, password, phone } = req.body;
+    const { name, lastName, email, password, phone, role,
+        restaurantBranch,
+        restaurantId } = req.body;
 
     let BASE_URL = process.env.PORT;
     if (process.env.NODE_ENV === "production") {
@@ -31,11 +33,14 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
             email,
             password,
             phone,
+            role,
+            restaurantBranch,
+            restaurantId
         });
 
         sendToken(user, 201, res);
     } catch (error) {
         console.error(error);
-        next(new ErrorHandler('Internal Server Error', 500)); 
+        next(new ErrorHandler('Internal Server Error', 500));
     }
 });

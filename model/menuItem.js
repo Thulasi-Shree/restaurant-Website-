@@ -57,7 +57,11 @@ const menuSchema = new mongoose.Schema({
     },
     restaurantId: {
         type: String,
-        required: [true, "Please specify the restaurant"]
+        required: [true, "Please specify the restaurant Id"]
+    },
+    restaurantBranch: {
+        type: String,
+        required: [true, "Please specify the restaurant branch"]
     },
     isAvailable: {
         type: Boolean,
