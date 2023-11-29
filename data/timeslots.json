@@ -1,17 +1,57 @@
 [
   {
-    "_id": "654238ef94282382cd7da0a0",
-    "slot": "01:00 PM - 02:00 PM",
+    "slot": "08:00 AM - 09:00 AM",
+    "restaurantId": "1000010",
+    "restaurantName": "Branch-A",
     "__v": 0
   },
   {
-    "_id": "65423bc09e011ba5f185ea72",
-    "slot": "02:00 PM - 03:00 PM",
+    "slot": "09:00 AM - 10:00 AM",
+    "restaurantId": "1000010",
+    "restaurantName": "Branch-A",
     "__v": 0
   },
   {
-    "_id": "65423bd69e011ba5f185ea75",
-    "slot": "04:00 PM - 05:00 PM",
+ 
+    "slot": "Now",
+    "restaurantId": "1000010",
+    "restaurantName": "Branch-A",
+    "__v": 0
+  },
+  {
+    "slot": "Now",
+    "restaurantId": "1000011",
+    "restaurantName": "Branch-B",
+    "__v": 0
+  },
+  {
+    "slot": "Now",
+    "restaurantId": "1000012",
+    "restaurantName": "Branch-C",
+    "__v": 0
+  },
+  {
+    "slot": "08:00 AM - 09:00 AM",
+    "restaurantId": "1000011",
+    "restaurantName": "Branch-B",
+    "__v": 0
+  },
+  {
+    "slot": "09:00 AM - 10:00 AM",
+    "restaurantId": "1000011",
+    "restaurantName": "Branch-B",
+    "__v": 0
+  },
+  {
+    "slot": "08:00 AM - 09:00 AM",
+    "restaurantId": "1000010",
+    "restaurantName": "Branch-A",
+    "__v": 0
+  },
+  {
+    "slot": "09:00 AM - 10:00 AM",
+    "restaurantId": "1000010",
+    "restaurantName": "Branch-A",
     "__v": 0
   }
 ]

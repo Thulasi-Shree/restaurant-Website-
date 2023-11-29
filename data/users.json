@@ -1,112 +1,45 @@
 [
   {
-    "_id": "6532a0cee3b23fd42e40f483",
-    "name": "Thulasi",
+    "name": "Super Admin",
+    "lastName": "1",
     "email": "thulasi9941@gmail.com",
     "phone": "7358368263",
-    "password": "$2b$10$W6JU2UP97/unck4rmXwQOen4XXii.2l9Yhy.ZXwB2SWZTl3VVI4.2",
+    "password": "$2b$10$613J8jizrwYtXgPsCkW1puec7udUjpDa2TZAWlrIgE22i85uEJut6",
+    "role": "superAdmin",
+    "orderHistory": [],
+    "appliedPromotions": [],
+    "createdAt":  "2023-10-20T15:46:22.858Z"
+    ,
+    "__v": 0,
+    "loginOtp": "0a84e022f742f8094be6af17fb34b6b1fc1d4432a9d164ac9816fb6747aba295"
+  },
+  {
+    
+    "name": "User",
+    "lastName": "1",
+    "email": "testuser@gmail.com",
+    "phone": "9003017872",
+    "password": "$2b$10$uXSbFSM3XxJx/Ux0J4.Bl.YD.nEGg8hGscptRD/lnBzJ5Ork5jmJW",
     "role": "user",
     "orderHistory": [],
     "appliedPromotions": [],
-    "createdAt": "2023-10-20T15:46:22.858Z",
+    "createdAt":  "2023-11-23T06:11:09.466Z"
+    ,
     "__v": 0
   },
   {
-    "_id": "653536f2df16980a1c29fc45",
-    "name": "Thulasi",
-    "email": "thulasi@gmail.com",
-    "phone": "735836826",
-    "password": "$2b$10$ZQu9lwBj8Iyj1U7rFxKrdOefbMYr8ovDbFwtHReS03jK8URVCQdh6",
-    "role": "user",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-22T14:51:30.306Z",
-    "__v": 0
-  },
-  {
-    "_id": "6535384e8401ec0eaa9f35f2",
-    "name": "Admin1",
-    "email": "admin@gmail.com",
-    "phone": "9600188001",
-    "password": "$2b$10$ek/WcLZgTLuVvOQSUS1kkuqZi8WYV1IQFqrxgyP9ln2IyvdK92.im",
-    "role": "user",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-22T14:57:18.537Z",
-    "__v": 0
-  },
-  {
-    "_id": "653539eb6fbef03c3dfb7f8f",
-    "name": "user1",
-    "email": "user@gmail.com",
-    "phone": "9600186001",
-    "password": "$2b$10$u22elG7e3AtLHjLII3BHZ.W/axNyhfN1HxoxAqM88tdva446iAZ.q",
-    "role": "user",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-22T15:04:11.059Z",
-    "__v": 0
-  },
-  {
-    "_id": "65353cbfc7645239f1166397",
-    "name": "user3",
-    "email": "users3@gmail.com",
-    "phone": "9600666001",
-    "password": "$2b$10$tThb6a5fDGsgfLk9ndc4AOBj2j7n/vcSIgqHE2nfaR0bdIKhDgDSO",
-    "role": "user",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-22T15:16:15.682Z",
-    "__v": 0
-  },
-  {
-    "_id": "653b77f7b123525df60190b5",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "phone": "1234567890",
-    "password": "$2b$10$q.hcStgzJsRWpjARq1/jxul6thZ53MI3XhJpCRtmRBSZS5U2ZZzlC",
-    "role": "user",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-27T08:42:31.179Z",
-    "__v": 0
-  },
-  {
-    "_id": "653b7935ef714b7493e0ec58",
-    "name": "John Doe",
-    "email": "johndoe1@example.com",
-    "phone": "12345678390",
-    "password": "$2b$10$nWunMyddeYnK2YyxxU.N3.Epk.OqvCz9s3lKQi1DLD0/mMN1AdgJW",
-    "role": "user",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-27T08:47:49.312Z",
-    "__v": 0
-  },
-  {
-    "_id": "653b7a835aaf7dd38aaa0d95",
-    "name": "John Doe",
-    "email": "johndoe18@example.com",
-    "phone": "1234578390",
-    "password": "$2b$10$no2PM1DCxFDIzzh07ILEUu27M2xWWJJPBI.S7.aSO2zkvPZXlpP4S",
+    "name": "Test",
+    "lastName": "1",
+    "email": "test1@gmail.com",
+    "phone": "9346779780",
+    "password": "$2b$10$liH7uJGjAz9Lk5x/.O7BAu224/M2qZTetWCgWxdbHPks2CheStlcy",
     "role": "admin",
+    "restaurantBranch": "Branch-A",
+    "restaurantId": "1000010",
+    "orderHistory": [],
     "appliedPromotions": [],
-    "createdAt": "2023-10-27T08:53:23.484Z",
+    "createdAt": "2023-11-28T09:57:38.786Z"
+    ,
     "__v": 0
-  },
-  {
-    "_id": "653b9bb1123d9c766d62cb8d",
-    "name": "John Doe",
-    "email": "gettamilselvi@example.com",
-    "phone": "2849945675",
-    "role": "admin",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-27T11:14:57.151Z",
-    "__v": 0
-  },
-  {
-    "_id": "653b9c11123d9c766d62cb93",
-    "name": "John Doe",
-    "email": "gettamilselvi@gmail.com",
-    "phone": "28499458675",
-    "role": "admin",
-    "appliedPromotions": [],
-    "createdAt": "2023-10-27T11:16:33.208Z",
-    "__v": 0,
-    "resetPasswordToken": "e7c91079219bb367bd4df19c863bad87031dda8d9f950a3e3e5df1806477f86b"
   }
 ]

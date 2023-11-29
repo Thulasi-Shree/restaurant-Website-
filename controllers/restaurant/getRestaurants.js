@@ -2,6 +2,7 @@ const catchAsyncError = require('../../middlewares/catchAsyncError');
 const Restaurant = require('../../model/restaurant'); // Correct the import path if it's not 'user'
 const SuccessHandler = require('../../utils/successHandler');
 const ErrorHandler = require('../../utils/errorHandler');
+const mongoose = require('mongoose');
 
 const getRestaurant = catchAsyncError(async (req, res, next) => {
     try {
@@ -34,8 +35,35 @@ const getRestaurantById = catchAsyncError(async (req, res, next) => {
         next(new ErrorHandler(error.message || 'Internal Server Error', 500));
     }
 });
+const getRestaurantByRestaurantId = catchAsyncError(async (req, res, next) => {
+    try {
+        const restaurantId = req.query.id;
 
+        // Validate restaurantId
+        if (!restaurantId || isNaN(restaurantId)) {
+            throw new ErrorHandler('Invalid Restaurant ID provided in the request', 400);
+        }
+
+        // Find restaurant by ID
+        const restaurant = await Restaurant.findOne({ restaurantId });
+
+        // Handle restaurant not found
+        if (!restaurant) {
+            throw new ErrorHandler(`Restaurant not found with this id: ${restaurantId}`, 404);
+        }
+
+        // Respond with the restaurant data
+        res.status(200).json({
+            success: true,
+            restaurant
+        });
+    } catch (error) {
+        // Pass the error to the next middleware
+        next(error);
+    }
+});
 module.exports = {
     getRestaurant,
-    getRestaurantById
+    getRestaurantById,
+    getRestaurantByRestaurantId
   };

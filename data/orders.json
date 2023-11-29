@@ -1,145 +1,249 @@
 [
+
   {
-    "_id": "65393e2795a2d59ca3625b76",
-    "shippingInfo": "6538f24f1ab9f1ad3ff2e976",
-    "user": "653536f2df16980a1c29fc45",
-    "orderItems": [
+   
+    "shipping": {
+      "name": "Thulasi G",
+      "email": "thulasi9941@gmail.com",
+      "phone": 9087654321,
+      "address": {
+        "line1": "5678 street",
+        "city": "Cityville",
+        "state": "CA",
+        "country": "US"
+      }
+    },
+    "items": [
       {
-        "name": "Product Name",
-        "quantity": 2,
-        "image": "product_image_url.jpg",
-        "price": 10.99,
-        "product": "6533b3d54cbcd998c7f0c69b",
-        "_id": "65393e2795a2d59ca3625b77"
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 2
+      
+      },
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 1
+       
       }
     ],
-    "itemsPrice": 21.98,
-    "taxPrice": 2.2,
-    "shippingPrice": 5,
-    "totalPrice": 29.18,
-    "paymentInfo": {
-      "id": "payment_transaction_id",
-      "status": "Paid"
-    },
-    "paidAt": "2023-10-25T16:11:19.533Z",
-    "orderStatus": "Processing",
-    "createdAt": "2023-10-25T16:11:19.538Z",
-    "__v": 0,
-    "pickupTime": "6542452057dab025467ce239",
-    "restaurantId": "1000012"
-  },
-  {
-    "_id": "6539466fa484f8bda512f57f",
-    "shippingInfo": "6538f9eb9670aefbe6eeb872",
-    "user": "653536f2df16980a1c29fc45",
-    "orderItems": [
-      {
-        "name": "Product Name",
-        "quantity": 2,
-        "image": "product_image_url.jpg",
-        "price": 10.99,
-        "product": "6533b3d54cbcd998c7f0c69b",
-        "_id": "6539466fa484f8bda512f580"
-      }
-    ],
-    "itemsPrice": 21.98,
-    "taxPrice": 2.2,
-    "shippingPrice": 5,
-    "totalPrice": 29.18,
-    "paymentInfo": {
-      "id": "payment_transaction_id",
-      "status": "Paid"
-    },
-    "paidAt": "2023-10-25T16:46:39.779Z",
-    "orderStatus": "Processing",
-    "createdAt": "2023-10-25T16:46:39.786Z",
-    "__v": 0,
-    "pickupTime": "654238ef94282382cd7da0a0",
-    "restaurantId": "1000010"
-  },
-  {
-    "_id": "653946e55641ec03a4c0acf1",
-    "shippingInfo": "6538f9eb9670aefbe6eeb872",
-    "user": "653536f2df16980a1c29fc45",
-    "orderItems": [
-      {
-        "name": "Product Name",
-        "quantity": 2,
-        "image": "product_image_url.jpg",
-        "price": 10.99,
-        "product": "6533b3d54cbcd998c7f0c69b",
-        "_id": "653946e55641ec03a4c0acf2"
-      }
-    ],
-    "itemsPrice": 21.98,
-    "taxPrice": 2.2,
-    "shippingPrice": 5,
-    "totalPrice": 29.18,
-    "paymentInfo": {
-      "id": "payment_transaction_id",
-      "status": "Paid"
-    },
-    "paidAt": "2023-10-25T16:48:37.150Z",
-    "orderStatus": "Delivered",
-    "createdAt": "2023-10-25T16:48:37.160Z",
-    "__v": 0,
-    "pickupTime": "654238ef94282382cd7da0a0",
-    "restaurantId": "1000012"
-  },
-  {
-    "_id": "6543436c2f79daff1f34b21d",
-    "shippingInfo": "65394ac9a3096d94b0434a14",
-    "user": "6532a0cee3b23fd42e40f483",
-    "orderItems": [
-      {
-        "name": "Product Name",
-        "quantity": 2,
-        "image": "product_image_url.jpg",
-        "price": 10.99,
-        "product": "6533b3d54cbcd998c7f0c69b",
-        "_id": "6543436c2f79daff1f34b21e"
-      }
-    ],
-    "itemsPrice": 21.98,
-    "taxPrice": 2.2,
-    "shippingPrice": 5,
-    "totalPrice": 29.18,
-    "paymentInfo": {
-      "id": "payment_transaction_id",
-      "status": "Paid"
-    },
-    "paidAt": "2023-11-02T06:36:28.980Z",
-    "pickup": true,
-    "orderStatus": "Processing",
-    "createdAt": "2023-11-02T06:36:28.982Z",
+    "taxPrice": 1.4,
+    "shippingPrice": 10,
+    "totalPrice": 39.4,
+    "paidAt": "2023-11-29T08:57:04.948Z"
+    ,
+    "pickup": "Pickup",
+    "orderStatus": "Order Placed",
+    "restaurantId": "1000012",
+    "restaurantBranch": "Branch-C",
+    "createdAt": "2023-11-29T08:57:04.961Z"
+    ,
     "__v": 0
   },
   {
-    "_id": "6543437c2f79daff1f34b222",
-    "shippingInfo": "65394ac9a3096d94b0434a14",
-    "user": "6532a0cee3b23fd42e40f483",
-    "orderItems": [
+    "shipping": {
+      "name": "Thulasi G",
+      "email": "thulasi9941@gmail.com",
+      "phone": 9087654321,
+      "address": {
+        "line1": "5678 street",
+        "city": "Cityville",
+        "state": "CA",
+        "country": "US"
+      }
+    },
+    "items": [
       {
-        "name": "Product Name",
-        "quantity": 2,
-        "image": "product_image_url.jpg",
-        "price": 10.99,
-        "product": "6533b3d54cbcd998c7f0c69b",
-        "_id": "6543437c2f79daff1f34b223"
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 2
+      
+      },
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 1
+      
       }
     ],
-    "itemsPrice": 21.98,
-    "taxPrice": 2.2,
-    "shippingPrice": 5,
-    "totalPrice": 29.18,
-    "paymentInfo": {
-      "id": "payment_transaction_id",
-      "status": "Paid"
+    "taxPrice": 1.4,
+    "shippingPrice": 10,
+    "totalPrice": 39.4,
+    "paidAt":"2023-11-29T08:57:04.948Z"
+    ,
+    "pickup": "Pickup",
+    "orderStatus": "Delivered",
+    "restaurantId": "1000012",
+    "restaurantBranch": "Branch-C",
+    "createdAt": "2023-11-29T08:57:04.961Z"
+    ,
+    "__v": 0
+  },
+  {
+    "shipping": {
+      "name": "Thulasi G",
+      "email": "thulasi9941@gmail.com",
+      "phone": 9087654321,
+      "address": {
+        "line1": "5678 street",
+        "city": "Cityville",
+        "state": "CA",
+        "country": "US"
+      }
     },
-    "paidAt": "2023-11-02T06:36:44.303Z",
-    "pickup": true,
-    "orderStatus": "Processing",
-    "createdAt": "2023-11-02T06:36:44.304Z",
+    "items": [
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 2
+     
+      },
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 1
+        
+      }
+    ],
+    "taxPrice": 1.4,
+    "shippingPrice": 10,
+    "totalPrice": 39.4,
+    "paidAt": "2023-11-29T08:57:04.948Z"
+    ,
+    "pickup": "Pickup",
+    "orderStatus": "Order Placed",
+    "restaurantId": "1000010",
+    "restaurantBranch": "Branch-A",
+    "createdAt":  "2023-11-29T08:57:04.961Z"
+    ,
+    "__v": 0
+  },
+  {
+    "shipping": {
+      "name": "Thulasi G",
+      "email": "thulasi9941@gmail.com",
+      "phone": 9087654321,
+      "address": {
+        "line1": "5678 street",
+        "city": "Cityville",
+        "state": "CA",
+        "country": "US"
+      }
+    },
+    "items": [
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 2
+      
+      },
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 1
+       
+      }
+    ],
+    "taxPrice": 1.4,
+    "shippingPrice": 10,
+    "totalPrice": 39.4,
+    "paidAt": "2023-11-29T08:57:04.948Z"
+    ,
+    "pickup": "Pickup",
+    "orderStatus": "Delivered",
+    "restaurantId": "1000010",
+    "restaurantBranch": "Branch-A",
+    "createdAt":  "2023-11-29T08:57:04.961Z"
+    ,
+    "__v": 0
+  },
+  {
+    "shipping": {
+      "name": "Thulasi G",
+      "email": "thulasi9941@gmail.com",
+      "phone": 9087654321,
+      "address": {
+        "line1": "5678 street",
+        "city": "Cityville",
+        "state": "CA",
+        "country": "US"
+      }
+    },
+    "items": [
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 2
+       
+      },
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 1       
+      }
+    ],
+    "taxPrice": 1.4,
+    "shippingPrice": 10,
+    "totalPrice": 39.4,
+    "paidAt":  "2023-11-29T08:57:04.948Z"
+    ,
+    "pickup": "Pickup",
+    "orderStatus": "Order Placed",
+    "restaurantId": "1000011",
+    "restaurantBranch": "Branch-B",
+    "createdAt": "2023-11-29T08:57:04.961Z"
+    ,
+    "__v": 0
+  },
+  {
+    "shipping": {
+      "name": "Thulasi G",
+      "email": "thulasi9941@gmail.com",
+      "phone": 9087654321,
+      "address": {
+        "line1": "5678 street",
+        "city": "Cityville",
+        "state": "CA",
+        "country": "US"
+      }
+    },
+    "items": [
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 2
+      
+      },
+      {
+        "name": "Pizza",
+        "image": "https://via.placeholder.com/20",
+        "price": 14,
+        "itemQuantity": 1
+       
+      }
+    ],
+    "taxPrice": 1.4,
+    "shippingPrice": 10,
+    "totalPrice": 39.4,
+    "paidAt":  "2023-11-29T08:57:04.948Z"
+    ,
+    "pickup": "Pickup",
+    "orderStatus": "Delivered",
+    "restaurantId": "1000010",
+    "restaurantBranch": "Branch-B",
+    "createdAt":  "2023-11-29T08:57:04.961Z"
+    ,
     "__v": 0
   }
 ]

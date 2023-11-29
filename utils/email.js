@@ -55,9 +55,10 @@ const sendOrderConfirmationEmail = (email, order) => {
     <p>Name: ${order.shipping.name}</p>
     <p>Email: ${order.shipping.email}</p>
     <p>Phone: ${order.shipping.phone}</p>
-    <p>Address: ${order.shipping.address.line1}, ${order.shipping.address.line1}, ${order.shipping.address.city}- ${order.shipping.address.postal_code || 99765}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
+    <p>Restaurant: ${order.restaurantBranch}</p>
+    <p>Address:${order.shipping.address.line1}, ${order.shipping.address.city}- ${order.shipping.address.postalCode || 99765}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
     <p>
-        ${order.items.map(item => `<li>${item.name} - ${item.quantity} x $${item.price}</li>`).join('')}
+        ${order.items.map(item => `<li>${item.name} - ${item.itemQuantity} x $${item.price}</li>`).join('')}
     </p>
     <p>Tax Price: $${order.taxPrice}</p>
     <p>Shipping Price: $${order.shippingPrice}</p>
@@ -65,7 +66,6 @@ const sendOrderConfirmationEmail = (email, order) => {
     <p>Payment: Paid </p>
     <p>Order Status: ${order.orderStatus}</p>
     <p>Order Placed at: ${order.createdAt}</p>
-    <p>Order status changed at: ${Date.now()}</p>
     <p>Thank you for ordering with us!</p>
 `;
     if (!email || typeof email !== 'string' || !email.trim()) {
@@ -108,7 +108,7 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         <p>Phone: ${order.shipping.phone || '-'}</p>
         <p>Address: ${order.shipping.address.line1}, ${order.shipping.address.line1}, ${order.shipping.address.city}, ${order.shipping.address.postal_code || ''}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
         <p>
-            ${order.items.map(item => `<li>${item.name} - ${item.quantity} x $${item.price}</li>`).join('')}
+            ${order.items.map(item => `<li>${item.name} - ${item.itemQuantity} x $${item.price}</li>`).join('')}
         </p>
         <p>Tax Price: $${order.taxPrice}</p>
         <p>Shipping Price: $${order.shippingPrice}</p>
@@ -116,6 +116,7 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         <p>Payment: Paid </p>
         <p>Order Status: ${order.orderStatus}</p>
         <p>Order Placed at: ${order.createdAt}</p>
+        <p>Order status changed at: ${Date.now()}</p>
         <p>Thank you for ordering with us!</p>
     `;
 

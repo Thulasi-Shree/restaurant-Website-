@@ -62,7 +62,7 @@ router.route('/admin/orders/active').get( ordersActive);//isAuthenticatedUser, a
 // Update Order Status by ID: PATCH /api/admin/order/:id (Admin role required)
 router.route('/admin/order/:id').put(isAuthenticatedUser, authorizeRoles('admin'), updateOrderStatus);
 
-// Delete Order by ID: DELETE /api/admin/order/:id (Admin role required)
+// Delete Order by ID: DELETE /api/admin/order/:id (Admin role required)  
 router.route('/admin/order/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteOrder);
 
 // Add Available Pickup Time Slots: POST /api/time-slot (Admin role required)

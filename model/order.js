@@ -109,7 +109,7 @@ const orderSchema = mongoose.Schema({
     deliveryInstruction:{
         type: String,
     },
-    restaurantName: {
+    restaurantBranch: {
         type: String,
     },
     createdAt: {
