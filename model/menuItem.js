@@ -34,25 +34,25 @@ const menuSchema = new mongoose.Schema({
     ],
     mealTypeCategory: {
         type: String,
-        enum: [
-            'Appetizers',
-            'Main Course',
-            'Desserts',
-            'Beverages',
-            'Other'
-        ],
+        // enum: [
+        //     'Appetizers',
+        //     'Main Course',
+        //     'Desserts',
+        //     'Beverages',
+        //     'Other'
+        // ],
         required: true,
     },
     dietaryPreferenceCategory: {
         type: String,
-        enum: [
-            'Vegetarian',
-            'Non-vegetarian',
-            'Vegan',
-            'Gluten-Free',
-            'Halal',   
-            'Other'
-        ],
+        // enum: [
+        //     'Vegetarian', 
+        //     'Non-vegetarian',
+        //     'Vegan',
+        //     'Gluten-Free',
+        //     'Halal',   
+        //     'Other'
+        // ],
         required: true,
     },
     restaurantId: {

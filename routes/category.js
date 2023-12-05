@@ -1,22 +1,18 @@
+
 const express = require('express');
 const router = express.Router();
+const mealTypeCategoryController = require('../controllers/category/category');
+const dietaryPreferenceCategoryController = require('../controllers/category/category');
 
-const categoryController = require('../controllers/category/category');
+// MealTypeCategory routes
+router.get('/meal-types', mealTypeCategoryController.getAllMealTypes);
+router.post('/meal-types', mealTypeCategoryController.createMealType);
+router.delete('/meal-types/:id', mealTypeCategoryController.deleteMealType);
 
-// Create a New Category: POST /api/category/new
-router.post('/category/new', categoryController.createCategory);
-
-// Get All Categories: GET /api/categorys
-router.get('/categorys', categoryController.getAllCategories);
-
-// Get Category by ID: GET /api/category/:id
-router.get('/category/:id', categoryController.getCategoryById);
-
-// Update Category by ID: PUT /api/category/:id
-router.put('/category/:id', categoryController.updateCategory);
-
-// Delete Category by ID: DELETE /api/category/:id
-router.delete('/category/:id', categoryController.deleteCategory);
-
+// DietaryPreferenceCategory routes
+router.get('/dietary-preferences', dietaryPreferenceCategoryController.getAllDietaryPreferences);
+router.post('/dietary-preferences', dietaryPreferenceCategoryController.createDietaryPreference);
+router.delete('/dietary-preferences/:id', dietaryPreferenceCategoryController.deleteDietaryPreference);
 
 module.exports = router;
+

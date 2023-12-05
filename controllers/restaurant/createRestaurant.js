@@ -36,17 +36,16 @@ const SuccessHandler = require('../../utils/successHandler');
 
 const createRestaurant = catchAsyncError(async (req, res, next) => {
     try {
-        const { restaurantName, pincode, point, images, restaurantId, description, restaurantBranch, openingHours, cuisineTypeCategory, dietaryPreferenceCategory } = req.body;
+        const { restaurantName, address, images, restaurantId, description, restaurantBranch, openingHours, cuisineTypeCategory, dietaryPreferenceCategory } = req.body;
         const userId = req.user.id;
 
         // Create a new restaurant object
         const newRestaurant = await Restaurant.create({
             restaurantName,
-            pincode,
             restaurantBranch,
             restaurantId,
             images,
-            point,
+            address,
             description,
             openingHours,
             createdBy: userId,

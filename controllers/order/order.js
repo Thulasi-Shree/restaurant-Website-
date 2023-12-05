@@ -8,10 +8,12 @@ const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../.
 exports.newOrder = async (req, res, next) => {
     try {
         const restaurantId = req.body.restaurantId ? req.body.restaurantId.toString() : null;
+        // const userId = req.body.userId ? req.body.userId.toString() : null;
         const restaurantBranch = req.body.restaurantBranch ? req.body.restaurantBranch.toString() : null;
         const {
             shipping,
             email,
+            userId,
             phone,
             items,
             itemsPrice,
@@ -19,8 +21,7 @@ exports.newOrder = async (req, res, next) => {
             shippingPrice,
             totalPrice,
             paymentInfo,
-            pickup,
-            user
+            pickup
         } = req.body;
 
         const order = await Order.create({
@@ -37,7 +38,7 @@ exports.newOrder = async (req, res, next) => {
             restaurantId, 
             restaurantBranch,    
             paidAt: Date.now(),
-            user
+            userId
         });
         // await order.populate('user', 'name email phone');
 
@@ -85,15 +86,38 @@ exports.getSingleOrder = catchAsyncError(async (req, res, next) => {
     }
 });
 
+// exports.myOrders = catchAsyncError(async (req, res, next) => {
+//     try {
+//         const orders = await Order.find({ user: req.body.user });
+//         res.status(200).json({
+//             success: true,
+//             orders
+//         });
+//     } catch (error) {
+//         next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+//     }
+// });
 exports.myOrders = catchAsyncError(async (req, res, next) => {
     try {
-        const orders = await Order.find({ user: req.user.id });
+        const userId = req.query.userId;
+
+        if (!userId) {
+            throw new ErrorHandler('Invalid user ID provided in the request', 400);
+        }
+
+        const order = await Order.find({ userId });
+
+        if (!order) {
+            throw new ErrorHandler(`Order not found`, 404);
+        }
+
         res.status(200).json({
             success: true,
-            orders
+            order
         });
     } catch (error) {
-        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+        // Pass the error to the next middleware
+        next(error);
     }
 });
 

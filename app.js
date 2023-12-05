@@ -40,8 +40,11 @@ const userActivity = require('./routes/userActivity')
 const order = require('./routes/order')
 const transaction = require('./routes/transaction')
 const location = require('./routes/location')
+const carousal = require('./routes/carousal')
+const category = require('./routes/category')
 
 
+app.use('/api',category);
 app.use('/api',auth);
 app.use('/api',admin);
 app.use('/api',menu);
@@ -55,6 +58,7 @@ app.use('/api', userActivity);
 app.use('/api', order);
 app.use('/api', transaction);
 app.use('/api', location);
+app.use('/api', carousal);
 
 app.use(helmet()); 
 

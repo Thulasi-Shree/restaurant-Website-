@@ -37,11 +37,11 @@ const orderSchema = mongoose.Schema({
     itemsPrice: {
         type: Number,
     },
-    // user: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     required: true,
-    //     ref: 'User'
-    // },
+    userId: {
+        type: String,
+        // required: true,
+        // ref: 'User'
+    },
     
     taxPrice: {
         type: Number,

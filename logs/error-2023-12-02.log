@@ -1,0 +1,8 @@
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-02T07:46:48.026Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-02T07:46:48.408Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-02T07:46:48.409Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-02T07:46:48.413Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-02T07:47:06.844Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-02T07:47:06.846Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-02T07:47:42.633Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-02T07:47:42.637Z"}

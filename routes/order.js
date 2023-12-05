@@ -36,6 +36,7 @@ router.route('/order/new').post( newOrder);
 router.route('/order/:id').get(isAuthenticatedUser, getSingleOrder);
 
 // Get User's Orders: GET /api/myorders
+// router.route('/myorders').get(isAuthenticatedUser, myOrders);
 router.route('/myorders').get(isAuthenticatedUser, myOrders);
 
 // Get Pickup Time Slots: GET /api/pickup-time-slots

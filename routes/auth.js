@@ -16,7 +16,7 @@ router.post('/register', registerController.registerUser);
 router.post('/login', loginController.loginUser);
 
 // Send OTP in Mail for Login: POST /api/login/otp
-router.post('/login/otp', loginOtpController.sendUserOtp);
+router.post('/login/otp', loginOtpController.sendUserOtp); 
 
 // User Logout: POST /api/logout
 router.post('/logout', logoutController.logoutUser);

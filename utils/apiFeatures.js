@@ -28,6 +28,9 @@ class APIFeatures {
         if (this.queryStr.restaurantId) {
             this.query.where('restaurantId').equals(this.queryStr.restaurantId);
           }
+          if (this.queryStr.userId) {
+            this.query.where('userId').equals(this.queryStr.userId);
+          }
         return this;
     }
 
@@ -47,7 +50,7 @@ class APIFeatures {
     }
 
     paginate(resPerPage){
-        const currentPage = Number(this.queryStr.page) || 1;
+        const currentPage = Number(this.queryStr.page) || 5;
         const skip = resPerPage * (currentPage - 1)
         this.query.limit(resPerPage).skip(skip);
         return this;

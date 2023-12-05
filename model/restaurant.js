@@ -6,15 +6,48 @@ const restaurantSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  restaurantBranch:{
+  restaurantBranch: {
     type: String,
     required: true,
     trim: true,
   },
-  pincode:{
-    type: Number,
-    required: true,
-    unique: true,
+  address: {
+    line1: {
+      type: String,
+      default: null,
+    },
+    line2: {
+      type: String,
+      default: null,
+    },
+
+    city: {
+      type: String,
+      required: true,
+    },
+
+    state: {
+      type: String,
+      required: true,
+    },
+
+    postalCode: {
+      type: String,
+      required: true,
+    },
+
+    country: {
+      type: String,
+      required: true,
+    },
+    latitude: {
+      type: Number,
+      default: null,
+    },
+    longitude: {
+      type: Number,
+      default: null,
+    },
   },
   restaurantId: {
     type: Number,
@@ -22,10 +55,6 @@ const restaurantSchema = new mongoose.Schema({
     unique: true,
   },
   description: {
-    type: String,
-    required: true,
-  }, 
-  point: {
     type: String,
     required: true,
   },
@@ -41,20 +70,20 @@ const restaurantSchema = new mongoose.Schema({
   //   type: String,
   //   required: true,
   // },
-//   location: {
-//     type: {
-//         type: String,
-//         default: 'Point',
-//     },
-//     coordinates: {
-//         type: [Number], // Array of [longitude, latitude]
-//         index: '2dsphere',
-//     },
-// },
-//   reviews: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'Review',
-// },
+  //   location: {
+  //     type: {
+  //         type: String,
+  //         default: 'Point',
+  //     },
+  //     coordinates: {
+  //         type: [Number], // Array of [longitude, latitude]
+  //         index: '2dsphere',
+  //     },
+  // },
+  //   reviews: {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: 'Review',
+  // },
   numOfReviews: {
     type: Number,
     default: 0
@@ -69,15 +98,15 @@ const restaurantSchema = new mongoose.Schema({
   cuisineTypeCategory: {
     type: String,
     enum: [
-        'Italian',
-        'Asian',
-        'Chinese',
-        'Indian',
-        'Mexican',
-        'Other'
+      'Italian',
+      'Asian',
+      'Chinese',
+      'Indian',
+      'Mexican',
+      'Other'
     ],
     required: true,
-},
+  },
   // dietaryPreferenceCategory: {
   //       type: String,
   //       enum: [
@@ -90,7 +119,7 @@ const restaurantSchema = new mongoose.Schema({
   //       ],
   //       required: true,
   //   },
-  
+
   openingHours: {
     type: String,
     // required: true,
