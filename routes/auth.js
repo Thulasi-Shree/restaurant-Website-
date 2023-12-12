@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const registerController = require('../controllers/auth/register');
+const {confirmRegistration} = require('../controllers/auth/confirmRegistration')
 const loginController = require('../controllers/auth/login');
 const loginOtpController = require('../controllers/auth/login');
 const logoutController = require('../controllers/auth/logout');
@@ -11,6 +12,7 @@ const { isAuthenticatedUser } = require('../middlewares/authenticate');
 
 // User Registration: POST /api/register
 router.post('/register', registerController.registerUser);
+router.post('/verify-email/:token', confirmRegistration);
 
 // User Login with Credentials: POST /api/login
 router.post('/login', loginController.loginUser);

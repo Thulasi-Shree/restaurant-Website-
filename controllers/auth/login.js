@@ -36,6 +36,9 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
         } else {
             throw new ErrorHandler('Please provide OTP or password', 400);
         }
+        if (!user.emailVerificationStatus) {
+            throw new ErrorHandler('Email is not verified', 401);
+        }
 
         sendToken(user, 201, res);
     } catch (error) {

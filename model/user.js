@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const autopopulate = require('mongoose-autopopulate');
+const uniqueValidator = require('mongoose-unique-validator');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -69,13 +70,30 @@ const userSchema = new mongoose.Schema({
     resetPasswordToken: String,
 
     resetPasswordTokenExpire: Date,
+    emailVerificationToken: String,
+    emailVerificationSentAt: Date,
+    emailVerificationStatus: { type: Boolean, default: false },
 
     createdAt: {
         type: Date,
         default: Date.now,
     },
 });
+userSchema.methods.generateEmailVerificationToken = function () {
+    // Generate a random token using crypto module
+    const token = crypto.randomBytes(32).toString('hex');
 
+    // Save the generated token to the user's emailVerificationToken field
+    this.emailVerificationToken = token;
+
+    // Save the current timestamp when the verification email is sent
+    this.emailVerificationSentAt = new Date();
+
+    // Return the generated token
+    return token;
+};
+// Apply the uniqueValidator plugin to enforce unique constraints
+userSchema.plugin(uniqueValidator);
 
 userSchema.plugin(autopopulate);
 

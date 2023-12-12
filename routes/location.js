@@ -1,5 +1,6 @@
 const express = require('express');
 const locationController = require('../controllers/location/location');
+const geoLocationController = require('../controllers/location/geoLocation')
 
 const router = express.Router();
 
@@ -15,5 +16,8 @@ router.post('/user-location', locationController.saveUserLocation);
 // Get Nearby Restaurants by Latitude and Longitude: GET /api/restaurants/:latitude/:longitude
 router.get('/restaurants/:latitude/:longitude', locationController.getNearbyRestaurants);
 
+router.post('/calculate-distance', geoLocationController.calculateDistance);
+router.get('/user-location', geoLocationController.userLocation); 
+router.post('/geocode', geoLocationController.geoCoading); 
 
 module.exports = router;

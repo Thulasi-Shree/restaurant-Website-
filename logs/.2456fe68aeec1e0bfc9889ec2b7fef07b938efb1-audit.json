@@ -6,41 +6,6 @@
     "auditLog": "logs\\.2456fe68aeec1e0bfc9889ec2b7fef07b938efb1-audit.json",
     "files": [
         {
-            "date": 1700544301363,
-            "name": "logs\\error-2023-11-21.log",
-            "hash": "b11081f4d5ff8a790452f7e5ba16187d3707bcdc6428d3c96fd081ee52975e14"
-        },
-        {
-            "date": 1700622617756,
-            "name": "logs\\error-2023-11-22.log",
-            "hash": "bf891c1fd626aa42b2d5e0eeb221deef69954c3bf277e3d0dc012da6ec7bf77e"
-        },
-        {
-            "date": 1700710928991,
-            "name": "logs\\error-2023-11-23.log",
-            "hash": "3d7823b4c16cfb96f76b8e734d3116f47977a6296edfd4fac422d57585a5daa2"
-        },
-        {
-            "date": 1700797331594,
-            "name": "logs\\error-2023-11-24.log",
-            "hash": "f4598d9b148a6ed2592e5fa87989d5a50520c51f9a213bb19ccc927622b29c6b"
-        },
-        {
-            "date": 1701011505831,
-            "name": "logs\\error-2023-11-26.log",
-            "hash": "aaa1fa236ef53cc5c6947cc7d823a54092bb3e51044b2ce681f43590b7625da5"
-        },
-        {
-            "date": 1701055958093,
-            "name": "logs\\error-2023-11-27.log",
-            "hash": "6f7ff2362b99deff66db669b7194d895581e5f563a309bbf40b145f0cb4879ab"
-        },
-        {
-            "date": 1701141980802,
-            "name": "logs\\error-2023-11-28.log",
-            "hash": "b50a7e576891469ef50610191e83356882e2995b51261b455b24ed4448d27eef"
-        },
-        {
             "date": 1701233317170,
             "name": "logs\\error-2023-11-29.log",
             "hash": "dd877c87fd706f534555f28a2fe40c85f03bc0f7737f0d66abc74526f09b3d4b"
@@ -74,6 +39,41 @@
             "date": 1701752048738,
             "name": "logs\\error-2023-12-05.log",
             "hash": "c0c417b35bddbb47b17f54cc2bde73321f0ba5934055ab31ef54836df40275f9"
+        },
+        {
+            "date": 1701843816468,
+            "name": "logs\\error-2023-12-06.log",
+            "hash": "646b1fb22499559beaae95341555f12920cfa3c2cef430ab9a88b235ba1bc551"
+        },
+        {
+            "date": 1701892153955,
+            "name": "logs\\error-2023-12-07.log",
+            "hash": "f0b38a1d3e45a010f70504e6f0ed414cb9175ce6d1c902ec60f2b2964fc1b32b"
+        },
+        {
+            "date": 1702020487280,
+            "name": "logs\\error-2023-12-08.log",
+            "hash": "4a0f9cc08381099f9712a2f1c3333ad06f4e744bb10bd8d3e0531cac6a20b36c"
+        },
+        {
+            "date": 1702062875593,
+            "name": "logs\\error-2023-12-09.log",
+            "hash": "62bb323db80cbc03e78f4271cc24d22bfe705983fffc870cec0678df5288a8d9"
+        },
+        {
+            "date": 1702148034608,
+            "name": "logs\\error-2023-12-10.log",
+            "hash": "93a0c3626a321575c99c9ec5ddb5776429c973ec8cab5d0119f463db851846bc"
+        },
+        {
+            "date": 1702270006109,
+            "name": "logs\\error-2023-12-11.log",
+            "hash": "3b3b1b8f6a79ce447c20cea8b7de159c03e435fe9512b3ca51bfa319c807be7f"
+        },
+        {
+            "date": 1702355593628,
+            "name": "logs\\error-2023-12-12.log",
+            "hash": "5fab3e74666bc25e03c723c3638fc931ec92bbec2da56a675fa445c068ff071d"
         }
     ],
     "hashType": "sha256"

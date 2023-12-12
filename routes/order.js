@@ -61,7 +61,7 @@ router.route('/admin/orders').get( orders);//isAuthenticatedUser, authorizeRoles
 router.route('/admin/orders/active').get( ordersActive);//isAuthenticatedUser, authorizeRoles('admin'),
 
 // Update Order Status by ID: PATCH /api/admin/order/:id (Admin role required)
-router.route('/admin/order/:id').put(isAuthenticatedUser, authorizeRoles('admin'), updateOrderStatus);
+router.route('/admin/order/:id').put(isAuthenticatedUser,  updateOrderStatus); //authorizeRoles('admin'),
 
 // Delete Order by ID: DELETE /api/admin/order/:id (Admin role required)  
 router.route('/admin/order/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteOrder);

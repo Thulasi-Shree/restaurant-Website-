@@ -1,0 +1,8 @@
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-06T06:23:36.467Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-06T06:23:36.484Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-06T09:44:50.282Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-06T09:44:50.283Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\address\\createAddress.js:81:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-06T09:44:50.284Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-06T09:58:58.116Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-06T09:58:58.117Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\address\\createAddress.js:81:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-06T09:58:58.118Z"}
