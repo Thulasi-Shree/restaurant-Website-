@@ -2,8 +2,7 @@ const ErrorHandler = require('../../utils/errorHandler');
 
 exports.logoutUser = (req, res, next) => {
     try {
-        res.cookie('token', null, {
-            expires: new Date(Date.now()),
+        res.clearCookie('token', {
             httpOnly: true
         })
         .status(200)

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const orderSchema = mongoose.Schema({
     shipping: {
         name: String,
-        email:String,
+        email: String,
         phone: Number,
         address: {
             line1: String,
@@ -13,7 +13,7 @@ const orderSchema = mongoose.Schema({
             postalCode: String,
             country: String
         },
-       
+
     },
     items: [{
         name: {
@@ -42,7 +42,7 @@ const orderSchema = mongoose.Schema({
         // required: true,
         // ref: 'User'
     },
-    
+
     taxPrice: {
         type: Number,
         required: true,
@@ -65,12 +65,12 @@ const orderSchema = mongoose.Schema({
         type: String
     },
     paymentInfo: {
-        id: {
-            type: String,
-        },
-        status: {
-            type: String,
-        }
+
+        type: String
+    },
+    paymentStatus: {
+        type: String
+
     },
     paidAt: {
         type: Date
@@ -78,23 +78,34 @@ const orderSchema = mongoose.Schema({
     deliveredAt: {
         type: Date
     },
-    pickup: {
+    orderType: {
         type: String,
         required: true,
-        default: 'delivery'
+        // default: 'delivery'
     },
-    pickupTime: {
-        type: String
+    orderDate: {
+        type: String,
+        required: true
     },
-    selectedTimeSlot:{
-        type: String
+    reminderSent: {
+        type: Boolean,
+        default: false,
     },
-    availableTimeSlots: {
-        type: String
+    // pickupTime: {
+    //     type: String
+    // },
+    selectedTimeSlot: {
+        type: String,
+        required: true,
     },
-    orderDeliveryTime: {
-        type: String
-    },
+    // availableTimeSlots: {
+    //     type: String,
+    //     required: true,
+    // },
+    // selectedDate: {
+    //     type: String,
+    //     required: true,
+    // },
     orderStatus: {
         type: String,
         required: true,
@@ -106,7 +117,7 @@ const orderSchema = mongoose.Schema({
     orderNotes: {
         type: String,
     },
-    deliveryInstruction:{
+    deliveryInstruction: {
         type: String,
     },
     restaurantBranch: {

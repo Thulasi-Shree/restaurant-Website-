@@ -1,21 +1,22 @@
-const socketIO = require('socket.io');
+// const WebSocket = require('ws');
+// const server = new WebSocket.Server({ port: 5000 });
 
-function initializeWebSocket(server) {
-  const io = socketIO(server);
+// server.on('connection', (socket) => {
+//     console.log('Client connected');
 
-  io.on('connection', (socket) => {
-    console.log('Client connected');
+//     // Handle messages from clients
+//     socket.on('message', (message) => {
+//         console.log(`Received message: ${message}`);
+//         // socket.send(`Server received your message: ${message}`);
+//         const parsedMessage = JSON.parse(message);
+//         socket.send(JSON.stringify({ type: 'response', originalMessage: parsedMessage }));
+//         // You can handle different types of messages here
+//     });
 
-    socket.on('message', (message) => {
-      console.log('Received message:', message);
-    });
+//     // Handle disconnection
+//     socket.on('close', () => {
+//         console.log('Client disconnected');
+//     });
+// });
 
-    socket.on('disconnect', () => {
-      console.log('Client disconnected');
-    });
-  });
-
-  return io;
-}
-
-module.exports = initializeWebSocket;
+// console.log('WebSocket server is running on port 5000');

@@ -5,6 +5,7 @@ const {
     myOrders,
     orders,
     ordersActive,
+    ordersActivePickup,
     updateOrderStatus,
     deleteOrder,
     storeChosenPickupTime,
@@ -21,9 +22,9 @@ const {
 
 const {
     getActiveOrdersByBranch,
-    getNonActiveOrdersByBranch
+    getNonActiveOrdersByBranch,
 } = require('../controllers/order/orderHistory')
-
+const getScheduledNotification = require('../controllers/order/scheduleReminder')
 const router = express.Router();
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/authenticate');
 
@@ -57,10 +58,10 @@ router.route('/timeSlots').post( getAllTimeSlotsById);
 // Get All Order history for Admin: GET /api/admin/orders (Admin role required)
 router.route('/admin/orders').get( orders);//isAuthenticatedUser, authorizeRoles('admin'),
 
-// Get All Orders for Admin: GET /api/admin/orders (Admin role required)
+// Get All Orders for Admin: GET /api/admin/orders (Admin role required) ordersActivePickup
 router.route('/admin/orders/active').get( ordersActive);//isAuthenticatedUser, authorizeRoles('admin'),
-
-// Update Order Status by ID: PATCH /api/admin/order/:id (Admin role required)
+router.route('/admin/orders/activeDelivery').get( ordersActivePickup);
+// Update Order Status by ID: PUT /api/admin/order/:id (Admin role required)
 router.route('/admin/order/:id').put(isAuthenticatedUser,  updateOrderStatus); //authorizeRoles('admin'),
 
 // Delete Order by ID: DELETE /api/admin/order/:id (Admin role required)  
@@ -76,10 +77,12 @@ router.route('/time-slot').put(isAuthenticatedUser, authorizeRoles('admin'), upd
 router.route('/time-slot/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteTimeSlotById);
 
 // Get Active Orders by Restaurant ID: GET /api/admin/orderHistory-active/:restaurantId (Admin role required)
-router.route('/admin/orderHistory-active').post(isAuthenticatedUser, getActiveOrdersByBranch);
+router.route('/admin/order/active').get(isAuthenticatedUser, getActiveOrdersByBranch);
 
 // Get Non-Active Orders by Restaurant ID: GET /api/admin/orderHistory-nonActive/:restaurantId (Admin role required)
 router.route('/admin/orderHistory-nonActive').post(isAuthenticatedUser, getNonActiveOrdersByBranch);
 
+router.route('/admin/notification').get(isAuthenticatedUser, getScheduledNotification);
 
-module.exports = router;
+
+module.exports = router; 

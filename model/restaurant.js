@@ -34,7 +34,8 @@ const restaurantSchema = new mongoose.Schema({
     postalCode: {
       type: String,
       required: true,
-    },
+      unique: true
+    },  
 
     country: {
       type: String,
@@ -57,6 +58,10 @@ const restaurantSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
+  },
+  pincode: {
+    type: String,
+    default: () => Math.floor(1000000000000 + Math.random() * 9000000000000).toString(),
   },
   // images: [
   //   {

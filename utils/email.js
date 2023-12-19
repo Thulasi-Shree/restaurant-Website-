@@ -64,7 +64,10 @@ const sendOrderConfirmationEmail = (email, order) => {
     <p>Shipping Price: $${order.shippingPrice}</p>
     <p>Total Price: $${order.totalPrice}</p>
     <p>Payment: Paid </p>
+    <p>Payment ID: ${order.paymentInfo}</p>
     <p>Order Status: ${order.orderStatus}</p>
+    <p>Order Type: ${order.orderType}</p>
+    <p>Pickup/Delivery Date & Time: ${order.selectedTimeSlot}</p>
     <p>Order Placed at: ${order.createdAt}</p>
     <p>Thank you for ordering with us!</p>
 `;
@@ -115,6 +118,8 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         <p>Total Price: $${order.totalPrice}</p>
         <p>Payment: Paid </p>
         <p>Order Status: ${order.orderStatus}</p>
+        <p>Order Type: ${order.orderType}</p>
+        <p>Pickup/Delivery Date & Time: ${order.selectedTimeSlot}</p>
         <p>Order Placed at: ${order.createdAt}</p>
         <p>Order status changed at: ${Date.now()}</p>
         <p>Thank you for ordering with us!</p>
@@ -181,11 +186,47 @@ const sendVerificationEmail = async (email, verificationLink) => {
     });
 };
 
+const sendOrderReminderEmail = (email, order) => {
+    console.log('Sending order reminder email...');
+    const emailContent = `
+        <p>Dear Admin,</p>
+        <p>This is a reminder to prepare the order for ${order.shipping.name} (${order.shipping.email}) with order ID ${order._id}.</p>
+        <p>Order Type: ${order.orderType}</p>
+        <p>Pickup/Delivery Date & Time: ${order.orderDate} - ${order.selectedTimeSlot}</p>
+        <p>Order Placed at: ${order.createdAt}</p>
+        <p>Order reminder sent at: ${new Date()}</p>
+    `;
+
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+        }
+    });
+
+    const message = {
+        from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
+        to: email,
+        subject: 'Order Reminder',
+        html: emailContent
+    };
+
+    transporter.sendMail(message, (error, info) => {
+        if (error) {
+            console.error('Error sending order reminder email:', error);
+        } else {
+            console.log('Order reminder email sent:', info.response);
+        }
+    });
+};
+
 module.exports = {
     sendOrderConfirmationEmail,
     sendOrderStatusUpdateEmail,
     sendEmail,
     sendVerificationEmail,
-    sendRegEmail
+    sendRegEmail,
+    sendOrderReminderEmail
    
 };

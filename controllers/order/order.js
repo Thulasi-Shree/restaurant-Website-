@@ -20,8 +20,11 @@ exports.newOrder = async (req, res, next) => {
             taxPrice,
             shippingPrice,
             totalPrice,
+            paymentStatus,
+            selectedTimeSlot,
             paymentInfo,
-            pickup
+            orderType,
+            orderDate
         } = req.body;
 
         const order = await Order.create({
@@ -34,9 +37,12 @@ exports.newOrder = async (req, res, next) => {
             shippingPrice,
             totalPrice,
             paymentInfo,
-            pickup,
+            paymentStatus,
+            selectedTimeSlot,
+            orderType,
             restaurantId, 
-            restaurantBranch,    
+            restaurantBranch, 
+            orderDate,   
             paidAt: Date.now(),
             userId
         });
@@ -141,7 +147,59 @@ exports.orders = catchAsyncError(async (req, res, next) => {
 });
 exports.ordersActive = catchAsyncError(async (req, res, next) => {
     try {
-        const orders = await Order.find( {orderStatus: { $nin: 'Delivered' }} );
+        const restaurantId = req.query.restaurantId;
+        const selectedDate = req.query.selectedDate;
+        const orders = await Order.find( {orderStatus: { $nin: 'Delivered' },
+        orderDate: selectedDate,} );
+        let totalAmount = 0;
+        const activeOrders = await Order.find({
+            restaurantId,
+            orderDate: selectedDate,
+            orderStatus: { $nin: 'Delivered' }
+        });
+        orders.forEach(order => {
+            totalAmount += order.totalPrice;
+        });
+        const adminEmail = 'thulasi9941@gmail.com';
+
+        // Function to calculate time difference and send reminder
+        const calculateTimeDifferenceAndSendReminder = async (email, order) => {
+            // Combine orderDate, selectedTimeSlot, and current year to create a valid Date object
+            const currentYear = new Date().getFullYear();
+            const combinedDateTimeString = `${order.orderDate}/${currentYear} ${order.selectedTimeSlot}`;
+            const orderDateTime = new Date(combinedDateTimeString);
+            console.log(orderDateTime)
+
+            // Calculate the time difference in minutes
+            const timeDifferenceInMinutes = (orderDateTime - new Date()) / (1000 * 60);
+            console.log(timeDifferenceInMinutes)
+
+            // Check if the order is within 60 minutes and hasn't been reminded yet
+            if (timeDifferenceInMinutes <= 60 && timeDifferenceInMinutes > 0 && !order.reminderSent) {
+                // Send order reminder email
+                // await sendOrderReminderEmail(email, order);
+
+                // Update the order in the database to mark the reminder as sent
+                await Order.findByIdAndUpdate(order._id, { reminderSent: true });
+            }
+        };
+
+        // Iterate through active orders and send reminders
+        for (const order of activeOrders) {
+            await calculateTimeDifferenceAndSendReminder(adminEmail, order);
+        }
+        res.status(200).json({
+            success: true,
+            totalAmount,
+            orders
+        });
+    } catch (error) {
+        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+    }
+});
+exports.ordersActivePickup = catchAsyncError(async (req, res, next) => {
+    try {
+        const orders = await Order.find( {orderStatus: { $nin: 'Delivered' }, orderType: { $in: 'Delivery' } } );
         let totalAmount = 0;
 
         orders.forEach(order => {
@@ -157,6 +215,34 @@ exports.ordersActive = catchAsyncError(async (req, res, next) => {
         next(new ErrorHandler(error.message || 'Internal Server Error', 500));
     }
 });
+// exports.ordersActive = catchAsyncError(async (req, res, next) => {
+//     try {
+//       // Retrieve the orderType from the query parameters
+//       const orderType = req.query.orderType || 'all';
+  
+//       let orderQuery = { orderStatus: { $nin: 'Delivered' } };
+  
+//       // Add additional filtering based on orderType
+//       if (orderType !== 'all') {
+//         orderQuery.orderType = orderType;
+//       }
+  
+//       const orders = await Order.find(orderQuery);
+//       let totalAmount = 0;
+  
+//       orders.forEach((order) => {
+//         totalAmount += order.totalPrice;
+//       });
+  
+//       res.status(200).json({
+//         success: true,
+//         totalAmount,
+//         orders,
+//       });
+//     } catch (error) {
+//       next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+//     }
+//   });
 
 exports.deleteOrder = catchAsyncError(async (req, res, next) => {
     try {

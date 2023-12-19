@@ -1,0 +1,20 @@
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-19T05:48:02.592Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-19T05:48:02.602Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\order\\orderHistory.js:159:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-19T05:48:02.605Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-19T05:54:09.531Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-19T05:54:09.537Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\order\\orderHistory.js:160:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-19T05:54:09.538Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T06:11:46.463Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T06:11:46.467Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T06:48:43.590Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T06:48:43.594Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T09:29:04.513Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T09:29:04.545Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T09:29:25.538Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-19T09:29:25.674Z"}
+{"level":"error","message":"Error: activeOrders is not defined","timestamp":"2023-12-19T09:30:29.454Z"}
+{"level":"error","message":"Error: activeOrders is not defined","timestamp":"2023-12-19T09:30:29.457Z"}
+{"level":"error","message":"Stack trace: Error: activeOrders is not defined\n    at E:\\Schema draft\\controllers\\order\\order.js:192:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-19T09:30:29.458Z"}
+{"level":"error","message":"Error: restaurantId is not defined","timestamp":"2023-12-19T09:32:11.553Z"}
+{"level":"error","message":"Error: restaurantId is not defined","timestamp":"2023-12-19T09:32:11.557Z"}
+{"level":"error","message":"Stack trace: Error: restaurantId is not defined\n    at E:\\Schema draft\\controllers\\order\\order.js:196:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-19T09:32:11.596Z"}

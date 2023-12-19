@@ -1,34 +1,3 @@
-// const catchAsyncError = require('../../middlewares/catchAsyncError');
-// const Restaurant = require('../../model/restaurant');
-// const ErrorHandler = require('../../utils/errorHandler');
-// const SuccessHandler = require('../../utils/successHandler');
-
-// const createRestaurant = catchAsyncError(async (req, res, next) => {
-//     try {
-//         // Access values from form data
-//         const { name, pincode, location, description, cuisineTypeCategory, restaurantId, restaurantBranch, openingHours } = req.body;
-
-//         const restaurant = await Restaurant.create({
-//             restaurantName: name,
-//             pincode,
-//             location,
-//             description,
-//             cuisineTypeCategory,
-//             restaurantId,
-//             restaurantBranch,
-//             openingHours,
-//         });
-
-//         const successHandler = new SuccessHandler('Restaurant created successfully', restaurant);
-//         successHandler.sendResponse(res, 201);
-//     } catch (error) {
-//         console.error(error);
-//         next(new ErrorHandler(error.message, 500));
-//     }
-// });
-
-// module.exports = createRestaurant;
-
 const catchAsyncError = require('../../middlewares/catchAsyncError');
 const Restaurant = require('../../model/restaurant');
 const ErrorHandler = require('../../utils/errorHandler');
@@ -62,3 +31,38 @@ const createRestaurant = catchAsyncError(async (req, res, next) => {
 });
 
 module.exports = createRestaurant;
+
+
+
+
+
+// const catchAsyncError = require('../../middlewares/catchAsyncError');
+// const Restaurant = require('../../model/restaurant');
+// const ErrorHandler = require('../../utils/errorHandler');
+// const SuccessHandler = require('../../utils/successHandler');
+
+// const createRestaurant = catchAsyncError(async (req, res, next) => {
+//     try {
+//         // Access values from form data
+//         const { name, pincode, location, description, cuisineTypeCategory, restaurantId, restaurantBranch, openingHours } = req.body;
+
+//         const restaurant = await Restaurant.create({
+//             restaurantName: name,
+//             pincode,
+//             location,
+//             description,
+//             cuisineTypeCategory,
+//             restaurantId,
+//             restaurantBranch,
+//             openingHours,
+//         });
+
+//         const successHandler = new SuccessHandler('Restaurant created successfully', restaurant);
+//         successHandler.sendResponse(res, 201);
+//     } catch (error) {
+//         console.error(error);
+//         next(new ErrorHandler(error.message, 500));
+//     }
+// });
+
+// module.exports = createRestaurant;

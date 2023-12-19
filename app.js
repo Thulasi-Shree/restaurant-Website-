@@ -11,6 +11,28 @@ app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname,'uploads') ) );
 const helmet = require('helmet');
 const morgan = require('morgan');
+// const webSocketServer = require('./utils/websocket');
+const WebSocket = require('ws');
+const server = new WebSocket.Server({ noServer: true });
+
+server.on('connection', (socket) => {
+    console.log('Client connected');
+    // ... (your existing code)
+});
+
+// Attach the WebSocket server to your HTTP server
+const httpServer = require('http').createServer(app);
+httpServer.on('upgrade', (request, socket, head) => {
+    server.handleUpgrade(request, socket, head, (ws) => {
+        server.emit('connection', ws, request);
+    });
+});
+
+httpServer.listen(5000, () => {
+    console.log('WebSocket server is running on port 5000');
+});
+
+
 
 
 // app.use((req, res, next) => {

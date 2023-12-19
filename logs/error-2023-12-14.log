@@ -1,0 +1,173 @@
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T06:27:59.213Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T06:27:59.599Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T06:28:13.754Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T06:28:13.755Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T06:31:31.843Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T06:31:31.844Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T06:51:05.113Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T06:51:05.114Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\auth\\register.js:128:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T06:51:05.114Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T06:51:08.564Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T06:51:08.564Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\auth\\register.js:128:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T06:51:08.565Z"}
+{"level":"error","message":"Error: Validation failed: price: Path `price` is required.","timestamp":"2023-12-14T07:28:02.281Z"}
+{"level":"error","message":"Error: Validation failed: price: Path `price` is required.","timestamp":"2023-12-14T07:28:02.282Z"}
+{"level":"error","message":"Stack trace: Error: Validation failed: price: Path `price` is required.\n    at E:\\Schema draft\\controllers\\menu\\updateMenu.js:41:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T07:28:02.283Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:54:45.505Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:54:45.506Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:54:57.137Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:54:57.137Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:58:31.664Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:58:31.665Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:59:42.019Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T07:59:42.020Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:01:59.940Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:01:59.941Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T08:01:59.942Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T08:01:59.948Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:01:59.969Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:01:59.970Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T08:01:59.971Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T08:01:59.973Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:00.343Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:00.344Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T08:02:00.344Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T08:02:00.347Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:00.549Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:00.550Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T08:02:00.551Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T08:02:00.554Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:01.648Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:01.649Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T08:02:01.650Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T08:02:01.654Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:01.893Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:01.894Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T08:02:01.895Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T08:02:01.899Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T08:02:49.059Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T08:02:49.060Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:49.827Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T08:02:49.828Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T08:02:49.829Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T08:02:49.831Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T08:02:56.032Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T08:02:56.034Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:01:01.941Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:01:01.941Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:01:01.942Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:09:03.891Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:09:03.892Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:09:03.893Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:09:56.419Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:09:56.422Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:09:56.423Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:10:24.744Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:10:24.746Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:10:24.747Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:11:54.358Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:11:54.358Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:11:54.359Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:12:16.460Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:12:16.464Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:12:16.465Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:20:02.281Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:20:02.284Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:20:02.287Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:22:21.202Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:22:21.204Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:22:21.205Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:22:42.348Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:22:42.349Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:22:42.351Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:23:05.790Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:23:05.791Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:23:05.792Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:23:34.020Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:23:34.021Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:23:34.022Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:24:15.711Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:24:15.714Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:24:15.715Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:25:41.966Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:25:41.971Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:25:41.972Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:33:35.661Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:33:35.663Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:33:35.665Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:34:12.486Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:34:12.488Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:34:12.489Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:36:32.135Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:36:32.137Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:36:32.140Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:37:13.745Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:37:13.748Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:37:13.749Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:39:39.765Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:39:39.766Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:39:39.767Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:40:52.613Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:40:52.615Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:40:52.615Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:41:15.409Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:41:15.412Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:41:15.412Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:42:32.422Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:42:32.424Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:42:32.425Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:44:11.084Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:44:11.087Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:44:11.087Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:48:34.059Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:48:34.062Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:48:34.063Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:49:59.533Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T11:49:59.535Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T11:49:59.536Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:42:10.540Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:42:10.543Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:42:10.543Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:44:51.963Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:44:51.966Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:49:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:44:51.966Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:47:50.908Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:47:50.910Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:49:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:47:50.912Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:55:11.421Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:55:11.425Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:49:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:55:11.426Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:56:39.708Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:56:39.709Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:49:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:56:39.709Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:58:18.164Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:58:18.168Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:58:18.169Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:59:30.882Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:59:30.888Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:59:30.889Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:59:42.701Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T12:59:42.704Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T12:59:42.705Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:02:51.395Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:02:51.398Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:68:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T13:02:51.399Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:03:32.782Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:03:32.785Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:69:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T13:03:32.786Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:10:25.741Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:10:25.744Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:60:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T13:10:25.745Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:10:47.743Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-14T13:10:47.746Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:29:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T13:10:47.746Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T13:21:08.930Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-14T13:21:08.935Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-14T13:21:08.936Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-14T13:21:08.939Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T14:06:35.715Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T14:06:35.717Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T14:08:21.617Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T14:08:21.619Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T14:46:56.192Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2023-12-14T14:46:56.202Z"}
