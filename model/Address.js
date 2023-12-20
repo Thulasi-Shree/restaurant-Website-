@@ -24,11 +24,11 @@ const addressSchema = new mongoose.Schema({
   },
   line1: {
     type: String,
-    default: null,
+    // default: null,
   },
   line2: {
     type: String,
-    default: null,
+    // default: null,
   },
 
   city: {

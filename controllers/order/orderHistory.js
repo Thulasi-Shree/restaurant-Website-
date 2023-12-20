@@ -37,7 +37,11 @@ const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
             if (timeDifferenceInMinutes <= 60 && timeDifferenceInMinutes > 0 && !order.reminderSent) {
                 // Send order reminder email
                 // await sendOrderReminderEmail(email, order);
-
+                wss.clients.forEach((client) => {
+                    if (client.readyState === WebSocket.OPEN) {
+                        client.send(`Order reminder for order ID ${order._id}`);
+                    }
+                });
                 // Update the order in the database to mark the reminder as sent
                 await Order.findByIdAndUpdate(order._id, { reminderSent: true });
             }

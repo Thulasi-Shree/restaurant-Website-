@@ -31,7 +31,7 @@ const userLocation = catchAsyncError(async  (req, res) => {
   
       // Get restaurant's location (assuming you have obtained it previously)
     //   const restaurantLocation = { latitude: 12.8788, longitude: 80.2260 }; 
-    const restaurantLocation = { latitude: 40.7128, longitude: -74.0060 }; 
+    const restaurantLocation = { latitude: 12.9280321, longitude: 80.1109604 }; 
 
       // Check if the user location is provided in the request body
       if (!userLatitude || !userLongitude) {
