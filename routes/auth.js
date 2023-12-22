@@ -4,6 +4,7 @@ const registerController = require('../controllers/auth/register');
 const {confirmRegistration} = require('../controllers/auth/confirmRegistration')
 const loginController = require('../controllers/auth/login');
 const loginOtpController = require('../controllers/auth/login');
+const guestOtpController = require('../controllers/auth/guestUser');
 const logoutController = require('../controllers/auth/logout');
 const forgotPasswordController = require('../controllers/auth/forgotPassword');
 const resetPasswordController = require('../controllers/auth/resetPassword');
@@ -19,6 +20,11 @@ router.post('/login', loginController.loginUser);
 
 // Send OTP in Mail for Login: POST /api/login/otp
 router.post('/login/otp', loginOtpController.sendUserOtp); 
+
+// guest user
+router.post('/send/otp', guestOtpController.sendGuestUserOtp);
+router.post('/verify/otp', guestOtpController.verifyGuestUserOtp);
+
 
 // User Logout: POST /api/logout
 router.post('/logout', logoutController.logoutUser);

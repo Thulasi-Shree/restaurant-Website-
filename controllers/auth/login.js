@@ -109,6 +109,7 @@ exports.sendUserOtp = catchAsyncError(async (req, res, next) => {
     }
 });
 
+
 exports.getUserProfile = catchAsyncError(async (req, res, next) => {
     const user = await User.findById(req.user.id);
   
