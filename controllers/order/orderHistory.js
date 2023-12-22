@@ -60,19 +60,73 @@ const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
 });
 
 
+// const getNonActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
+//     try {
+//         const restaurantId = req.body.restaurantId;
+//         const nonActiveOrders = await Order.find({  
+//             restaurantId: restaurantId, 
+//             orderStatus: { $in: 'Delivered' } 
+//         }) //.populate('user', 'orderItems.product');
+
+//         res.status(200).json(nonActiveOrders);
+//     } catch (error) {
+//         next(new ErrorHandler(error.message, 500));
+//     }
+// });
+
 const getNonActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
     try {
         const restaurantId = req.body.restaurantId;
-        const nonActiveOrders = await Order.find({  
-            restaurantId: restaurantId, 
-            orderStatus: { $in: 'Delivered' } 
-        }) //.populate('user', 'orderItems.product');
+        let query = {
+            restaurantId: restaurantId,
+            orderStatus: 'Delivered'
+        };
+
+        const { timeRange } = req.query;
+
+        const today = new Date();
+        const thisWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+        const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
+        const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+        const twoYearsAgo = new Date(today.getFullYear() - 2, today.getMonth(), today.getDate());
+
+        switch (timeRange) {
+            case 'today':
+                query.createdAt = { $gte: today };
+                break;
+            case 'thisWeek':
+                query.createdAt = { $gte: thisWeek };
+                break;
+            case 'thisMonth':
+                query.createdAt = { $gte: thisMonth };
+                break;
+            case 'lastSixMonths':
+                query.createdAt = { $gte: sixMonthsAgo };
+                break;
+            case 'lastYear':
+                query.createdAt = { $gte: oneYearAgo };
+                break;
+            case 'lastTwoYears':
+                query.createdAt = { $gte: twoYearsAgo };
+                break;
+            default:
+                // Handle invalid or no time range
+                break;
+        }
+        if (req.query.orderType) {
+            query.orderType = req.query.orderType;
+        }
+        const nonActiveOrders = await Order.find(query) // Select only necessary fields
+            .sort({ createdAt: -1 }) // Sort by creation date, newest first
+            .lean(); // Convert to plain JavaScript objects
 
         res.status(200).json(nonActiveOrders);
     } catch (error) {
         next(new ErrorHandler(error.message, 500));
     }
 });
+
 
 const getNotification = catchAsyncError(async (req, res, next) => {
 

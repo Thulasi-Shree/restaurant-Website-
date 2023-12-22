@@ -127,24 +127,76 @@ exports.myOrders = catchAsyncError(async (req, res, next) => {
     }
 });
 
+// exports.orders = catchAsyncError(async (req, res, next) => {
+//     try {
+//         const orders = await Order.find( {orderStatus: { $in: 'Delivered' }} );
+//         let totalAmount = 0;
+
+//         orders.forEach(order => {
+//             totalAmount += order.totalPrice;
+//         });
+
+//         res.status(200).json({
+//             success: true,
+//             totalAmount,
+//             orders
+//         });
+//     } catch (error) {
+//         next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+//     }
+// });
+
 exports.orders = catchAsyncError(async (req, res, next) => {
     try {
-        const orders = await Order.find( {orderStatus: { $in: 'Delivered' }} );
-        let totalAmount = 0;
+        let query = {
+            orderStatus: 'Delivered',
+        };
 
-        orders.forEach(order => {
-            totalAmount += order.totalPrice;
-        });
+        const { timeRange } = req.query;
 
-        res.status(200).json({
-            success: true,
-            totalAmount,
-            orders
-        });
+        const today = new Date();
+        const thisWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+        const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
+        const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+        const twoYearsAgo = new Date(today.getFullYear() - 2, today.getMonth(), today.getDate());
+
+        switch (timeRange) {
+            // case 'today':
+            //     query.createdAt = { $gte: today };
+            //     break;
+            case 'thisWeek':
+                query.createdAt = { $gte: thisWeek };
+                break;
+            case 'thisMonth':
+                query.createdAt = { $gte: thisMonth };
+                break;
+            case 'lastSixMonths':
+                query.createdAt = { $gte: sixMonthsAgo };
+                break;
+            case 'lastYear':
+                query.createdAt = { $gte: oneYearAgo };
+                break;
+            case 'lastTwoYears':
+                query.createdAt = { $gte: twoYearsAgo };
+                break;
+            default:
+                // Handle invalid or no time range
+                break;
+        }
+        if (req.query.orderType) {
+            query.orderType = req.query.orderType;
+        }
+        const nonActiveOrders = await Order.find(query) // Select only necessary fields
+            .sort({ createdAt: -1 }) // Sort by creation date, newest first
+            .lean(); // Convert to plain JavaScript objects
+
+        res.status(200).json(nonActiveOrders);
     } catch (error) {
-        next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+        next(new ErrorHandler(error.message, 500));
     }
 });
+
 exports.ordersActive = catchAsyncError(async (req, res, next) => {
     try {
         const restaurantId = req.query.restaurantId;
@@ -215,34 +267,6 @@ exports.ordersActivePickup = catchAsyncError(async (req, res, next) => {
         next(new ErrorHandler(error.message || 'Internal Server Error', 500));
     }
 });
-// exports.ordersActive = catchAsyncError(async (req, res, next) => {
-//     try {
-//       // Retrieve the orderType from the query parameters
-//       const orderType = req.query.orderType || 'all';
-  
-//       let orderQuery = { orderStatus: { $nin: 'Delivered' } };
-  
-//       // Add additional filtering based on orderType
-//       if (orderType !== 'all') {
-//         orderQuery.orderType = orderType;
-//       }
-  
-//       const orders = await Order.find(orderQuery);
-//       let totalAmount = 0;
-  
-//       orders.forEach((order) => {
-//         totalAmount += order.totalPrice;
-//       });
-  
-//       res.status(200).json({
-//         success: true,
-//         totalAmount,
-//         orders,
-//       });
-//     } catch (error) {
-//       next(new ErrorHandler(error.message || 'Internal Server Error', 500));
-//     }
-//   });
 
 exports.deleteOrder = catchAsyncError(async (req, res, next) => {
     try {
@@ -271,3 +295,32 @@ exports.storeChosenPickupTime = async (req, res) => {
         next(new ErrorHandler(error.message, 500));
     }
 };
+
+// exports.ordersActive = catchAsyncError(async (req, res, next) => {
+//     try {
+//       // Retrieve the orderType from the query parameters
+//       const orderType = req.query.orderType || 'all';
+  
+//       let orderQuery = { orderStatus: { $nin: 'Delivered' } };
+  
+//       // Add additional filtering based on orderType
+//       if (orderType !== 'all') {
+//         orderQuery.orderType = orderType;
+//       }
+  
+//       const orders = await Order.find(orderQuery);
+//       let totalAmount = 0;
+  
+//       orders.forEach((order) => {
+//         totalAmount += order.totalPrice;
+//       });
+  
+//       res.status(200).json({
+//         success: true,
+//         totalAmount,
+//         orders,
+//       });
+//     } catch (error) {
+//       next(new ErrorHandler(error.message || 'Internal Server Error', 500));
+//     }
+//   });

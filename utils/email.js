@@ -7,9 +7,9 @@ const sendEmail = async options => {
             user: process.env.SMTP_USER,
             pass: process.env.SMTP_PASS
         }
-    } 
+    }
     const transporter = nodemailer.createTransport(transport)
- 
+
     const message = {
         from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
         to: options.email,
@@ -17,7 +17,7 @@ const sendEmail = async options => {
         text: options.message
     }
 
-   await transporter.sendMail(message)
+    await transporter.sendMail(message)
 }
 
 exports.sendLoginEmail = async (email) => {
@@ -111,7 +111,9 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         <p>Phone: ${order.shipping.phone || '-'}</p>
         <p>Address: ${order.shipping.address.line1}, ${order.shipping.address.line1}, ${order.shipping.address.city}, ${order.shipping.address.postal_code || ''}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
         <p>
-            ${order.items.map(item => `<li>${item.name} - ${item.itemQuantity} x $${item.price}</li>`).join('')}
+            ${order.items.map(item => `<li>
+            <img src="${item.image}" alt="Image" style="max-width: 100px; max-height: 100px;" />
+             ${item.name} - ${item.itemQuantity} x $${item.price}</li>`).join('')}
         </p>
         <p>Tax Price: $${order.taxPrice}</p>
         <p>Shipping Price: $${order.shippingPrice}</p>
@@ -228,5 +230,5 @@ module.exports = {
     sendVerificationEmail,
     sendRegEmail,
     sendOrderReminderEmail
-   
+
 };

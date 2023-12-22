@@ -33,6 +33,8 @@ const userLocation = catchAsyncError(async  (req, res) => {
     //   const restaurantLocation = { latitude: 12.8788, longitude: 80.2260 }; 
     const restaurantLocation = { latitude: 12.9280321, longitude: 80.1109604 }; 
 
+    // const restaurantLocation = await axios.get(`https://api.geoapify.com/v1/geocode/search?text=38%20Upper%20Montagu%20Street%2C%20Westminster%20W1H%201LJ%2C%20United%20Kingdom&apiKey=31bc2a8978644190beec0a6f143266d3`);
+
       // Check if the user location is provided in the request body
       if (!userLatitude || !userLongitude) {
         return res.status(400).json({ error: 'User location not provided in the request body' });
