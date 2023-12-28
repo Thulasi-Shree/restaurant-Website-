@@ -1,4 +1,5 @@
 const catchAsyncError = require('../../middlewares/catchAsyncError');
+const { startOfWeek, startOfMonth, subMonths, subYears } = require('date-fns');
 const Order = require('../../model/order');
 const Cart = require('../../model/cart');
 
@@ -146,56 +147,107 @@ exports.myOrders = catchAsyncError(async (req, res, next) => {
 //     }
 // });
 
+// exports.orders = catchAsyncError(async (req, res, next) => {
+//     try {
+//         let query = {
+//             orderStatus: 'Delivered',
+//         };
+
+//         const { timeRange } = req.query;
+
+//         const today = new Date();
+//         const thisWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+//         const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+//         const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
+//         const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+//         const twoYearsAgo = new Date(today.getFullYear() - 2, today.getMonth(), today.getDate());
+//         const threeYearsAgo = new Date(today.getFullYear() - 3, today.getMonth(), today.getDate());
+
+//         switch (timeRange) {
+//             case 'today':
+//                 query.createdAt = { $gte: today };
+//                 break;
+//             case 'thisWeek':
+//                 query.createdAt = { $gte: thisWeek };
+//                 break;
+//             case 'thisMonth':
+//                 query.createdAt = { $gte: thisMonth };
+//                 break;
+//             case 'lastSixMonths':
+//                 query.createdAt = { $gte: sixMonthsAgo };
+//                 break;
+//             case 'lastYear':
+//                 query.createdAt = { $gte: oneYearAgo };
+//                 break;
+//             case 'lastTwoYears':
+//                 query.createdAt = { $gte: twoYearsAgo };
+//                 break;
+//             case 'lastThreeYears':
+//                     query.createdAt = { $gte: threeYearsAgo };
+//                     break;
+//             default:
+//                 // Handle invalid or no time range
+//                 break;
+//         }
+//         if (req.query.orderType) {
+//             query.orderType = req.query.orderType;
+//         }
+             
+//         const nonActiveOrders = await Order.find(query) // Select only necessary fields
+//             .sort({ createdAt: -1 }) // Sort by creation date, newest first
+//             .lean(); // Convert to plain JavaScript objects
+
+//         res.status(200).json(nonActiveOrders);
+//     } catch (error) {
+//         next(new ErrorHandler(error.message, 500));
+//     }
+   
+// });
+
 exports.orders = catchAsyncError(async (req, res, next) => {
     try {
-        let query = {
-            orderStatus: 'Delivered',
-        };
-
-        const { timeRange } = req.query;
-
-        const today = new Date();
-        const thisWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
-        const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-        const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
-        const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
-        const twoYearsAgo = new Date(today.getFullYear() - 2, today.getMonth(), today.getDate());
-
-        switch (timeRange) {
-            // case 'today':
-            //     query.createdAt = { $gte: today };
-            //     break;
-            case 'thisWeek':
-                query.createdAt = { $gte: thisWeek };
-                break;
-            case 'thisMonth':
-                query.createdAt = { $gte: thisMonth };
-                break;
-            case 'lastSixMonths':
-                query.createdAt = { $gte: sixMonthsAgo };
-                break;
-            case 'lastYear':
-                query.createdAt = { $gte: oneYearAgo };
-                break;
-            case 'lastTwoYears':
-                query.createdAt = { $gte: twoYearsAgo };
-                break;
-            default:
-                // Handle invalid or no time range
-                break;
-        }
-        if (req.query.orderType) {
-            query.orderType = req.query.orderType;
-        }
-        const nonActiveOrders = await Order.find(query) // Select only necessary fields
-            .sort({ createdAt: -1 }) // Sort by creation date, newest first
-            .lean(); // Convert to plain JavaScript objects
-
-        res.status(200).json(nonActiveOrders);
+      const { startDate, endDate, orderType } = req.query;
+      const startDateTime = new Date(startDate);
+      const endDateTime = new Date(endDate);
+      
+      const query = {
+        createdAt: {
+          $gte: startDateTime,
+          $lte: endDateTime,
+        },
+        orderStatus: 'Delivered',
+      };
+  
+      if (orderType) {
+        query.orderType = orderType;
+      }
+  
+      const nonActiveOrders = await Order.find(query)
+        .sort({ createdAt: -1 })
+        .lean()
+        .exec();
+        const totalOrders = await Order.aggregate([
+            {
+                $match: query,
+            },
+            {
+                $group: {
+                    _id: null,
+                    totalOrders: { $sum: 1 },
+                    totalPrice: { $sum: "$totalPrice" }
+                },
+            },
+        ]).exec();
+        const totalOrdersCount = totalOrders.length > 0 ? totalOrders[0].totalOrders : 0;
+        const totalPrice = totalOrders.length > 0 ? Number(totalOrders[0].totalPrice.toFixed(2)) : 0;
+  
+        res.status(200).json({ nonActiveOrders, totalOrders: totalOrdersCount, totalPrice });
     } catch (error) {
-        next(new ErrorHandler(error.message, 500));
+      next(new ErrorHandler(error.message, 500));
     }
-});
+  });
+  
+
 
 exports.ordersActive = catchAsyncError(async (req, res, next) => {
     try {
@@ -324,3 +376,49 @@ exports.storeChosenPickupTime = async (req, res) => {
 //       next(new ErrorHandler(error.message || 'Internal Server Error', 500));
 //     }
 //   });
+
+// try {
+//     const { timeRange } = req.query;
+//     const today = new Date();
+
+//     let query = {
+//       orderStatus: 'Delivered',
+//     };
+
+//     switch (timeRange) {
+//       case 'today':
+//         query.createdAt = { $gte: today };
+//         break;
+//       case 'thisWeek':
+//         query.createdAt = { $gte: startOfWeek(today) };
+//         break;
+//       case 'thisMonth':
+//         query.createdAt = { $gte: startOfMonth(today) };
+//         break;
+//       case 'lastSixMonths':
+//         query.createdAt = { $gte: subMonths(today, 6) };
+//         break;
+//       case 'lastYear':
+//         query.createdAt = { $gte: subYears(today, 1) };
+//         break;
+//       case 'lastTwoYears':
+//         query.createdAt = { $gte: subYears(today, 2) };
+//         break;
+//       // Add more cases for other time ranges
+//       default:
+//         // Handle invalid or no time range
+//         break;
+//     }
+
+//     if (req.query.orderType) {
+//       query.orderType = req.query.orderType;
+//     }
+
+//     const nonActiveOrders = await Order.find(query)
+//       .sort({ createdAt: -1 })
+//       .lean();
+
+//     res.status(200).json(nonActiveOrders);
+//   } catch (error) {
+//     next(error);
+//   }
