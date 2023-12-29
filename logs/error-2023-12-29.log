@@ -1,0 +1,81 @@
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:28.733Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:29.122Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:18:29.123Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-29T07:18:29.126Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:38.297Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:38.298Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:18:38.298Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-29T07:18:38.300Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:59.728Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:59.729Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:18:59.730Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-29T07:18:59.731Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:59.748Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T07:18:59.749Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:18:59.749Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-29T07:18:59.751Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:24:25.393Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:24:25.395Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:68:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:24:25.396Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:51:21.720Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:51:21.734Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:83:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:51:21.735Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:51:38.228Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:51:38.229Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:83:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:51:38.229Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:52:00.478Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:52:00.480Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:83:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:52:00.487Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:54:20.440Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T07:54:20.442Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:83:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T07:54:20.442Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:05:32.363Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:05:32.365Z"}
+{"level":"error","message":"Stack trace: Error: Dietary preference not found\n    at E:\\Schema draft\\controllers\\category\\category.js:76:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:05:32.366Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:10:28.145Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:10:28.146Z"}
+{"level":"error","message":"Stack trace: Error: Dietary preference not found\n    at E:\\Schema draft\\controllers\\category\\category.js:76:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:10:28.146Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T08:38:20.806Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T08:38:20.807Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:42:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:38:20.808Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T08:39:33.627Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T08:39:33.627Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:42:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:39:33.628Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T08:40:23.097Z"}
+{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-29T08:40:23.098Z"}
+{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\category\\category.js:42:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:40:23.099Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:44:40.547Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:44:40.555Z"}
+{"level":"error","message":"Stack trace: Error: Dietary preference not found\n    at E:\\Schema draft\\controllers\\category\\category.js:76:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:44:40.557Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:47:24.273Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:47:24.274Z"}
+{"level":"error","message":"Stack trace: Error: Dietary preference not found\n    at E:\\Schema draft\\controllers\\category\\category.js:76:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:47:24.275Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:47:36.805Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:47:36.807Z"}
+{"level":"error","message":"Stack trace: Error: Dietary preference not found\n    at E:\\Schema draft\\controllers\\category\\category.js:76:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:47:36.808Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:49:17.579Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T08:49:17.580Z"}
+{"level":"error","message":"Stack trace: Error: Dietary preference not found\n    at E:\\Schema draft\\controllers\\category\\category.js:76:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T08:49:17.581Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T10:58:08.710Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T10:58:08.714Z"}
+{"level":"error","message":"Stack trace: Error: Meal type not found\n    at E:\\Schema draft\\controllers\\category\\category.js:35:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T10:58:08.715Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T11:17:25.544Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T11:17:25.546Z"}
+{"level":"error","message":"Stack trace: Error: Meal type not found\n    at E:\\Schema draft\\controllers\\category\\category.js:35:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T11:17:25.547Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T11:19:22.476Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T11:19:22.476Z"}
+{"level":"error","message":"Stack trace: Error: Meal type not found\n    at E:\\Schema draft\\controllers\\category\\category.js:35:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T11:19:22.477Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T11:28:04.071Z"}
+{"level":"error","message":"Error: Meal type not found","timestamp":"2023-12-29T11:28:04.072Z"}
+{"level":"error","message":"Stack trace: Error: Meal type not found\n    at E:\\Schema draft\\controllers\\category\\category.js:35:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T11:28:04.072Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T11:54:25.827Z"}
+{"level":"error","message":"Error: Dietary preference not found","timestamp":"2023-12-29T11:54:25.828Z"}
+{"level":"error","message":"Stack trace: Error: Dietary preference not found\n    at E:\\Schema draft\\controllers\\category\\category.js:76:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T11:54:25.829Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T12:00:18.681Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T12:00:18.681Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T12:00:18.682Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-29T12:00:18.684Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T12:00:22.862Z"}
+{"level":"error","message":"Error: No menus found","timestamp":"2023-12-29T12:00:22.862Z"}
+{"level":"error","message":"Stack trace: Error: No menus found\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:27:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-29T12:00:22.863Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2023-12-29T12:00:22.864Z"}

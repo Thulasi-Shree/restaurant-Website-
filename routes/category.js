@@ -15,4 +15,3 @@ router.post('/dietary-preferences', dietaryPreferenceCategoryController.createDi
 router.delete('/dietary-preferences/:id', dietaryPreferenceCategoryController.deleteDietaryPreference);
 
 module.exports = router;
-
