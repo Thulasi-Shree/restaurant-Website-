@@ -6,6 +6,9 @@ const adminController = require('../controllers/admin/index');
 // Get All Users for Admin: GET /api/admin/users
 router.get('/admin/users', adminController.getAllUsers);
 
+// Get All Users for Admin: GET /api/admin/admins
+router.get('/admin/admins', adminController.getAllAdmins);
+
 // Get User by ID for Admin: GET /api/admin/user/:id
 router.get('/admin/user/:id', adminController.getUser);
 

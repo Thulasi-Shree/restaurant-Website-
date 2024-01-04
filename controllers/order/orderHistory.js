@@ -4,7 +4,9 @@ const ErrorHandler = require('../../utils/errorHandler');
 const { sendOrderReminderEmail } = require('../../utils/email');
 
 const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
+    const { page = 1, pageSize = 20 } = req.query;
     try {
+        const totalItems = await Order.countDocuments();
         const restaurantId = req.query.restaurantId;
         const selectedDate = req.query.selectedDate;
 
@@ -12,12 +14,15 @@ const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
         if (!restaurantId || !selectedDate) {
             return res.status(400).json({ error: 'restaurantId and selectedDate are required' });
         }
-
+        const skip = (page - 1) * pageSize;
         const activeOrders = await Order.find({
             restaurantId,
             orderDate: selectedDate,
             orderStatus: { $nin: 'Delivered' }
-        });
+        }).skip(skip).limit(parseInt(pageSize));
+
+        res.set('X-Total-Count', totalItems.toString());
+
 
         const adminEmail = 'thulasi9941@gmail.com';
 
@@ -61,8 +66,9 @@ const getActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
 
 
 const getNonActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
+    const { page = 1, pageSize = 30 } = req.query;
     try {
-
+        const totalItems = await Order.countDocuments();
         const { startDate, endDate, orderType } = req.query;
         const startDateTime = new Date(startDate);
         const endDateTime = new Date(endDate);
@@ -80,10 +86,16 @@ const getNonActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
         if (orderType) {
             query.orderType = orderType;
         }
-        const nonActiveOrders = await Order.find(query)
-            .sort({ createdAt: -1 })
-            .lean()
-            .exec();
+        const skip = (page - 1) * pageSize;
+  
+      const nonActiveOrders = await Order.find(query)
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(parseInt(pageSize))
+        .lean()
+        .exec();
+  
+      res.set('X-Total-Count', totalItems.toString());
         const totalOrders = await Order.aggregate([
             {
                 $match: query,

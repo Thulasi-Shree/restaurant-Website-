@@ -204,12 +204,57 @@ exports.myOrders = catchAsyncError(async (req, res, next) => {
    
 // });
 
+// exports.orders = catchAsyncError(async (req, res, next) => {
+//     try {
+//       const { startDate, endDate, orderType } = req.query;
+//       const startDateTime = new Date(startDate);
+//       const endDateTime = new Date(endDate);
+      
+//       const query = {
+//         createdAt: {
+//           $gte: startDateTime,
+//           $lte: endDateTime,
+//         },
+//         orderStatus: 'Delivered',
+//       };
+  
+//       if (orderType) {
+//         query.orderType = orderType;
+//       }
+  
+//       const nonActiveOrders = await Order.find(query)
+//         .sort({ createdAt: -1 })
+//         .lean()
+//         .exec();
+//         const totalOrders = await Order.aggregate([
+//             {
+//                 $match: query,
+//             },
+//             {
+//                 $group: {
+//                     _id: null,
+//                     totalOrders: { $sum: 1 },
+//                     totalPrice: { $sum: "$totalPrice" }
+//                 },
+//             },
+//         ]).exec();
+//         const totalOrdersCount = totalOrders.length > 0 ? totalOrders[0].totalOrders : 0;
+//         const totalPrice = totalOrders.length > 0 ? Number(totalOrders[0].totalPrice.toFixed(2)) : 0;
+  
+//         res.status(200).json({ nonActiveOrders, totalOrders: totalOrdersCount, totalPrice });
+//     } catch (error) {
+//       next(new ErrorHandler(error.message, 500));
+//     }
+//   });
+  
 exports.orders = catchAsyncError(async (req, res, next) => {
+    const { page = 1, pageSize = 30 } = req.query;
     try {
+      const totalItems = await Order.countDocuments();
       const { startDate, endDate, orderType } = req.query;
       const startDateTime = new Date(startDate);
       const endDateTime = new Date(endDate);
-      
+  
       const query = {
         createdAt: {
           $gte: startDateTime,
@@ -222,39 +267,53 @@ exports.orders = catchAsyncError(async (req, res, next) => {
         query.orderType = orderType;
       }
   
+      const skip = (page - 1) * pageSize;
+  
       const nonActiveOrders = await Order.find(query)
         .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(parseInt(pageSize))
         .lean()
         .exec();
-        const totalOrders = await Order.aggregate([
-            {
-                $match: query,
-            },
-            {
-                $group: {
-                    _id: null,
-                    totalOrders: { $sum: 1 },
-                    totalPrice: { $sum: "$totalPrice" }
-                },
-            },
-        ]).exec();
-        const totalOrdersCount = totalOrders.length > 0 ? totalOrders[0].totalOrders : 0;
-        const totalPrice = totalOrders.length > 0 ? Number(totalOrders[0].totalPrice.toFixed(2)) : 0;
   
-        res.status(200).json({ nonActiveOrders, totalOrders: totalOrdersCount, totalPrice });
+      res.set('X-Total-Count', totalItems.toString());
+  
+      const totalOrders = await Order.aggregate([
+        {
+          $match: query,
+        },
+        {
+          $group: {
+            _id: null,
+            totalOrders: { $sum: 1 },
+            totalPrice: { $sum: "$totalPrice" },
+          },
+        },
+      ]).exec();
+  
+      const totalOrdersCount = totalOrders.length > 0 ? totalOrders[0].totalOrders : 0;
+      const totalPrice = totalOrders.length > 0 ? Number(totalOrders[0].totalPrice.toFixed(2)) : 0;
+  
+      res.status(200).json({ nonActiveOrders, totalOrders: totalOrdersCount, totalPrice });
     } catch (error) {
       next(new ErrorHandler(error.message, 500));
     }
   });
   
 
-
 exports.ordersActive = catchAsyncError(async (req, res, next) => {
+    const { page = 1, pageSize = 20 } = req.query;
     try {
+        const totalItems = await Order.countDocuments();
         const restaurantId = req.query.restaurantId;
         const selectedDate = req.query.selectedDate;
-        const orders = await Order.find( {orderStatus: { $nin: 'Delivered' },
-        orderDate: selectedDate,} );
+
+        const skip = (page - 1) * pageSize;
+        const orders = await Order.find({orderStatus: { $nin: 'Delivered' },
+        orderDate: selectedDate,}).skip(skip).limit(parseInt(pageSize));
+
+        res.set('X-Total-Count', totalItems.toString());
+
         let totalAmount = 0;
         const activeOrders = await Order.find({
             restaurantId,

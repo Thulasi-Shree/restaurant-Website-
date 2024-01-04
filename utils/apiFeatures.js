@@ -49,12 +49,47 @@ class APIFeatures {
         return this;
     }
 
-    paginate(resPerPage){
-        const currentPage = Number(this.queryStr.page) || 1;
-        const skip = resPerPage * (currentPage - 1)
-        this.query.limit(resPerPage).skip(skip);
+    paginate(resPerPage) {
+        const page = parseInt(this.queryStr.page, 10) || 1;
+        const skip = (page - 1) * resPerPage;
+    
+        this.query = this.query.skip(skip).limit(resPerPage);
+    
         return this;
-    }
+      }
+      sort() {
+        if (this.queryStr.sort) {
+          const sortFields = this.queryStr.sort.split(',');
+      
+          // Check if 'name' is present in sortFields
+          const hasNameField = sortFields.some((field) => field === 'name');
+          
+          // If 'name' is present, use it for sorting
+          if (hasNameField) {
+            const sortOptions = sortFields.map((field) => {
+              if (field === 'name') {
+                return { [field]: 1 }; // Sorting by 'name' in ascending order
+              } else if (field.startsWith('-')) {
+                return { [field.substring(1)]: -1 }; // Descending order for other fields
+              }
+              return { [field]: 1 }; // Ascending order for other fields
+            });
+      
+            // Apply sorting to the query
+            this.query = this.query.sort(sortOptions);
+          } else {
+            // Default sorting logic if 'name' is not present
+            this.query = this.query.sort('createdAt');
+          }
+        } else {
+          // Default sorting logic if no specific sort is provided
+          this.query = this.query.sort('createdAt');
+        }
+      
+        return this;
+      }
+      
+      
 }
 
 module.exports = APIFeatures;
