@@ -31,7 +31,7 @@ const userLocation = catchAsyncError(async  (req, res) => {
   
       // Get restaurant's location (assuming you have obtained it previously)
     //   const restaurantLocation = { latitude: 12.8788, longitude: 80.2260 }; 
-    const restaurantLocation = { latitude: 12.9280321, longitude: 80.1109604 }; 
+    const restaurantLocation = { latitude: 12.8280321, longitude: 80.7109604 }; 
 
     // const restaurantLocation = await axios.get(`https://api.geoapify.com/v1/geocode/search?text=38%20Upper%20Montagu%20Street%2C%20Westminster%20W1H%201LJ%2C%20United%20Kingdom&apiKey=31bc2a8978644190beec0a6f143266d3`);
 
@@ -42,7 +42,7 @@ const userLocation = catchAsyncError(async  (req, res) => {
   
       // Calculate distance in meters
       const distanceInMeters = geolib.getDistance(
-        { latitude: userLatitude, longitude: userLongitude },
+        { latitude: userLatitude, longitude: userLongitude }, 
         restaurantLocation
       );
   
