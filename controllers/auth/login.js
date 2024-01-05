@@ -110,18 +110,30 @@ exports.sendUserOtp = catchAsyncError(async (req, res, next) => {
 });
 
 
+
 exports.getUserProfile = catchAsyncError(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
+    try {
+      const user = await User.findById(req.user.id);
   
-    if (!user) {
-      return res.status(404).json({
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: 'User not found',
+        });
+      }
+  
+      res.status(200).json({
+        success: true,
+        user,
+      });
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+      next(new ErrorHandler('Error fetching user profile', 500));
+  
+      // Handle the error, you can customize the response based on the type of error
+      res.status(500).json({
         success: false,
-        message: 'User not found',
+        message: 'Internal Server Error',
       });
     }
-  
-    res.status(200).json({
-      success: true,
-      user,
-    });                       
   });
