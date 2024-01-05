@@ -5,7 +5,7 @@ const ErrorHandler = require('../../utils/errorHandler');
 const APIFeatures = require('../../utils/apiFeatures');
 
 exports.getAllUsers = catchAsyncError(async (req, res, next) => {
-    const resPerPage = 20;
+    const resPerPage = 30;
     try {
         const filteredUsersCount = await new APIFeatures(User.find(), req.query).query.countDocuments({});
        
@@ -33,7 +33,7 @@ exports.getAllUsers = catchAsyncError(async (req, res, next) => {
 });
 
 exports.getAllAdmins = catchAsyncError(async (req, res, next) => {
-    const resPerPage = 20;
+    const resPerPage = 30;
     try {
         const filteredUsersCount = await new APIFeatures(User.find({role: { $nin: 'user' }}), req.query).query.countDocuments({});
        

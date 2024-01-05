@@ -23,6 +23,7 @@ const {
 const {
     getActiveOrdersByBranch,
     getNonActiveOrdersByBranch,
+    getNonActiveOrdersByBranch1,
 } = require('../controllers/order/orderHistory')
 const getScheduledNotification = require('../controllers/order/scheduleReminder')
 const router = express.Router();
@@ -81,6 +82,7 @@ router.route('/admin/order/active').get(isAuthenticatedUser, getActiveOrdersByBr
 
 // Get Non-Active Orders by Restaurant ID: GET /api/admin/orderHistory-nonActive/:restaurantId (Admin role required)
 router.route('/admin/orderHistory-nonActive').post(isAuthenticatedUser, getNonActiveOrdersByBranch);
+router.route('/nonActiveOrdersByBranch').post(isAuthenticatedUser, getNonActiveOrdersByBranch1);
 
 router.route('/admin/notification').get(isAuthenticatedUser, getScheduledNotification);
 

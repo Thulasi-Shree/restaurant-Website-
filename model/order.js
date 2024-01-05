@@ -15,6 +15,14 @@ const orderSchema = mongoose.Schema({
         },
 
     },
+    delivery: {
+        line1: String,
+        line2: String,
+        city: String,
+        state: String,
+        postalCode: String,
+        country: String
+    },
     items: [{
         name: {
             type: String,

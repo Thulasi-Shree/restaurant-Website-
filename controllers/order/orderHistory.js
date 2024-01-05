@@ -115,7 +115,65 @@ const getNonActiveOrdersByBranch = catchAsyncError(async (req, res, next) => {
         next(new ErrorHandler(error.message, 500));
     }
 });
-
+const getNonActiveOrdersByBranch1 = catchAsyncError( async (req, res, next) => {
+    const { page = 1, pageSize = 30, sortDirection = 'asc' } = req.query;
+  
+    try {
+      const { startDate, endDate, orderType } = req.query;
+      const startDateTime = new Date(startDate);
+      const endDateTime = new Date(endDate);
+  
+      const restaurantId = req.body.restaurantId;
+  
+      const query = {
+        createdAt: {
+          $gte: startDateTime,
+          $lte: endDateTime,
+        },
+        orderStatus: 'Delivered',
+        restaurantId: restaurantId,
+      };
+  
+      if (orderType) {
+        query.orderType = orderType;
+      }
+  
+      const totalItems = await Order.countDocuments(query);
+  
+      const skip = (page - 1) * pageSize;
+  
+      const sortOrder = sortDirection === 'desc' ? -1 : 1;
+  
+      const nonActiveOrders = await Order.find(query)
+        .sort({ createdAt: sortOrder })
+        .skip(skip)
+        .limit(parseInt(pageSize))
+        .lean()
+        .exec();
+  
+      res.set('X-Total-Count', totalItems.toString());
+  
+      const totalOrders = await Order.aggregate([
+        {
+          $match: query,
+        },
+        {
+          $group: {
+            _id: null,
+            totalOrders: { $sum: 1 },
+            totalPrice: { $sum: '$totalPrice' },
+          },
+        },
+      ]).exec();
+  
+      const totalOrdersCount = totalOrders.length > 0 ? totalOrders[0].totalOrders : 0;
+      const totalPrice = totalOrders.length > 0 ? Number(totalOrders[0].totalPrice.toFixed(2)) : 0;
+  
+      res.status(200).json({ nonActiveOrders, totalOrders: totalOrdersCount, totalPrice });
+    } catch (error) {
+      next(new ErrorHandler(error.message, 500));
+    }
+  });
 
 const getNotification = catchAsyncError(async (req, res, next) => {
 
@@ -179,5 +237,6 @@ const getNotification = catchAsyncError(async (req, res, next) => {
 module.exports = {
     getActiveOrdersByBranch,
     getNonActiveOrdersByBranch,
+    getNonActiveOrdersByBranch1,
     getNotification
 };

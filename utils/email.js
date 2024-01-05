@@ -48,6 +48,13 @@ exports.sendLoginEmail = async (email) => {
 };
 
 const sendOrderConfirmationEmail = (email, order) => {
+    let deliveryAddressContent = '';
+
+    if (order.delivery) {
+        deliveryAddressContent = `
+            <p>Delivery Address:${order.delivery.line1}, ${order.delivery.city}- ${order.delivery.postalCode}, ${order.delivery.state}, ${order.delivery.country}</p>
+        `;
+    }
     const emailContent = `
     <p>Dear ${order.shipping.name},</p>
     <p>Thank you for your order! Your order ID is ${order._id}.</p>
@@ -56,7 +63,8 @@ const sendOrderConfirmationEmail = (email, order) => {
     <p>Email: ${order.shipping.email}</p>
     <p>Phone: ${order.shipping.phone}</p>
     <p>Restaurant: ${order.restaurantBranch}</p>
-    <p>Address:${order.shipping.address.line1}, ${order.shipping.address.city}- ${order.shipping.address.postalCode || 99765}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
+    <p>Billing Address:${order.shipping.address.line1}, ${order.shipping.address.city}- ${order.shipping.address.postalCode || 99765}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
+    ${deliveryAddressContent}
     <p>
         ${order.items.map(item => `<li>${item.name} - ${item.itemQuantity} x $${item.price}</li>`).join('')}
     </p>

@@ -49,6 +49,7 @@ const User = require('../../model/user');
 const sendToken = require('../../utils/jwt');
 const ErrorHandler = require('../../utils/errorHandler');
 const { sendVerificationEmail } = require('../../utils/email');
+const SuccessHandler = require('../../utils/successHandler');
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
     const {
@@ -129,3 +130,74 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
     }
 });
 
+exports.updateUserProfile = catchAsyncError(async (req, res, next) => {
+    let newUserData = {
+        name: req.body.name,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phone: req.body.phone,
+    }
+
+    let avatar;
+    let BASE_URL = process.env.BACKEND_URL;
+    if(process.env.NODE_ENV === "production"){
+        BASE_URL = `${req.protocol}://${req.get('host')}`
+    }
+
+    if(req.file){
+        avatar = `${BASE_URL}/uploads/user/${req.file.originalname}`
+        newUserData = {...newUserData,avatar }
+    }
+
+    const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
+        new: true,
+        runValidators: true,
+    })
+    console.log('Updating user with data:', newUserData);
+    await user.save();
+
+    res.status(200).json({
+        success: true,
+        user
+    })
+
+})
+
+// exports.updateUserProfile = catchAsyncError(async (req, res, next) => {
+// try {
+//     let user = await User.findById(req.params.id);
+
+//     let images = [];
+
+//     if (req.body.imagesCleared === 'true') {
+//         images = user.images;
+//     }
+
+//     let BASE_URL = process.env.BACKEND_URL;
+//     if (process.env.NODE_ENV === "production") {
+//         BASE_URL = `${req.protocol}://${req.get('host')}`;
+//     }
+
+//     if (req.files && req.files.length > 0) {
+//         req.files.forEach(file => {
+//             let url = `${BASE_URL}/uploads/user/${file.originalname}`;
+//             images.push({ image: url });
+//         });
+//     }
+
+//     req.body.images = images;
+
+//     if (!user) {
+//         return next(new ErrorHandler('User not found', 404));
+//     }
+
+//     user = await User.findByIdAndUpdate(req.params.id, req.body, {
+//         new: true,
+//         runValidators: true
+//     });
+
+//     new SuccessHandler('User updated successfully', { user }).sendResponse(res);
+// } catch (error) {
+//     next(new ErrorHandler(error.message, 500));
+// }
+// });

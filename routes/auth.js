@@ -1,5 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path')
+
+const upload = multer({storage: multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, path.join( __dirname,'..' , 'uploads/user' ) )
+    },
+    filename: function(req, file, cb ) {
+        cb(null, file.originalname)
+    }
+}) })
+
 const registerController = require('../controllers/auth/register');
 const {confirmRegistration} = require('../controllers/auth/confirmRegistration')
 const loginController = require('../controllers/auth/login');
@@ -45,6 +57,8 @@ router.put('/password/change/:id', profileController.changePassword);
 // Update User Profile: PUT /api/update/:token
 router.put('/update/:token', profileController.updateProfile);
 
+//
+router.route('/update1/:id').put(upload.single('avatar'), registerController.updateUserProfile);
 
 
 module.exports = router;
