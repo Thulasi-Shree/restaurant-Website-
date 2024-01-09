@@ -18,6 +18,7 @@ exports.newOrder = async (req, res, next) => {
             delivery,
             phone,
             items,
+            emailOrMobile,
             itemsPrice,
             taxPrice,
             shippingPrice,
@@ -43,6 +44,7 @@ exports.newOrder = async (req, res, next) => {
             paymentStatus,
             selectedTimeSlot,
             orderType,
+            emailOrMobile,
             restaurantId, 
             restaurantBranch, 
             orderDate,   
@@ -52,6 +54,9 @@ exports.newOrder = async (req, res, next) => {
         // await order.populate('user', 'name email phone');
 
         sendOrderConfirmationEmail(order.shipping.email, order);
+        if (!order.shipping.email) {
+            sendOrderConfirmationEmail(order.shipping.emailOrMobile, order);
+          }
         // await Cart.findOneAndUpdate({ user: req.body }, { items: [] });
 
         res.status(201).json({

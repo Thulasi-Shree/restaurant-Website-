@@ -4,12 +4,18 @@ const crypto = require('crypto');
 const guestUserSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: true,
+    trim: true,
+    lowercase: true,
     unique: true,
+    sparse: true, // Make the email field optional
   },
-  otpHash: {
+  mobile: {
     type: String,
+    trim: true,
+    unique: true,
+    sparse: true, // Make the mobile field optional
   },
+  otpHash: String,
 });
 
 guestUserSchema.methods.generateHashedOTP = function (otp) {

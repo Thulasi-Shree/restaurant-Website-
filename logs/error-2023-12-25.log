@@ -1,6 +1,0 @@
-{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-25T13:44:32.899Z"}
-{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-25T13:44:33.037Z"}
-{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\address\\createAddress.js:81:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-25T13:44:33.038Z"}
-{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-25T13:44:39.993Z"}
-{"level":"error","message":"Error: Internal Server Error","timestamp":"2023-12-25T13:44:39.993Z"}
-{"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\address\\createAddress.js:81:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2023-12-25T13:44:39.994Z"}
