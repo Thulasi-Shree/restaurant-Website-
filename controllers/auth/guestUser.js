@@ -57,9 +57,10 @@ exports.verifyGuestUserOtp = catchAsyncError(async (req, res) => {
 
     if (enteredHashedOTP === user.otpHash) {
       // OTP is valid, you can perform the necessary actions here
-      user.loginOtp = undefined;
-      user.loginOtpExpire = undefined;
-      await user.save({ validateBeforeSave: false });
+      // user.loginOtp = undefined;
+      // user.loginOtpExpire = undefined;
+      // await user.save({ validateBeforeSave: false });
+      await User.findByIdAndDelete(user._id);
 
       res.status(200).json({ success: true, message: 'OTP verified successfully.' });
     } else {

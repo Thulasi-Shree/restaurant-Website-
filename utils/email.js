@@ -60,8 +60,9 @@ const sendOrderConfirmationEmail = (email, order) => {
     <p>Thank you for your order! Your order ID is ${order._id}.</p>
     <p>Order Details:</p>
     <p>Name: ${order.shipping.name}</p>
-    <p>Email: ${order.shipping.email}</p>
-    <p>Phone: ${order.shipping.phone}</p>
+    ${order.shipping.email ? `<p>Email: ${order.shipping.email}</p>` : ''}
+    ${order.shipping.phone ? `<p>Phone: ${order.shipping.phone}</p>` : ''}
+    ${order.shipping.emailOrMobile ? `<p>Email: ${order.shipping.emailOrMobile}</p>` : ''}
     <p>Restaurant: ${order.restaurantBranch}</p>
     <p>Billing Address:${order.shipping.address.line1}, ${order.shipping.address.city}- ${order.shipping.address.postalCode || 99765}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
     ${deliveryAddressContent}
@@ -114,9 +115,10 @@ const sendOrderStatusUpdateEmail = (email, order) => {
         <p>Dear ${order.shipping.name},</p>
         <p>Thank you for your order! Your order with order ID ${order._id} has been updated to ${order.orderStatus}.</p>
         <p>Order Details:</p>
-        <p>Name: ${order.shipping.name}</p>
-        <p>Email: ${order.shipping.email}</p>
-        <p>Phone: ${order.shipping.phone || '-'}</p>
+        <p>Name: ${order.shipping.name}</p>        
+    ${order.shipping.email ? `<p>Email: ${order.shipping.email}</p>` : ''}
+    ${order.shipping.phone ? `<p>Phone: ${order.shipping.phone}</p>` : ''}
+    ${order.shipping.emailOrMobile ? `<p>Email: ${order.shipping.emailOrMobile}</p>` : ''}
         <p>Address: ${order.shipping.address.line1}, ${order.shipping.address.line1}, ${order.shipping.address.city}, ${order.shipping.address.postal_code || ''}, ${order.shipping.address.state}, ${order.shipping.address.country}</p>
         <p>
             ${order.items.map(item => `<li>
@@ -200,7 +202,7 @@ const sendOrderReminderEmail = (email, order) => {
     console.log('Sending order reminder email...');
     const emailContent = `
         <p>Dear Admin,</p>
-        <p>This is a reminder to prepare the order for ${order.shipping.name} (${order.shipping.email}) with order ID ${order._id}.</p>
+        <p>This is a reminder to prepare the order for ${order.shipping.name} (${order.shipping.email} ${order.shipping.emailOrMobile}) with order ID ${order._id}.</p>
         <p>Order Type: ${order.orderType}</p>
         <p>Pickup/Delivery Date & Time: ${order.orderDate} - ${order.selectedTimeSlot}</p>
         <p>Order Placed at: ${order.createdAt}</p>
