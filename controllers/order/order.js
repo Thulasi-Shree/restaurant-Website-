@@ -6,7 +6,7 @@ const Cart = require('../../model/cart');
 const ErrorHandler = require('../../utils/errorHandler');
 const { sendOrderConfirmationEmail, sendOrderStatusUpdateEmail } = require('../../utils/email');
 
-exports.newOrder = async (req, res, next) => {
+exports.newOrder = catchAsyncError(async (req, res, next) => {
     try {
         const restaurantId = req.body.restaurantId ? req.body.restaurantId.toString() : null;
         // const userId = req.body.userId ? req.body.userId.toString() : null;
@@ -66,9 +66,9 @@ exports.newOrder = async (req, res, next) => {
     } catch (error) {
         next(new ErrorHandler(error.message, 500));
     }
-};
+});
    
-exports.updateOrderStatus = async (req, res, next) => {
+exports.updateOrderStatus = catchAsyncError( async (req, res, next) => {
     try {
         const order = await Order.findByIdAndUpdate(req.params.id, { orderStatus: req.body.orderStatus }, { new: true });
         // await order.populate('user', 'name email phone');
@@ -81,7 +81,7 @@ exports.updateOrderStatus = async (req, res, next) => {
     } catch (error) {
         next(new ErrorHandler(error.message, 500));
     }
-};
+});
 
 
 exports.getSingleOrder = catchAsyncError(async (req, res, next) => {
