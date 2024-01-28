@@ -15,6 +15,23 @@ class APIFeatures {
        this.query.find({...keyword})
        return this;
     }
+
+    searchName() {
+      let keyword = this.queryStr.keyword
+        ? {
+            name: {
+              $regex: this.queryStr.keyword,
+              $options: 'i',
+            },
+          }
+        : {};
+  
+      // Use the `find` method on `this.query` to apply the search condition
+      this.query = this.query.find({ ...keyword });
+      
+    return this;
+  }
+
     categoryFilter() {
         if (this.queryStr.mealTypeCategory) {
             this.query.where('mealTypeCategory').equals(this.queryStr.mealTypeCategory);

@@ -32,7 +32,7 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
         sendToken(user, 200, res);
     } catch (error) {
         console.error(error);
-        next(new ErrorHandler('Internal Server Error', 500));
+        next(new ErrorHandler('Password Reset failed! please check your password.', 500));
     }
 });
 

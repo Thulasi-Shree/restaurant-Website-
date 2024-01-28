@@ -38,7 +38,7 @@ router.route('/admin/products').get( getAdminProducts);
 router.route('/admin/products/branch').post( getAdminMenusByBranch);
 
 // Delete Product by ID: DELETE /api/admin/product/:id (Admin role required)
-router.route('/admin/product/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteProduct);
+router.route('/admin/product/:id').delete(isAuthenticatedUser,  deleteProduct); //authorizeRoles('admin'), 
 
 // Update Product by ID: PUT /api/admin/product/:id (Admin role required)
 router.route('/admin/product/:id').put(isAuthenticatedUser,  upload.array('images'), updateProduct);//authorizeRoles('admin'),
