@@ -63,8 +63,15 @@ exports.getMenus = catchAsyncError(async (req, res, next) => {
         .query;
   
       if (!Menus || Menus.length === 0) {
-        const errorHandler = new ErrorHandler('No menus found', 400);
-        return next(errorHandler);
+        // const errorHandler = new ErrorHandler('No menus found', 400);
+        // return next(errorHandler);
+        res.status(200).json({
+          success: true,
+          count: menusCount,
+          resPerPage,
+          Menus,
+          message: 'no menus found'
+        });
       }
   
       res.status(200).json({

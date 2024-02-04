@@ -109,7 +109,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
         await sendVerificationEmail(email, verificationLink);
 
         // Respond with the generated token
-        sendToken(user, 201, res);
+        sendToken(user, 200, res);
 
         // Schedule automatic deletion after 5 minutes if not verified
         setTimeout(async () => {

@@ -11,7 +11,7 @@ const {isAuthenticatedUser, authorizeRoles } = require('../middlewares/authentic
 router.route('/restaurant/create').post(isAuthenticatedUser, createRestaurant);
 
 // Delete Restaurant by ID: DELETE /api/restaurant/delete/:id (Admin role required)
-router.route('/restaurant/delete/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteRestaurant);
+router.route('/restaurant/delete/:id').delete(isAuthenticatedUser, authorizeRoles('superAdmin'), deleteRestaurant);
 
 // Get Restaurant: GET /api/restaurant/get (User role required)
 router.route('/restaurant/get').get(getRestaurant);  

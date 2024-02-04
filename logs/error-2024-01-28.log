@@ -236,3 +236,11 @@
 {"level":"error","message":"Error: Internal Server Error","timestamp":"2024-01-28T14:43:37.101Z"}
 {"level":"error","message":"Error: Internal Server Error","timestamp":"2024-01-28T14:43:37.101Z"}
 {"level":"error","message":"Stack trace: Error: Internal Server Error\n    at E:\\Schema draft\\controllers\\restaurant\\createRestaurant.js:29:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-01-28T14:43:37.102Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:51:39.847Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:51:39.848Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:52:14.305Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:52:14.306Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:53:52.033Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:53:52.034Z"}
+{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:54:08.630Z"}
+{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-01-28T14:54:08.631Z"}

@@ -5,7 +5,7 @@ const ErrorHandler = require('../../utils/errorHandler');
 const APIFeatures = require('../../utils/apiFeatures');
 
 exports.getAllUsers = catchAsyncError(async (req, res, next) => {
-    const resPerPage = 7;
+    const resPerPage = 30;
     try {
         const filteredUsersCount = await new APIFeatures(User.find(), req.query).query.countDocuments({});
         const totalUsersCount = await User.countDocuments({});
@@ -16,8 +16,14 @@ exports.getAllUsers = catchAsyncError(async (req, res, next) => {
             .query;
 
         if (!Users || Users.length === 0) {
-            const errorHandler = new ErrorHandler('No users found', 400);
-            return next(errorHandler);
+            // const errorHandler = new ErrorHandler('No users found', 400);
+            // return next(errorHandler);
+            res.status(200).json({
+                success: true,
+                count: usersCount,
+                resPerPage,
+                Users
+            });
         }
         res.status(200).json({
             success: true,
@@ -30,7 +36,7 @@ exports.getAllUsers = catchAsyncError(async (req, res, next) => {
     }
 });
 exports.searchUser = catchAsyncError(async (req, res, next) => {
-    const resPerPage = 7;
+    const resPerPage = 30;
     try {
         const filteredUsersCount = await new APIFeatures(User.find(), req.query).query.countDocuments({});
         const totalUsersCount = await User.countDocuments({});
