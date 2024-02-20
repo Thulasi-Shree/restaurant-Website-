@@ -1,0 +1,39 @@
+{"level":"error","message":"Error: Operation `menus.findOne()` buffering timed out after 10000ms","timestamp":"2024-02-20T16:53:18.252Z"}
+{"level":"error","message":"Error: Operation `menus.findOne()` buffering timed out after 10000ms","timestamp":"2024-02-20T16:53:18.257Z"}
+{"level":"error","message":"Stack trace: Error: Operation `menus.findOne()` buffering timed out after 10000ms\n    at E:\\Schema draft\\controllers\\menu\\getSingleMenu.js:21:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T16:53:18.259Z"}
+{"level":"error","message":"Error: No users found","timestamp":"2024-02-20T16:59:34.573Z"}
+{"level":"error","message":"Error: No users found","timestamp":"2024-02-20T16:59:34.583Z"}
+{"level":"error","message":"Stack trace: Error: No users found\n    at E:\\Schema draft\\controllers\\admin\\index.js:77:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T16:59:34.584Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T16:59:41.064Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T16:59:41.064Z"}
+{"level":"error","message":"Stack trace: Error: No restaurants found\n    at E:\\Schema draft\\controllers\\restaurant\\getRestaurants.js:12:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T16:59:41.065Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2024-02-20T16:59:49.369Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2024-02-20T17:12:01.830Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2024-02-20T17:12:07.530Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2024-02-20T17:12:44.122Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2024-02-20T17:12:46.824Z"}
+{"level":"error","message":"Error: Invalid email or password","timestamp":"2024-02-20T17:12:59.161Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:13:07.926Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:13:07.927Z"}
+{"level":"error","message":"Stack trace: Error: No restaurants found\n    at E:\\Schema draft\\controllers\\restaurant\\getRestaurants.js:12:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T17:13:07.930Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:14:30.147Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:14:30.148Z"}
+{"level":"error","message":"Stack trace: Error: No restaurants found\n    at E:\\Schema draft\\controllers\\restaurant\\getRestaurants.js:12:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T17:14:30.149Z"}
+{"level":"error","message":"Error: No users found","timestamp":"2024-02-20T17:14:38.328Z"}
+{"level":"error","message":"Error: No users found","timestamp":"2024-02-20T17:14:38.330Z"}
+{"level":"error","message":"Stack trace: Error: No users found\n    at E:\\Schema draft\\controllers\\admin\\index.js:77:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T17:14:38.330Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:15:59.604Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:15:59.606Z"}
+{"level":"error","message":"Stack trace: Error: No restaurants found\n    at E:\\Schema draft\\controllers\\restaurant\\getRestaurants.js:12:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T17:15:59.607Z"}
+{"level":"error","message":"Error: No users found","timestamp":"2024-02-20T17:16:33.786Z"}
+{"level":"error","message":"Error: No users found","timestamp":"2024-02-20T17:16:33.787Z"}
+{"level":"error","message":"Stack trace: Error: No users found\n    at E:\\Schema draft\\controllers\\admin\\index.js:77:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T17:16:33.788Z"}
+{"level":"error","message":"Error: Menu not found","timestamp":"2024-02-20T17:16:46.551Z"}
+{"level":"error","message":"Error: Menu not found","timestamp":"2024-02-20T17:16:46.552Z"}
+{"level":"error","message":"Stack trace: Error: Menu not found\n    at E:\\Schema draft\\controllers\\menu\\getSingleMenu.js:11:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T17:16:46.553Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:19:27.642Z"}
+{"level":"error","message":"Error: No restaurants found","timestamp":"2024-02-20T17:19:27.643Z"}
+{"level":"error","message":"Stack trace: Error: No restaurants found\n    at E:\\Schema draft\\controllers\\restaurant\\getRestaurants.js:12:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T17:19:27.644Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-20T18:03:59.270Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-20T18:03:59.272Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:84:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-20T18:03:59.273Z"}

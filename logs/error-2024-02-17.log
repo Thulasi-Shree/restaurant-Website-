@@ -1,0 +1,19 @@
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:05.315Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:05.320Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:84:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-17T16:18:05.321Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:05.561Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:05.561Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:84:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-17T16:18:05.562Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:06.458Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:06.459Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:84:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-17T16:18:06.460Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:08.894Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:08.895Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:84:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-17T16:18:08.896Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:09.136Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:09.137Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:84:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-17T16:18:09.138Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:09.905Z"}
+{"level":"error","message":"Error: Cannot set headers after they are sent to the client","timestamp":"2024-02-17T16:18:09.906Z"}
+{"level":"error","message":"Stack trace: Error: Cannot set headers after they are sent to the client\n    at E:\\Schema draft\\controllers\\menu\\getMenus.js:84:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-02-17T16:18:09.907Z"}
+{"level":"error","message":"Error: Please provide either email or mobile number.","timestamp":"2024-02-17T16:21:59.777Z"}

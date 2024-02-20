@@ -6,64 +6,49 @@
     "auditLog": "logs\\.2456fe68aeec1e0bfc9889ec2b7fef07b938efb1-audit.json",
     "files": [
         {
-            "date": 1706025638164,
-            "name": "logs\\error-2024-01-23.log",
-            "hash": "455ed76bb607b48925d15683cbc89d112cd10519ec64cb7b2b79829c6f0b43e0"
+            "date": 1707367738710,
+            "name": "logs\\error-2024-02-08.log",
+            "hash": "af6d95b2394575b4ffc9149c465955e02f382f0364ea79be278322a655730aaf"
         },
         {
-            "date": 1706035971516,
-            "name": "logs\\error-2024-01-24.log",
-            "hash": "8b31aeede35d513318a96fc91b9e26b9f495b957a21696ca908763bf84cdd607"
+            "date": 1707735224759,
+            "name": "logs\\error-2024-02-12.log",
+            "hash": "25adafa0a5879e8125f8837402672ddd02d038edf06d6037832ec6107250b866"
         },
         {
-            "date": 1706121139096,
-            "name": "logs\\error-2024-01-25.log",
-            "hash": "2436a8f385c6b6ccdfcbb9333e6473406c904a37d8cc3f8dd198ed65c89b07d6"
+            "date": 1707764898545,
+            "name": "logs\\error-2024-02-13.log",
+            "hash": "e88c85288a3119ae6e19fcc27efb0fd24b057f009096caff8f1bb48f863b59c6"
         },
         {
-            "date": 1706208154657,
-            "name": "logs\\error-2024-01-26.log",
-            "hash": "664e4114bb42a6bfa84056bff2b2e4289df460b07a7cb5638861de70ece62b43"
+            "date": 1707912719052,
+            "name": "logs\\error-2024-02-14.log",
+            "hash": "5f133f61690719dec0bae2e207499a547dd842499cb77351edb21a8a4e686cf7"
         },
         {
-            "date": 1706294856962,
-            "name": "logs\\error-2024-01-27.log",
-            "hash": "993bcc8b6d5e862ea6273f794dfb5ff218faf1083af4b8529ab242183fe40e37"
+            "date": 1707939285166,
+            "name": "logs\\error-2024-02-15.log",
+            "hash": "3852aee3f1a669e31f9c81074b3907389ee687a3c0e06cfa17aa854770fd65b7"
         },
         {
-            "date": 1706430014387,
-            "name": "logs\\error-2024-01-28.log",
-            "hash": "a35fbfccd3e3692ea0e00e491f0750cc565217c883764300317180d5109e241d"
+            "date": 1708083950672,
+            "name": "logs\\error-2024-02-16.log",
+            "hash": "b0e83759860d1e6b36985afed03c53fe2c242c471598e527b6722dd11cc1f084"
         },
         {
-            "date": 1706620111822,
-            "name": "logs\\error-2024-01-30.log",
-            "hash": "1de7af42bbd06afcdbadf033788315962cf8c9513000fe35c0b9cdb896574e60"
+            "date": 1708186332655,
+            "name": "logs\\error-2024-02-17.log",
+            "hash": "27a4c7ef495aa19a2c2fca4a0c020dc6afebd996c05c3d898de3520860d20ae2"
         },
         {
-            "date": 1706721367148,
-            "name": "logs\\error-2024-01-31.log",
-            "hash": "86f808a151752ce66d40f60a98f6a8404b90eff1db78043738ae6f3bdcf06ff1"
+            "date": 1708261790753,
+            "name": "logs\\error-2024-02-18.log",
+            "hash": "026d5469da0d81b26eeffa6599de208618a4baeef7b04151d1e143e1f5a3fdd2"
         },
         {
-            "date": 1706726373812,
-            "name": "logs\\error-2024-02-01.log",
-            "hash": "81057636e0cf44cfff3a35fd0ce0dc0b39c39d7c1f5595d27c92b2c8381b17c3"
-        },
-        {
-            "date": 1706814719903,
-            "name": "logs\\error-2024-02-02.log",
-            "hash": "5a049ffe42fc6d8b9f924b6c61ab5d38d0efe516b402cd4d7d070939c5d61272"
-        },
-        {
-            "date": 1706940842569,
-            "name": "logs\\error-2024-02-03.log",
-            "hash": "1999cd8fd78a453dfbbe88febc2c64c745e13b143cef918f3c0d1da4ab2a565e"
-        },
-        {
-            "date": 1707049491041,
-            "name": "logs\\error-2024-02-04.log",
-            "hash": "a5a4a5592b5101a17a157cbb1541e22fe17ab8e7e5d389c756f768bc9874526e"
+            "date": 1708447963301,
+            "name": "logs\\error-2024-02-20.log",
+            "hash": "d0f128bde2df9e523e4fa56025899dad9a35894c1753c0e1ea07be5d765cde41"
         }
     ],
     "hashType": "sha256"

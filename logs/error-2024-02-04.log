@@ -1,2 +1,0 @@
-{"level":"error","message":"Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-02-04T12:24:51.029Z"}
-{"level":"error","message":"Stack trace: Error: ENOENT: no such file or directory, stat 'E:\\frontend\\build\\index.html'","timestamp":"2024-02-04T12:24:51.418Z"}
