@@ -15,9 +15,10 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const connectDatabase = () => {
-    const atlasConnectionUri = process.env.MONGODB_URI;
+    // Choose the database URI based on the environment
+    const dbUri = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : process.env.DB_LOCAL_URI;
 
-    mongoose.connect(atlasConnectionUri, {
+    mongoose.connect(dbUri, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(con => {
